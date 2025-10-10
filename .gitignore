@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtualenv
+.env/
+venv/.venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Data indices
+app/chatbot/data/faiss_index/
+app/chatbot/data/*.pdf
+
+# Scripts
+scripts/experiments/
+
+# Misc
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

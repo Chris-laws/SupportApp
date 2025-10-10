@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Digitale Assistenz - Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #chat::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #chat::-webkit-scrollbar-thumb {
+            background-color: rgba(100, 100, 100, 0.2);
+            border-radius: 4px;
+        }
+
+        #chat::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col h-screen">
+
+    <header class="bg-blue-900 text-white p-8 text-center font-semibold text-lg shadow">
+        Digitale Assistenz - First-Level Support
+    </header>
+
+    <main id="chat" class="flex-1 overflow-y-auto px-4 pt-6 pb-32 space-y-4 max-w-3xl mx-auto w-full">
+        {% if question %}
+        <div class="bg-blue-100 p-3 rounded-xl self-end w-fit max-w-[80%] ml-auto">
+            {{ question }}
+        </div>
+        {% endif %}
+        {% if answer %}
+        <div class="bg-white border border-gray-200 p-3 rounded-xl w-fit max-w-[80%] shadow text-sm leading-relaxed">
+            {{ (answer or '')|e|replace('\n', '<br>')|safe }}
+        </div>
+        <div class="bg-white border border-gray-200 p-3 rounded-xl w-fit max-w-[80%] shadow text-sm space-y-3">
+            <h4 class="text-sm font-semibold text-gray-700">Quellen</h4>
+            {% if sources %}
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-xs text-left">
+                    <thead class="text-gray-500 uppercase tracking-wide">
+                        <tr>
+                            <th class="pr-4 pb-2 font-medium">Dokument</th>
+                            <th class="pr-4 pb-2 font-medium">Seite</th>
+                            <th class="pb-2 font-medium">Ausschnitt</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-top">
+                        {% for src in sources %}
+                        <tr class="border-t border-gray-100">
+                            <td class="pr-4 py-2">
+                                {% if src.path %}
+                                <a class="text-blue-600 hover:underline" href="/{{ src.path|replace('\\', '/') }}" target="_blank" rel="noopener noreferrer">
+                                    {{ src.source or '-' }}
+                                </a>
+                                {% else %}
+                                {{ src.source or '-' }}
+                                {% endif %}
+                            </td>
+                            <td class="pr-4 py-2">
+                                {{ src.page if src.page is not none else '-' }}
+                            </td>
+                            <td class="py-2 text-gray-700 whitespace-pre-wrap">
+                                {{ src.snippet or '-' }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="text-xs text-gray-500">Keine Quellen gefunden.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </main>
+
+    <form id="chat-form"
+          class="fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-2xl bg-white border border-gray-200 shadow-xl rounded-2xl px-4 py-3 flex items-center gap-3">
+        <input
+            id="question"
+            name="question"
+            type="text"
+            placeholder="Frage eingeben..."
+            class="flex-1 px-4 py-2 text-sm border-none focus:outline-none focus:ring-0 placeholder-gray-400"
+            value="{{ question or '' }}"
+            required
+        />
+        <button
+            type="submit"
+            class="bg-blue-600 text-white px-5 py-2 text-sm font-medium rounded-xl hover:bg-blue-700 transition"
+        >
+            Senden
+        </button>
+    </form>
+
+    <script>
+        const form = document.getElementById("chat-form");
+        const chat = document.getElementById("chat");
+
+        function createSourcesElement(sources) {
+            const container = document.createElement("div");
+            container.className = "bg-white border border-gray-200 p-3 rounded-xl w-fit max-w-[80%] shadow text-sm space-y-3";
+
+            const title = document.createElement("h4");
+            title.className = "text-sm font-semibold text-gray-700";
+            title.textContent = "Quellen";
+            container.appendChild(title);
+
+            if (!sources || !sources.length) {
+                const empty = document.createElement("p");
+                empty.className = "text-xs text-gray-500";
+                empty.textContent = "Keine Quellen gefunden.";
+                container.appendChild(empty);
+                return container;
+            }
+
+            const wrapper = document.createElement("div");
+            wrapper.className = "overflow-x-auto";
+
+            const table = document.createElement("table");
+            table.className = "min-w-full text-xs text-left";
+
+            const thead = document.createElement("thead");
+            thead.className = "text-gray-500 uppercase tracking-wide";
+            const headerRow = document.createElement("tr");
+            ["Dokument", "Seite", "Ausschnitt"].forEach((label) => {
+                const th = document.createElement("th");
+                th.className = "pb-2 font-medium" + (label !== "Ausschnitt" ? " pr-4" : "");
+                th.textContent = label;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            tbody.className = "align-top";
+
+            sources.forEach((src) => {
+                const row = document.createElement("tr");
+                row.className = "border-t border-gray-100";
+
+                const docCell = document.createElement("td");
+                docCell.className = "pr-4 py-2";
+                const label = src.source || "-";
+                if (src.path) {
+                    const link = document.createElement("a");
+                    link.className = "text-blue-600 hover:underline";
+                    link.href = ("/" + src.path).replace(/\\/g, "/");
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+                    link.textContent = label;
+                    docCell.appendChild(link);
+                } else {
+                    docCell.textContent = label;
+                }
+                row.appendChild(docCell);
+
+                const pageCell = document.createElement("td");
+                pageCell.className = "pr-4 py-2";
+                pageCell.textContent = src.page !== null && src.page !== undefined ? src.page : "-";
+                row.appendChild(pageCell);
+
+                const snippetCell = document.createElement("td");
+                snippetCell.className = "py-2 text-gray-700 whitespace-pre-wrap";
+                snippetCell.textContent = src.snippet || "-";
+                row.appendChild(snippetCell);
+
+                tbody.appendChild(row);
+            });
+
+            table.appendChild(tbody);
+            wrapper.appendChild(table);
+            container.appendChild(wrapper);
+            return container;
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const input = document.getElementById("question");
+            const question = input.value.trim();
+            if (!question) return;
+
+            const userMsg = document.createElement("div");
+            userMsg.className = "bg-blue-100 p-3 rounded-xl self-end w-fit max-w-[80%] ml-auto";
+            userMsg.textContent = question;
+            chat.appendChild(userMsg);
+            chat.scrollTop = chat.scrollHeight;
+
+            const loading = document.createElement("div");
+            loading.className = "bg-white border border-gray-200 p-3 rounded-xl w-fit max-w-[80%] shadow text-sm leading-relaxed";
+            chat.appendChild(loading);
+            chat.scrollTop = chat.scrollHeight;
+
+            input.value = "";
+
+            try {
+                const res = await fetch("/ask", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await res.json();
+                const answer = data.answer || "Keine Antwort erhalten.";
+                const words = answer.split(" ");
+                loading.textContent = "";
+                for (let i = 0; i < words.length; i++) {
+                    loading.textContent += words[i] + " ";
+                    chat.scrollTop = chat.scrollHeight;
+                    await new Promise(resolve => setTimeout(resolve, 40));
+                }
+
+                const sourcesElement = createSourcesElement(data.sources || []);
+                chat.appendChild(sourcesElement);
+                chat.scrollTop = chat.scrollHeight;
+            } catch (err) {
+                loading.textContent = "Fehler beim Abrufen der Antwort.";
+            }
+
+            chat.scrollTop = chat.scrollHeight;
+        });
+    </script>
+</body>
+</html>
+
