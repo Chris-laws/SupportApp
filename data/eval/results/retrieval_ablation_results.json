@@ -1,0 +1,1570 @@
+[
+  {
+    "question_id": "Q301",
+    "question": "Wie melde ich mich beim agree21Voice Softphone erstmals mit der DLS PIN an?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.347008899785578,
+    "retrieved_indices": [
+      260,
+      258,
+      272,
+      274,
+      278
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q302",
+    "question": "Warum muss ich beim Softphone Login den Haken Anmeldedaten speichern setzen?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.89247060008347,
+    "retrieved_indices": [
+      261,
+      274,
+      269,
+      128,
+      241
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen.pdf"
+    ]
+  },
+  {
+    "question_id": "Q303",
+    "question": "Wann muss ich das Softphone Kennwort aendern und welche Regeln gelten?",
+    "setting": "baseline",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 14.161976399831474,
+    "retrieved_indices": [
+      262,
+      261,
+      276,
+      269,
+      279
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q304",
+    "question": "Wie beende ich das agree21Voice Softphone vollstaendig?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.015656400006264,
+    "retrieved_indices": [
+      264,
+      258,
+      290,
+      272,
+      265
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q305",
+    "question": "Welche Bereiche zeigt die Fusion Leiste des Softphones an?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.5,
+    "latency_seconds": 14.564691300038248,
+    "retrieved_indices": [
+      271,
+      264,
+      266,
+      263,
+      260
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q306",
+    "question": "Worin unterscheidet sich das KSC Softphone vom normalen Softphone?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.6309297535714575,
+    "latency_seconds": 14.3669702000916,
+    "retrieved_indices": [
+      258,
+      259,
+      269,
+      272,
+      11
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\agree21Internet (1).pdf"
+    ]
+  },
+  {
+    "question_id": "Q307",
+    "question": "Wie lege ich ein bevorzugtes Endgeraet im Softphone fest?",
+    "setting": "baseline",
+    "recall_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "latency_seconds": 13.24996959976852,
+    "retrieved_indices": [
+      272,
+      273,
+      274,
+      277,
+      289
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q308",
+    "question": "Wie konfiguriere ich eine Anrufumleitung im Softphone?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 12.899947899859399,
+    "retrieved_indices": [
+      276,
+      277,
+      269,
+      272,
+      257
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q401",
+    "question": "Welche Bedeutung haben die Tasten und LEDs am HP Drucker?",
+    "setting": "baseline",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 13.337389300111681,
+    "retrieved_indices": [
+      125,
+      127,
+      144,
+      143,
+      48
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q402",
+    "question": "Wie behebe ich einen Papierstau laut Anleitung?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.710315600037575,
+    "retrieved_indices": [
+      130,
+      191,
+      54,
+      135,
+      94
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q403",
+    "question": "Wie funktioniert die automatische Reinigung der Tintenpatronen und wann sollte ich sie nutzen?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 12.883772399742156,
+    "retrieved_indices": [
+      186,
+      143,
+      124,
+      203,
+      144
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q404",
+    "question": "Wie laeuft das HP Tintenpatronen Recyclingprogramm ab?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.38930520042777,
+    "retrieved_indices": [
+      89,
+      211,
+      95,
+      188,
+      257
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q405",
+    "question": "Wann soll ich die Tintenpatronen kalibrieren und wie gehe ich vor?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 15.65734349982813,
+    "retrieved_indices": [
+      139,
+      184,
+      185,
+      188,
+      199
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q406",
+    "question": "Wie nutze ich das Modul fuer den beidseitigen Druck richtig?",
+    "setting": "baseline",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.769416299648583,
+    "retrieved_indices": [
+      132,
+      131,
+      99,
+      205,
+      96
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q301",
+    "question": "Wie melde ich mich beim agree21Voice Softphone erstmals mit der DLS PIN an?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 0.01599689992144704,
+    "retrieved_indices": [
+      260,
+      255,
+      258,
+      301,
+      272
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q302",
+    "question": "Warum muss ich beim Softphone Login den Haken Anmeldedaten speichern setzen?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 0.017736700363457203,
+    "retrieved_indices": [
+      261,
+      263,
+      36,
+      258,
+      255
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Anleitung LDAP.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q303",
+    "question": "Wann muss ich das Softphone Kennwort aendern und welche Regeln gelten?",
+    "setting": "no_reranker",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 0.019634000025689602,
+    "retrieved_indices": [
+      262,
+      261,
+      279,
+      301,
+      269
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q304",
+    "question": "Wie beende ich das agree21Voice Softphone vollstaendig?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 0.011317200027406216,
+    "retrieved_indices": [
+      264,
+      301,
+      263,
+      258,
+      291
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q305",
+    "question": "Welche Bereiche zeigt die Fusion Leiste des Softphones an?",
+    "setting": "no_reranker",
+    "recall_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "latency_seconds": 0.016253000125288963,
+    "retrieved_indices": [
+      264,
+      271,
+      265,
+      260,
+      280
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q306",
+    "question": "Worin unterscheidet sich das KSC Softphone vom normalen Softphone?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.6309297535714575,
+    "latency_seconds": 0.013633299618959427,
+    "retrieved_indices": [
+      258,
+      259,
+      269,
+      271,
+      255
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q307",
+    "question": "Wie lege ich ein bevorzugtes Endgeraet im Softphone fest?",
+    "setting": "no_reranker",
+    "recall_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "latency_seconds": 0.014841500204056501,
+    "retrieved_indices": [
+      272,
+      301,
+      273,
+      289,
+      274
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q308",
+    "question": "Wie konfiguriere ich eine Anrufumleitung im Softphone?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.5,
+    "latency_seconds": 0.011934099718928337,
+    "retrieved_indices": [
+      277,
+      278,
+      276,
+      280,
+      272
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q401",
+    "question": "Welche Bedeutung haben die Tasten und LEDs am HP Drucker?",
+    "setting": "no_reranker",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.3065735963827292,
+    "latency_seconds": 0.01642980007454753,
+    "retrieved_indices": [
+      127,
+      144,
+      125,
+      143,
+      123
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q402",
+    "question": "Wie behebe ich einen Papierstau laut Anleitung?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.5,
+    "latency_seconds": 0.011022999882698059,
+    "retrieved_indices": [
+      240,
+      241,
+      130,
+      39,
+      301
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen-FW0C6WGP.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Anleitung Outlook Ordner für Stellvertreter freigeben.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q403",
+    "question": "Wie funktioniert die automatische Reinigung der Tintenpatronen und wann sollte ich sie nutzen?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.6309297535714575,
+    "latency_seconds": 0.021284999791532755,
+    "retrieved_indices": [
+      241,
+      186,
+      184,
+      274,
+      273
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q404",
+    "question": "Wie laeuft das HP Tintenpatronen Recyclingprogramm ab?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 0.010756699834018946,
+    "retrieved_indices": [
+      89,
+      86,
+      262,
+      87,
+      85
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q405",
+    "question": "Wann soll ich die Tintenpatronen kalibrieren und wie gehe ich vor?",
+    "setting": "no_reranker",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 0.016194900032132864,
+    "retrieved_indices": [
+      139,
+      184,
+      188,
+      241,
+      198
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q406",
+    "question": "Wie nutze ich das Modul fuer den beidseitigen Druck richtig?",
+    "setting": "no_reranker",
+    "recall_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "latency_seconds": 0.016595699824392796,
+    "retrieved_indices": [
+      99,
+      95,
+      98,
+      105,
+      205
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q301",
+    "question": "Wie melde ich mich beim agree21Voice Softphone erstmals mit der DLS PIN an?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.560083999764174,
+    "retrieved_indices": [
+      260,
+      258,
+      272,
+      256,
+      278
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q302",
+    "question": "Warum muss ich beim Softphone Login den Haken Anmeldedaten speichern setzen?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.36592340003699,
+    "retrieved_indices": [
+      261,
+      274,
+      222,
+      279,
+      256
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\kSV (4).pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q303",
+    "question": "Wann muss ich das Softphone Kennwort aendern und welche Regeln gelten?",
+    "setting": "no_rewrite",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 14.06828900007531,
+    "retrieved_indices": [
+      262,
+      261,
+      276,
+      269,
+      279
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q304",
+    "question": "Wie beende ich das agree21Voice Softphone vollstaendig?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.370871200226247,
+    "retrieved_indices": [
+      264,
+      258,
+      290,
+      272,
+      265
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q305",
+    "question": "Welche Bereiche zeigt die Fusion Leiste des Softphones an?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.5,
+    "latency_seconds": 13.737629999872297,
+    "retrieved_indices": [
+      271,
+      264,
+      266,
+      263,
+      260
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q306",
+    "question": "Worin unterscheidet sich das KSC Softphone vom normalen Softphone?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.6309297535714575,
+    "latency_seconds": 14.344757199753076,
+    "retrieved_indices": [
+      258,
+      259,
+      269,
+      272,
+      266
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q307",
+    "question": "Wie lege ich ein bevorzugtes Endgeraet im Softphone fest?",
+    "setting": "no_rewrite",
+    "recall_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "latency_seconds": 12.875492200255394,
+    "retrieved_indices": [
+      272,
+      273,
+      274,
+      277,
+      289
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q308",
+    "question": "Wie konfiguriere ich eine Anrufumleitung im Softphone?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.19370219996199,
+    "retrieved_indices": [
+      276,
+      277,
+      269,
+      257,
+      272
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q401",
+    "question": "Welche Bedeutung haben die Tasten und LEDs am HP Drucker?",
+    "setting": "no_rewrite",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 13.077102100010961,
+    "retrieved_indices": [
+      125,
+      127,
+      144,
+      143,
+      48
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q402",
+    "question": "Wie behebe ich einen Papierstau laut Anleitung?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.438662900123745,
+    "retrieved_indices": [
+      130,
+      289,
+      191,
+      75,
+      94
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q403",
+    "question": "Wie funktioniert die automatische Reinigung der Tintenpatronen und wann sollte ich sie nutzen?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.23136720014736,
+    "retrieved_indices": [
+      186,
+      124,
+      143,
+      203,
+      144
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q404",
+    "question": "Wie laeuft das HP Tintenpatronen Recyclingprogramm ab?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.156624699942768,
+    "retrieved_indices": [
+      89,
+      211,
+      82,
+      188,
+      207
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q405",
+    "question": "Wann soll ich die Tintenpatronen kalibrieren und wie gehe ich vor?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.17234650021419,
+    "retrieved_indices": [
+      139,
+      184,
+      185,
+      188,
+      199
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q406",
+    "question": "Wie nutze ich das Modul fuer den beidseitigen Druck richtig?",
+    "setting": "no_rewrite",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.865997300017625,
+    "retrieved_indices": [
+      132,
+      131,
+      99,
+      96,
+      205
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q301",
+    "question": "Wie melde ich mich beim agree21Voice Softphone erstmals mit der DLS PIN an?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.79184880014509,
+    "retrieved_indices": [
+      260,
+      258,
+      272
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q302",
+    "question": "Warum muss ich beim Softphone Login den Haken Anmeldedaten speichern setzen?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.592056999914348,
+    "retrieved_indices": [
+      261,
+      274,
+      269
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q303",
+    "question": "Wann muss ich das Softphone Kennwort aendern und welche Regeln gelten?",
+    "setting": "k3",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 13.602523900102824,
+    "retrieved_indices": [
+      262,
+      261,
+      276
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q304",
+    "question": "Wie beende ich das agree21Voice Softphone vollstaendig?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.240923200268298,
+    "retrieved_indices": [
+      264,
+      258,
+      290
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q305",
+    "question": "Welche Bereiche zeigt die Fusion Leiste des Softphones an?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.5,
+    "latency_seconds": 13.826126600150019,
+    "retrieved_indices": [
+      271,
+      264,
+      266
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q306",
+    "question": "Worin unterscheidet sich das KSC Softphone vom normalen Softphone?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.6309297535714575,
+    "latency_seconds": 13.476425000000745,
+    "retrieved_indices": [
+      258,
+      259,
+      269
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q307",
+    "question": "Wie lege ich ein bevorzugtes Endgeraet im Softphone fest?",
+    "setting": "k3",
+    "recall_at_k": 0.0,
+    "ndcg_at_k": 0.0,
+    "latency_seconds": 13.048545899800956,
+    "retrieved_indices": [
+      272,
+      273,
+      274
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q308",
+    "question": "Wie konfiguriere ich eine Anrufumleitung im Softphone?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 12.496592699550092,
+    "retrieved_indices": [
+      276,
+      277,
+      269
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q401",
+    "question": "Welche Bedeutung haben die Tasten und LEDs am HP Drucker?",
+    "setting": "k3",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 13.308582399971783,
+    "retrieved_indices": [
+      125,
+      127,
+      144
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q402",
+    "question": "Wie behebe ich einen Papierstau laut Anleitung?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.819954199716449,
+    "retrieved_indices": [
+      130,
+      191,
+      54
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q403",
+    "question": "Wie funktioniert die automatische Reinigung der Tintenpatronen und wann sollte ich sie nutzen?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 12.88071670010686,
+    "retrieved_indices": [
+      186,
+      143,
+      124
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q404",
+    "question": "Wie laeuft das HP Tintenpatronen Recyclingprogramm ab?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.45155829982832,
+    "retrieved_indices": [
+      89,
+      211,
+      95
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q405",
+    "question": "Wann soll ich die Tintenpatronen kalibrieren und wie gehe ich vor?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.636666500009596,
+    "retrieved_indices": [
+      139,
+      184,
+      185
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q406",
+    "question": "Wie nutze ich das Modul fuer den beidseitigen Druck richtig?",
+    "setting": "k3",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.62067939992994,
+    "retrieved_indices": [
+      132,
+      131,
+      99
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q301",
+    "question": "Wie melde ich mich beim agree21Voice Softphone erstmals mit der DLS PIN an?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.61776649998501,
+    "retrieved_indices": [
+      260,
+      258,
+      272,
+      274,
+      278,
+      295,
+      262,
+      245
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen.pdf"
+    ]
+  },
+  {
+    "question_id": "Q302",
+    "question": "Warum muss ich beim Softphone Login den Haken Anmeldedaten speichern setzen?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.460395900066942,
+    "retrieved_indices": [
+      261,
+      274,
+      269,
+      128,
+      241,
+      272,
+      67,
+      293
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Räume und Ressourcen.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q303",
+    "question": "Wann muss ich das Softphone Kennwort aendern und welche Regeln gelten?",
+    "setting": "k8",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 13.394155399873853,
+    "retrieved_indices": [
+      262,
+      261,
+      276,
+      269,
+      279,
+      233,
+      230,
+      273
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Postfach Regeln.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Postfach Regeln Einstellen.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q304",
+    "question": "Wie beende ich das agree21Voice Softphone vollstaendig?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.18804239993915,
+    "retrieved_indices": [
+      264,
+      258,
+      290,
+      272,
+      265,
+      254,
+      292,
+      301
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q305",
+    "question": "Welche Bereiche zeigt die Fusion Leiste des Softphones an?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.5,
+    "latency_seconds": 13.695133100263774,
+    "retrieved_indices": [
+      271,
+      264,
+      266,
+      263,
+      260,
+      265,
+      280,
+      146
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q306",
+    "question": "Worin unterscheidet sich das KSC Softphone vom normalen Softphone?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 0.6309297535714575,
+    "latency_seconds": 13.515612300019711,
+    "retrieved_indices": [
+      258,
+      259,
+      269,
+      272,
+      11,
+      13,
+      206,
+      290
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\agree21Internet (1).pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\agree21Internet (1).pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q307",
+    "question": "Wie lege ich ein bevorzugtes Endgeraet im Softphone fest?",
+    "setting": "k8",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.21840743681816419,
+    "latency_seconds": 12.986934500280768,
+    "retrieved_indices": [
+      272,
+      273,
+      274,
+      277,
+      289,
+      269,
+      261,
+      115
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q308",
+    "question": "Wie konfiguriere ich eine Anrufumleitung im Softphone?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 12.595555999781936,
+    "retrieved_indices": [
+      276,
+      277,
+      269,
+      272,
+      257,
+      258,
+      278,
+      284
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q401",
+    "question": "Welche Bedeutung haben die Tasten und LEDs am HP Drucker?",
+    "setting": "k8",
+    "recall_at_k": 0.5,
+    "ndcg_at_k": 0.6131471927654584,
+    "latency_seconds": 13.163892100099474,
+    "retrieved_indices": [
+      125,
+      127,
+      144,
+      143,
+      48,
+      260,
+      201,
+      261
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q402",
+    "question": "Wie behebe ich einen Papierstau laut Anleitung?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 14.771341299638152,
+    "retrieved_indices": [
+      130,
+      191,
+      54,
+      135,
+      94,
+      143,
+      198,
+      288
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf"
+    ]
+  },
+  {
+    "question_id": "Q403",
+    "question": "Wie funktioniert die automatische Reinigung der Tintenpatronen und wann sollte ich sie nutzen?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.505433599930257,
+    "retrieved_indices": [
+      186,
+      143,
+      124,
+      203,
+      144,
+      89,
+      184,
+      139
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q404",
+    "question": "Wie laeuft das HP Tintenpatronen Recyclingprogramm ab?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 12.88248509960249,
+    "retrieved_indices": [
+      89,
+      211,
+      95,
+      188,
+      257,
+      207,
+      83,
+      156
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Voice_Softphone.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q405",
+    "question": "Wann soll ich die Tintenpatronen kalibrieren und wie gehe ich vor?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.889613899867982,
+    "retrieved_indices": [
+      139,
+      184,
+      185,
+      188,
+      199,
+      39,
+      136,
+      190
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\Anleitung Outlook Ordner für Stellvertreter freigeben.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  },
+  {
+    "question_id": "Q406",
+    "question": "Wie nutze ich das Modul fuer den beidseitigen Druck richtig?",
+    "setting": "k8",
+    "recall_at_k": 1.0,
+    "ndcg_at_k": 1.0,
+    "latency_seconds": 13.497004699893296,
+    "retrieved_indices": [
+      132,
+      131,
+      99,
+      205,
+      96,
+      98,
+      130,
+      95
+    ],
+    "retrieved_sources": [
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf",
+      "C:\\Users\\IT-Admin\\SupportAssistantApp\\app\\chatbot\\data\\HpDrucker_Anleitung.pdf"
+    ]
+  }
+]

@@ -2,7 +2,7 @@ import requests
 import json
 
 def query_ollama(prompt, model="llama3", language="Deutsch"):
-    print(f"⏩ Schicke Prompt an Ollama mit Streaming...")
+    print(f">> Schicke Prompt an Ollama mit Streaming...")
     try:
         url = "http://localhost:11434/api/generate"
         headers = {"Content-Type": "application/json"}
@@ -29,17 +29,17 @@ def query_ollama(prompt, model="llama3", language="Deutsch"):
                     text_piece = data.get("response", "")
                     answer += text_piece
                 except Exception as e:
-                    print(f"⚠️ Fehler beim Verarbeiten einer Zeile: {e}")
+                    print(f"WARN: Fehler beim Verarbeiten einer Zeile: {e}")
 
-        print(f"✅ Antwort fertig: {answer[:300]}...")
+        print(f"OK: Antwort fertig: {answer[:300]}...")
         return answer
 
     except requests.exceptions.Timeout:
-        print("❌ Anfrage an Ollama: Timeout nach 60 Sekunden!")
+        print("ERROR: Anfrage an Ollama: Timeout nach 60 Sekunden!")
         return "Timeout bei der Anfrage an das Modell."
     except requests.exceptions.RequestException as e:
-        print(f"❌ Fehler bei Anfrage an Ollama: {e}")
+        print(f"ERROR: Fehler bei Anfrage an Ollama: {e}")
         return f"Fehler bei der Kommunikation mit dem Modell: {e}"
     except Exception as e:
-        print(f"❌ Unerwarteter Fehler: {e}")
+        print(f"ERROR: Unerwarteter Fehler: {e}")
         return "Ein unerwarteter Fehler ist aufgetreten."

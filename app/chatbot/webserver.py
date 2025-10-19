@@ -12,6 +12,7 @@ from fastapi.templating import Jinja2Templates
 from modules.embeddings import get_embeddings, load_faiss_index
 from modules.llm import query_ollama
 from modules.retriever import HybridRetriever, rewrite_query_with_llama3, select_context_window
+from modules.reranker import CrossEncoderReranker
 
 BASE_DIR = os.path.dirname(__file__)
 INDEX_BASE_PATH = os.path.join(BASE_DIR, "data", "faiss_index", "index")
@@ -27,6 +28,14 @@ if not chunk_records:
     raise RuntimeError("Der FAISS-Index ist leer oder fehlerhaft. Bitte neu erstellen.")
 
 retriever = HybridRetriever(chunk_records, embeddings=embeddings, faiss_index=index)
+try:
+    reranker = CrossEncoderReranker()
+except Exception as exc:  # noqa: BLE001
+    print(f"Warnung: Reranker konnte nicht geladen werden: {exc}")
+    reranker = None
+
+RERANKER_WEIGHT = 0.65
+RERANKER_CANDIDATES = 40
 
 
 PROMPT_TEMPLATE = "Nutze den folgenden Kontext, um die Frage zu beantworten:\n\n{context}\n\nFrage: {question}"
@@ -88,6 +97,8 @@ _COMMON_STOPWORDS = {
     "ihr",
 }
 
+SECOND_SOURCE_MIN_COVERAGE = 0.675
+
 
 def build_prompt(question: str, context: str) -> str:
     return PROMPT_TEMPLATE.format(context=context, question=question)
@@ -145,6 +156,19 @@ def _build_source_entry(chunk: Dict[str, object], max_snippet_len: int = 200) ->
     return entry
 
 
+def _select_secondary_source(primary: Dict[str, object], context_chunks: Sequence[Dict[str, object]]) -> Optional[Dict[str, object]]:
+    primary_key = (primary.get("source"), primary.get("page"))
+    for chunk in context_chunks:
+        if chunk is primary:
+            continue
+        if (chunk.get("source"), chunk.get("page")) == primary_key:
+            continue
+        coverage = float(chunk.get("keyword_coverage") or 0.0)
+        if coverage >= SECOND_SOURCE_MIN_COVERAGE:
+            return chunk
+    return None
+
+
 def _select_source_chunk(answer: str | None, chunks: Sequence[Dict[str, object]]) -> Optional[Dict[str, object]]:
     if not chunks:
         return None
@@ -171,43 +195,23 @@ def _sources_from_answer(answer: str | None, context_chunks: Sequence[Dict[str, 
     selected = _select_source_chunk(answer, context_chunks)
     if not selected:
         return []
-    return [_build_source_entry(selected)]
+    sources = [_build_source_entry(selected)]
+    secondary = _select_secondary_source(selected, context_chunks)
+    if secondary is not None:
+        sources.append(_build_source_entry(secondary))
+    return sources
 
 
 def summarize_sources(chunks: Sequence[Dict[str, object]], max_snippet_len: int = 200) -> List[Dict[str, object]]:
     if not chunks:
         return []
 
-    chunk = chunks[0]
-    source_path = str(chunk.get("source") or "")
-    doc_name = os.path.basename(source_path) if source_path else "Unbekannt"
-    page = chunk.get("page")
-    page_display = (page + 1) if isinstance(page, int) else page
-    section = chunk.get("normalized_section_heading") or chunk.get("section_heading")
-
-    content = str(chunk.get("content") or "").strip()
-    snippet = re.sub(r"\s+", " ", content) if content else ""
-    if max_snippet_len and len(snippet) > max_snippet_len:
-        snippet = snippet[:max_snippet_len].rstrip() + "..."
-
-    entry = {
-        "source": doc_name,
-        "page": page_display,
-        "section_heading": section,
-        "snippet": snippet,
-        "score": float(chunk.get("score", 0.0) or 0.0),
-        "matched_terms": [str(term) for term in (chunk.get("matched_terms") or [])],
-        "path": None,
-    }
-
-    if source_path:
-        try:
-            entry["path"] = os.path.relpath(source_path, BASE_DIR)
-        except ValueError:
-            entry["path"] = source_path
-
-    return [entry]
-
+    primary = chunks[0]
+    entries = [_build_source_entry(primary, max_snippet_len=max_snippet_len)]
+    secondary = _select_secondary_source(primary, chunks)
+    if secondary is not None:
+        entries.append(_build_source_entry(secondary, max_snippet_len=max_snippet_len))
+    return entries
 
 def _filter_context_chunks(
     chunks: Sequence[Dict[str, object]],
@@ -333,7 +337,21 @@ def _filter_context_chunks(
 def prepare_context(question: str, top_k: int = 15):
     optimized_query = rewrite_query_with_llama3(question)
     query_embedding = get_embeddings([optimized_query])[0]
-    ranked_chunks = retriever.retrieve(question, query_embedding, top_k=top_k)
+    retrieve_kwargs: Dict[str, object] = {}
+    if reranker is not None:
+        retrieve_kwargs.update(
+            {
+                "reranker": reranker,
+                "reranker_k": max(top_k * 2, RERANKER_CANDIDATES),
+                "reranker_weight": RERANKER_WEIGHT,
+            }
+        )
+    ranked_chunks = retriever.retrieve(
+        question,
+        query_embedding,
+        top_k=top_k,
+        **retrieve_kwargs,
+    )
 
     context_chunks_raw = select_context_window(ranked_chunks, max_chunks=6, min_chunks=4, max_chars=1800)
 
@@ -514,6 +532,8 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
+
 
 
 

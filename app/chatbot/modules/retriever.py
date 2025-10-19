@@ -4,10 +4,13 @@ import math
 import re
 from collections import Counter
 from dataclasses import dataclass
-from typing import Any, Dict, Iterable, List, Mapping, MutableMapping, Sequence, Set, Tuple
+from typing import TYPE_CHECKING, Any, Dict, Iterable, List, Mapping, MutableMapping, Sequence, Set, Tuple
 
 import numpy as np
 import requests
+
+if TYPE_CHECKING:
+    from .reranker import CrossEncoderReranker
 
 from .embeddings import get_embeddings
 
@@ -241,6 +244,9 @@ class HybridRetriever:
         query_embedding: np.ndarray,
         top_k: int = 15,
         bm25_k: int = 50,
+        reranker: "CrossEncoderReranker | None" = None,
+        reranker_k: int | None = None,
+        reranker_weight: float = 0.6,
     ) -> List[Dict[str, object]]:
         keywords = self.keyword_generator.extract(question)
         bm25_hits = self.bm25_index.search(keywords.bm25_terms, top_k=bm25_k)
@@ -295,7 +301,69 @@ class HybridRetriever:
             results.append(chunk)
 
         results.sort(key=lambda item: item["score"], reverse=True)
+        if reranker is not None and results:
+            candidate_count = reranker_k if reranker_k is not None else min(len(results), max(top_k * 2, 30))
+            results = self._apply_reranking(
+                question,
+                results,
+                reranker=reranker,
+                candidate_count=candidate_count,
+                weight=reranker_weight,
+            )
+        else:
+            for chunk in results:
+                base = float(chunk.get("score", 0.0))
+                chunk.setdefault("retriever_score", base)
+                chunk.setdefault("combined_score", base)
         return results[:top_k]
+
+    def _apply_reranking(
+        self,
+        question: str,
+        results: Sequence[Mapping[str, object]],
+        *,
+        reranker: "CrossEncoderReranker",
+        candidate_count: int,
+        weight: float,
+    ) -> List[Dict[str, object]]:
+        if not results:
+            return []
+        candidate_count = min(len(results), max(1, candidate_count))
+        weight = min(max(weight, 0.0), 1.0)
+        head: List[Dict[str, object]] = []
+        for chunk in results[:candidate_count]:
+            enriched = dict(chunk)
+            base_score = float(chunk.get("score", 0.0))
+            enriched.setdefault("retriever_score", base_score)
+            enriched.setdefault("combined_score", base_score)
+            head.append(enriched)
+        reranked = reranker.rerank(question, head, top_k=candidate_count)
+        if not reranked:
+            reranked = head
+        base_max = max(
+            (float(chunk.get("retriever_score", chunk.get("score", 0.0))) for chunk in reranked),
+            default=0.0,
+        )
+        rerank_max = max((float(chunk.get("rerank_score", 0.0)) for chunk in reranked), default=0.0)
+        for chunk in reranked:
+            base_score = float(chunk.get("retriever_score", chunk.get("score", 0.0)))
+            rerank_score = float(chunk.get("rerank_score", 0.0))
+            base_norm = base_score / base_max if base_max else 0.0
+            rerank_norm = rerank_score / rerank_max if rerank_max else 0.0
+            combined = (1.0 - weight) * base_norm + weight * rerank_norm
+            chunk["combined_score"] = combined
+            chunk["score"] = combined
+            chunk.setdefault("retriever_score", base_score)
+        tail: List[Dict[str, object]] = []
+        for chunk in results[candidate_count:]:
+            rest_chunk = dict(chunk)
+            rest_base = float(rest_chunk.get("score", 0.0))
+            rest_chunk.setdefault("retriever_score", rest_base)
+            rest_chunk.setdefault("combined_score", rest_base)
+            tail.append(rest_chunk)
+        merged = reranked + tail
+        merged.sort(key=lambda item: float(item.get("score", 0.0)), reverse=True)
+        return merged
 
     def _vector_scores(
         self,

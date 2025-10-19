@@ -7,11 +7,21 @@ from typing import List
 from modules.chunker import load_and_chunk_pdf
 from modules.embeddings import get_embeddings, load_faiss_index, save_embeddings_to_faiss
 from modules.llm import query_ollama
+from modules.reranker import CrossEncoderReranker
 from modules.retriever import HybridRetriever, rewrite_query_with_llama3, select_context_window
 
 BASE_DIR = os.path.dirname(__file__)
 INDEX_BASE_PATH = os.path.join(BASE_DIR, "data", "faiss_index", "index")
 PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "system_prompts.txt")
+
+RERANKER_WEIGHT = 0.65
+RERANKER_CANDIDATES = 40
+
+try:
+    RERANKER = CrossEncoderReranker()
+except Exception as exc:  # noqa: BLE001
+    print(f"Warnung: Reranker konnte nicht geladen werden: {exc}")
+    RERANKER = None
 
 
 def _load_system_prompt() -> str:
@@ -70,7 +80,17 @@ def ask_question(question: str) -> str:
     print(f"Optimierte Suchanfrage: {optimized_query}")
 
     query_embedding = get_embeddings([optimized_query])[0]
-    ranked_chunks = retriever.retrieve(question, query_embedding, top_k=15)
+    top_k = 15
+    rerank_kwargs = {}
+    if RERANKER is not None:
+        rerank_kwargs.update(
+            {
+                "reranker": RERANKER,
+                "reranker_k": max(top_k * 2, RERANKER_CANDIDATES),
+                "reranker_weight": RERANKER_WEIGHT,
+            }
+        )
+    ranked_chunks = retriever.retrieve(question, query_embedding, top_k=top_k, **rerank_kwargs)
     if not ranked_chunks:
         raise RuntimeError("Keine relevanten Chunks gefunden.")
 
