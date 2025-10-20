@@ -1,0 +1,19 @@
+# Core web framework
+fastapi
+uvicorn
+jinja2
+
+# Vector search & embeddings
+sentence-transformers
+faiss-cpu
+numpy
+torch
+
+# Retrieval & document processing
+langchain
+langchain-community
+pypdf
+
+# Utilities & integrations
+requests
+pynvml
