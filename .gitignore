@@ -15,7 +15,6 @@ npm-debug.log*
 
 # Data indices
 app/chatbot/data/faiss_index/
-app/chatbot/data/*.pdf
 
 # Scripts
 scripts/experiments/
