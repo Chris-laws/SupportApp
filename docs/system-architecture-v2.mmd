@@ -1,0 +1,48 @@
+%% Mermaid diagram for SupportAssistantApp architecture (v2)
+flowchart TB
+    subgraph Data_Build["Datenaufbereitung"]
+        PDFs["PDF-Handbuecher\n(data/*.pdf)"]
+        Chunker["Chunker\nchunker.py::load_and_chunk_pdf"]
+        Embeddings["Embedding Pipeline\nembeddings.py::get_embeddings"]
+        IndexStore["FAISS Index + Chunk-Metadaten\ndata/faiss_index/*"]
+        Config["Synonym-Konfiguration\nConfig/synonyms.yml"]
+
+        PDFs --> Chunker --> Embeddings --> IndexStore
+        Config --> KeywordTable["Synonymtabellen\nretriever.py::_load_synonym_tables"]
+        KeywordTable --> KeywordGen
+    end
+
+    subgraph Runtime["Frage-Antwort-Laufzeit"]
+        User["Support-Mitarbeiter"]
+        Web["FastAPI Webserver\nwebserver.py"]
+        Rewrite["Query Rewrite Service\nretriever.py::rewrite_query_with_llama3"]
+        Retriever["HybridRetriever\nretriever.py"]
+        KeywordGen["KeywordGenerator + BM25FieldIndex\nretriever.py"]
+        VectorIndex["Vector Suche (FAISS)\nembeddings.py"]
+        Reranker["CrossEncoderReranker\nreranker.py"]
+        Context["Context Window Selector\nretriever.py::select_context_window"]
+        LLM["Ollama LLM\nllm.py::query_ollama"]
+        Response["Antwort + Quellen\nJSON / HTML"]
+
+        User -->|Frage| Web
+        Web --> Rewrite --> Retriever
+        Retriever -->|nutzt| KeywordGen
+        Retriever -->|nutzt| VectorIndex
+        IndexStore -.-> VectorIndex
+        IndexStore -.-> Retriever
+        Retriever --> Reranker --> Retriever
+        Retriever --> Context --> LLM --> Response --> Web --> User
+    end
+
+    subgraph Eval["Evaluation & Reporting"]
+        GoldData["Gold-Datensaetze\ndata/eval/gold.json"]
+        EvalScripts["Evaluation Skripte\nrag_eval_f1.py, model_comparison.py"]
+        Metrics["Metriken & Plots\nCSV + PNG"]
+
+        GoldData --> EvalScripts
+        EvalScripts --> Retriever
+        EvalScripts --> LLM
+        EvalScripts --> Metrics
+    end
+
+    IndexStore -.-> EvalScripts

@@ -1,0 +1,25 @@
+synonyms:
+  kennwort:
+    - passwort
+    - password
+    - pwd
+  passwort:
+    - kennwort
+    - password
+  softphone:
+    - agree21voice
+    - voice softphone
+  reset:
+    - zuruecksetzen
+    - wechseln
+phrases:
+  kennwort aendern:
+    - passwort aendern
+    - kennwort reset
+    - passwort reset
+  passwort zuruecksetzen:
+    - kennwort zuruecksetzen
+    - password reset
+  softphone anrufumleitung:
+    - anrufumleitung softphone
+    - voice softphone forwarding

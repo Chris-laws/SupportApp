@@ -1,23 +1,29 @@
 from __future__ import annotations
 
+import logging
 import math
 import re
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, Dict, Iterable, List, Mapping, MutableMapping, Sequence, Set, Tuple
 
 import numpy as np
 import requests
+import yaml
 
 if TYPE_CHECKING:
     from .reranker import CrossEncoderReranker
 
 from .embeddings import get_embeddings
 
+logger = logging.getLogger(__name__)
+
 _TOKEN_PATTERN = re.compile(r"[a-z0-9]{2,}")
 _SECTION_PATTERN = re.compile(r"\b\d+(?:\.\d+)+\b")
+_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+")
 
-_DOMAIN_SYNONYMS: Mapping[str, Set[str]] = {
+_DEFAULT_SYNONYMS: Mapping[str, Set[str]] = {
     "kennwort": {"passwort", "password", "pwd"},
     "passwort": {"kennwort", "password", "pwd"},
     "password": {"kennwort", "passwort"},
@@ -27,13 +33,45 @@ _DOMAIN_SYNONYMS: Mapping[str, Set[str]] = {
     "wechseln": {"aendern"},
     "anmelden": {"login", "einloggen"},
     "login": {"anmelden", "einloggen"},
+    "rufnummer": {"telefonnummer", "nummer", "callerid", "anruferid"},
+    "rufnummernuebermittlung": {"nummernuebermittlung", "callerid", "anruferid"},
+    "unterdruecken": {"verbergen", "nicht senden", "clir"},
+    "clir": {"rufnummernunterdrueckung", "nummernunterdrueckung", "rufnummernuebermittlung deaktivieren"},
 }
 
-_DOMAIN_PHRASES: Mapping[str, Set[str]] = {
+_DEFAULT_PHRASES: Mapping[str, Set[str]] = {
     "kennwort aendern": {"passwort aendern", "kennwort reset", "passwort reset", "kennwort zuruecksetzen"},
     "passwort zuruecksetzen": {"kennwort zuruecksetzen", "kennwort reset", "password reset", "passwort reset"},
     "passwort aendern": {"kennwort aendern", "passwort reset"},
+    "rufnummer unterdruecken": {"rufnummernunterdrueckung", "clir aktivieren", "rufnummernuebermittlung deaktivieren"},
+    "rufnummernunterdrueckung": {"clir", "rufnummer unterdruecken", "nummernuebermittlung deaktivieren"},
 }
+
+
+def _load_synonym_tables() -> Tuple[Mapping[str, Set[str]], Mapping[str, Set[str]]]:
+    synonyms: Dict[str, Set[str]] = {key: set(values) for key, values in _DEFAULT_SYNONYMS.items()}
+    phrases: Dict[str, Set[str]] = {key: set(values) for key, values in _DEFAULT_PHRASES.items()}
+
+    config_path = Path(__file__).resolve().parents[1] / "Config" / "synonyms.yml"
+    if not config_path.exists():
+        return synonyms, phrases
+
+    try:
+        data = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Konnte Synonym-Konfiguration nicht laden (%s): %s", config_path, exc)
+        return synonyms, phrases
+
+    for key, values in (data.get("synonyms") or {}).items():
+        normalized_key = str(key).lower()
+        synonyms[normalized_key] = {str(value).lower() for value in values}
+    for key, values in (data.get("phrases") or {}).items():
+        normalized_key = str(key).lower()
+        phrases[normalized_key] = {str(value).lower() for value in values}
+    return synonyms, phrases
+
+
+_DOMAIN_SYNONYMS, _DOMAIN_PHRASES = _load_synonym_tables()
 
 _CHAR_MAP = str.maketrans({
     "\u00e4": "ae",
@@ -199,8 +237,15 @@ class BM25FieldIndex:
 
 def rewrite_query_with_llama3(question: str) -> str:
     prompt = (
-        "Formuliere die folgende Nutzerfrage so um, dass sie sich praezise als Suchanfrage fuer ein Dokumenten-Retrieval eignet:\n\n"
-        f"Nutzerfrage: {question}\nSuchanfrage:"
+        "Du agierst als Recherche-Assistent fuer den bankinternen IT-Support. "
+        "Formuliere die folgende Frage als praezise Suchanfrage mit Kernbegriffen, Synonymen "
+        "und Produktbezeichnungen (Deutsch plus sinnvolle englische Varianten). "
+        "Entferne Fueller, behalte Parameter wie Versionen oder Systeme und gib nur eine einzige Zeile aus.\n\n"
+        "- Verwende gaengige Synonyme wie Kennwort/Passwort/password, Softphone/agree21Voice, Outlook/E-Mail usw.\n"
+        "- Nutze Stichwoerter getrennt durch Kommas oder Leerzeichen; keine Saetze, keine erlaeuternden Worte.\n"
+        "- Gib ausschliesslich die Suchanfrage als eine Zeile ohne Erklaerung aus.\n\n"
+        f"Originalfrage: {question}\n"
+        "Suchanfrage:"
     )
 
     response = requests.post(
@@ -209,14 +254,38 @@ def rewrite_query_with_llama3(question: str) -> str:
             "model": "llama3",
             "prompt": prompt,
             "stream": False,
+            "options": {
+                "temperature": 0.0,
+                "top_p": 0.2,
+                "repeat_penalty": 1.1,
+            },
         },
     )
     if response.status_code != 200:
         raise Exception(f"Fehler beim Zugriff auf Ollama: {response.text}")
 
     data = response.json()
-    result = data.get("response", "")
-    return result.split("Suchanfrage:")[-1].strip()
+    raw = (data.get("response") or "").strip()
+    if not raw:
+        return question
+
+    if "Suchanfrage:" in raw:
+        candidate = raw.split("Suchanfrage:", 1)[-1]
+    else:
+        candidate = raw
+
+    if "```" in candidate:
+        parts = candidate.split("```")
+        blocks = [block.strip() for block in parts[1::2] if block.strip()]
+        if blocks:
+            candidate = blocks[0]
+
+    lines = [line.strip("` ") for line in candidate.splitlines() if line.strip()]
+    if lines:
+        candidate = lines[-1]
+
+    cleaned = " ".join(candidate.split())
+    return cleaned.strip("` ")
 
 
 class HybridRetriever:
@@ -251,14 +320,40 @@ class HybridRetriever:
         keywords = self.keyword_generator.extract(question)
         bm25_hits = self.bm25_index.search(keywords.bm25_terms, top_k=bm25_k)
 
-        if not bm25_hits and self.faiss_index is not None and self.chunk_records:
-            distances, indices = self.faiss_index.search(np.array([query_embedding], dtype=np.float32), bm25_k)
-            bm25_hits = [(int(idx), float(score)) for idx, score in zip(indices[0], distances[0]) if idx >= 0]
+        dense_hits: List[Tuple[int, float]] = []
+        dense_global_k = max(bm25_k, 80)
+        if self.faiss_index is not None and self.chunk_records:
+            query = np.array([query_embedding], dtype=np.float32)
+            distances, indices = self.faiss_index.search(query, dense_global_k)
+            dense_hits = [
+                (int(idx), float(score))
+                for idx, score in zip(indices[0], distances[0])
+                if idx >= 0
+            ]
+        elif not bm25_hits and self.chunk_records:
+            # Fallback: dense Hits erzeugen, wenn kein BM25 und kein Index vorhanden
+            texts = [str(chunk.get("content") or "") for chunk in self.chunk_records]
+            dense_embeddings = get_embeddings(texts)
+            sims = dense_embeddings @ query_embedding
+            dense_hits = sorted([(idx, float(score)) for idx, score in enumerate(sims)], key=lambda item: item[1], reverse=True)[:dense_global_k]
 
-        candidate_indices = [idx for idx, _ in bm25_hits]
+        # Kandidatenpool vereinigen
+        cand_scores: Dict[int, float] = {}
+        for idx, score in bm25_hits:
+            cand_scores[idx] = max(cand_scores.get(idx, score), score)
+        for idx, score in dense_hits:
+            cand_scores[idx] = max(cand_scores.get(idx, score), score)
+
+        candidate_indices = list(cand_scores.keys())
         if not candidate_indices:
             candidate_indices = list(range(len(self.chunk_records)))
             bm25_hits = [(idx, 0.0) for idx in candidate_indices]
+        else:
+            max_pool = max(bm25_k, dense_global_k)
+            candidate_indices = [
+                idx for idx, _ in sorted(cand_scores.items(), key=lambda item: item[1], reverse=True)[:max_pool]
+            ]
+            bm25_hits = [(idx, cand_scores.get(idx, 0.0)) for idx in candidate_indices]
 
         vector_scores, l2_distances = self._vector_scores(query_embedding, candidate_indices)
 
@@ -469,18 +564,61 @@ class HybridRetriever:
         )
 
 
+def _trim_chunk_content(
+    chunk: Mapping[str, Any], max_sentences: int = 8
+) -> str:
+    content = str(chunk.get("content") or "").strip()
+    if not content:
+        return content
+
+    normalized = (
+        content.replace("•", ". ")
+        .replace("▪", ". ")
+        .replace("◦", ". ")
+        .replace("●", ". ")
+    )
+    sentences = [sentence.strip() for sentence in _SENTENCE_SPLIT_RE.split(normalized) if sentence.strip()]
+    if not sentences:
+        return content
+
+    matched_terms = [str(term).lower() for term in (chunk.get("matched_terms") or []) if term]
+    if not matched_terms:
+        return " ".join(sentences[:max_sentences]).strip()
+
+    target_index = 0
+    for idx, sentence in enumerate(sentences):
+        lower_sentence = sentence.lower()
+        if any(term in lower_sentence for term in matched_terms):
+            target_index = idx
+            break
+    start = max(0, target_index - 1)
+    excerpt = sentences[start : start + max_sentences]
+    return " ".join(excerpt).strip()
+
+
+def _keyword_present(chunk: Mapping[str, Any], expected_tokens: Set[str]) -> bool:
+    if not expected_tokens:
+        return False
+    content = str(chunk.get("content") or "").lower()
+    if not content:
+        return False
+    return any(token in content for token in expected_tokens)
+
+
 def select_context_window(
     ranked_chunks: Sequence[Mapping[str, Any]],
     *,
     max_chunks: int = 6,
     min_chunks: int = 4,
     max_chars: int = 1800,
+    expected_tokens: Set[str] | None = None,
 ) -> List[Mapping[str, Any]]:
     keyword_hits = [chunk for chunk in ranked_chunks if chunk.get("matched_terms")]
     others = [chunk for chunk in ranked_chunks if not chunk.get("matched_terms")]
 
     ordered: List[Mapping[str, Any]] = []
     seen: Set[Tuple[Any, Any]] = set()
+    trimmed_cache: Dict[int, str] = {}
     for group in (keyword_hits, others):
         for chunk in group:
             key = (chunk.get("source"), chunk.get("page"))
@@ -489,9 +627,18 @@ def select_context_window(
             seen.add(key)
             ordered.append(chunk)
 
+    if expected_tokens:
+        expected_tokens_lower = {token.lower() for token in expected_tokens if token}
+        prioritized = [chunk for chunk in ordered if _keyword_present(chunk, expected_tokens_lower)]
+        remainder = [chunk for chunk in ordered if chunk not in prioritized]
+        ordered = prioritized + remainder
+
     def _try_add(chunk: Mapping[str, Any], *, force: bool = False) -> bool:
         nonlocal char_count
-        content = str(chunk.get("content") or "")
+        cache_key = id(chunk)
+        if cache_key not in trimmed_cache:
+            trimmed_cache[cache_key] = _trim_chunk_content(chunk)
+        content = trimmed_cache[cache_key] or str(chunk.get("content") or "")
         if not content:
             return False
         if len(selected) >= max_chunks:
@@ -526,7 +673,18 @@ def select_context_window(
 
     if not selected:
         selected = list(ordered[: max_chunks])
-    return selected
+
+    trimmed: List[Mapping[str, Any]] = []
+    for chunk in selected:
+        cache_key = id(chunk)
+        trimmed_text = trimmed_cache.get(cache_key)
+        if trimmed_text is None:
+            trimmed_text = _trim_chunk_content(chunk)
+        trimmed_chunk = dict(chunk)
+        trimmed_chunk["content_full"] = chunk.get("content")
+        trimmed_chunk["content"] = trimmed_text
+        trimmed.append(trimmed_chunk)
+    return trimmed
 
 
 __all__ = [

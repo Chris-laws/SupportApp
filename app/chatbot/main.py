@@ -14,8 +14,8 @@ BASE_DIR = os.path.dirname(__file__)
 INDEX_BASE_PATH = os.path.join(BASE_DIR, "data", "faiss_index", "index")
 PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "system_prompts.txt")
 
-RERANKER_WEIGHT = 0.65
-RERANKER_CANDIDATES = 40
+RERANKER_WEIGHT = 0.6
+RERANKER_CANDIDATES = 100
 
 try:
     RERANKER = CrossEncoderReranker()
@@ -29,7 +29,12 @@ def _load_system_prompt() -> str:
         with open(PROMPT_PATH, "r", encoding="utf-8") as handle:
             return handle.read()
     except FileNotFoundError:
-        return "Nutze den folgenden Kontext, um die Frage zu beantworten:\n\n{{context}}\n\nFrage: {{question}}"
+        return (
+            "Du bist ein Assistenzsystem fuer den bankinternen IT-Support. Nutze NUR den folgenden Kontext, "
+            "um die Frage zu beantworten. Wenn die Information nicht enthalten ist, sage, dass sie im Material "
+            "nicht belegt ist. Jeder Absatz endet mit (Dokument, Seite X).\n\n"
+            "KONTEXT:\n{{context}}\n\nFRAGE: {{question}}"
+        )
 
 
 def build_faiss_index() -> None:
@@ -53,7 +58,7 @@ def build_faiss_index() -> None:
 
         for chunk in chunks:
             record = dict(chunk)
-            record.setdefault("source", pdf_path)
+            record["source"] = pdf_path
             chunk_records.append(record)
 
     if not chunk_records:

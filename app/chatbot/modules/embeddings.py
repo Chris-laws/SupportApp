@@ -25,7 +25,9 @@ def save_embeddings_to_faiss(embeddings: np.ndarray, chunk_records: Iterable[dic
     embeddings = embeddings.astype(np.float32)
     dimension = embeddings.shape[1]
 
-    index = faiss.IndexFlatIP(dimension)
+    index = faiss.IndexHNSWFlat(dimension, 32)
+    index.hnsw.efConstruction = 80
+    index.hnsw.efSearch = 128
     index.add(embeddings)
     faiss.write_index(index, save_path_base + ".index")
 
@@ -42,6 +44,8 @@ def load_faiss_index(load_path_base: str) -> Tuple[faiss.Index | None, List[dict
     embeddings: np.ndarray | None = None
     try:
         index = faiss.read_index(load_path_base + ".index")
+        if hasattr(index, "hnsw"):
+            index.hnsw.efSearch = 128
         with open(load_path_base + ".pkl", "rb") as f:
             chunk_records = pickle.load(f)
         embeddings_path = load_path_base + ".npy"

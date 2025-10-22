@@ -1,0 +1,503 @@
+[
+  {
+    "query": "Softphone Kennwort aendern",
+    "relevant_ids": [
+      336,
+      335
+    ],
+    "gains": {
+      "336": 3,
+      "335": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "kennwort",
+      "90",
+      "tage",
+      "self-service"
+    ],
+    "references": [
+      "Das Softphone fordert nach 90 Tagen zur Kennwortaenderung auf; vergessene Kennwoerter lassen sich ueber den SAGA Self-Service zuruecksetzen.",
+      "Kennwoerter muessen mindestens acht Zeichen, eine Ziffer, einen Grossbuchstaben und ein Sonderzeichen enthalten und duerfen keine Umlaute besitzen."
+    ]
+  },
+  {
+    "query": "Softphone Anmeldedaten speichern aktivieren",
+    "relevant_ids": [
+      335,
+      330
+    ],
+    "gains": {
+      "335": 3,
+      "330": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "anmeldedaten",
+      "speichern",
+      "haken"
+    ],
+    "references": [
+      "Beim ersten Login muss das Kontrollkaestchen Anmeldedaten speichern gesetzt werden, sonst erscheint der Dialog bei jedem Start erneut und verhindert die Anmeldung."
+    ]
+  },
+  {
+    "query": "Softphone Erstanmeldung mit DLS PIN",
+    "relevant_ids": [
+      334,
+      327
+    ],
+    "gains": {
+      "334": 3,
+      "327": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "dls",
+      "pin",
+      "erstmalig"
+    ],
+    "references": [
+      "Beim erstmaligen Start der OpenScape Fusion Software wird eine Initial-PIN abgefragt, die innerhalb von fuenf Minuten eingegeben und bestaetigt werden muss."
+    ]
+  },
+  {
+    "query": "Softphone vollstaendig beenden",
+    "relevant_ids": [
+      338,
+      373
+    ],
+    "gains": {
+      "338": 3,
+      "373": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "beenden",
+      "taskleiste",
+      "symbol"
+    ],
+    "references": [
+      "Das Schliessen der Fusion-Leiste beendet das Softphone nicht; erst ueber das Taskleistensymbol und den Befehl Beenden wird der Client komplett geschlossen."
+    ]
+  },
+  {
+    "query": "Softphone Fusion Leiste Funktionen",
+    "relevant_ids": [
+      339,
+      338
+    ],
+    "gains": {
+      "339": 3,
+      "338": 2
+    },
+    "expected_answer_keywords": [
+      "fusion",
+      "favoriten",
+      "optionen",
+      "softphone"
+    ],
+    "references": [
+      "Die Fusion-Leiste enthaelt Bereiche fuer Optionen, Favoriten, Kontakte, Konferenzen, Anruflisten sowie Einstellungen fuer Suche und Praesenzstatus."
+    ]
+  },
+  {
+    "query": "Softphone praefiertes Endgeraet wechseln",
+    "relevant_ids": [
+      372,
+      386
+    ],
+    "gains": {
+      "372": 3,
+      "386": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "praeferiert",
+      "endgeraet",
+      "fusion"
+    ],
+    "references": [
+      "Ueber die Fusion-Leiste laesst sich das praefierte Endgeraet fuer eingehende und ausgehende Anrufe waehlen; ein Haekchen markiert das aktive Geraet."
+    ]
+  },
+  {
+    "query": "Softphone One Number Service konfigurieren",
+    "relevant_ids": [
+      351,
+      349
+    ],
+    "gains": {
+      "351": 3,
+      "349": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "one",
+      "number",
+      "service"
+    ],
+    "references": [
+      "Im Abschnitt zum One Number Service wird beschrieben, dass ein anderes Endgeraet als praefiertes Geraet gewaehlt werden kann, damit einheitlich unter der Softphone-Nummer telefoniert wird."
+    ]
+  },
+  {
+    "query": "Softphone Rufnummernanzeige steuern (CLIR)",
+    "relevant_ids": [
+      330,
+      361
+    ],
+    "gains": {
+      "330": 3,
+      "361": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "rufnummer",
+      "anzeige",
+      "geraet"
+    ],
+    "references": [
+      "Die Dokumentation erlaeutert, dass die agree21Voice-Rufnummer des Softphones angezeigt wird und ueber die Gerateauswahl im One Number Service gesteuert werden kann."
+    ]
+  },
+  {
+    "query": "Softphone Rufnummer fuer CLIR deaktivieren",
+    "relevant_ids": [
+      351,
+      350
+    ],
+    "gains": {
+      "351": 3,
+      "350": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "rufnummer",
+      "geraet",
+      "auswaehlen"
+    ],
+    "references": [
+      "Um die uebermittelte Rufnummer zu steuern, weist der Leitfaden auf die Auswahl des passenden Endgeraets im One Number Service hin und zeigt, dass das Haekchen das aktive Geraet markiert."
+    ]
+  },
+  {
+    "query": "Softphone Rufnummernanzeige fuer Kontakte anpassen",
+    "relevant_ids": [
+      381,
+      376
+    ],
+    "gains": {
+      "381": 3,
+      "376": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "anruf",
+      "rufnummer",
+      "uebergeben"
+    ],
+    "references": [
+      "Beim eingehenden Anruf bietet das Bedienfenster Optionen zum Uebergeben mit Eingabe einer Rufnummer sowie zum Annehmen oder Abweisen, wobei das Call-Control-Fenster jederzeit eingeblendet werden kann."
+    ]
+  },
+  {
+    "query": "Softphone Konferenz planen",
+    "relevant_ids": [
+      386,
+      384
+    ],
+    "gains": {
+      "386": 3,
+      "384": 2
+    },
+    "expected_answer_keywords": [
+      "softphone",
+      "konferenz",
+      "moderator",
+      "teilnehmer"
+    ],
+    "references": [
+      "Die Konferenzverwaltung erlaubt Titel, Moderator, Namensaufzeichnung und Teilnehmerliste festzulegen; ohne Moderator kann ein eingeladener Teilnehmer die Konferenz steuern."
+    ]
+  },
+  {
+    "query": "HP Drucker Papierstau beheben",
+    "relevant_ids": [
+      169,
+      239
+    ],
+    "gains": {
+      "169": 3,
+      "239": 2
+    },
+    "expected_answer_keywords": [
+      "papierstau",
+      "drucker",
+      "wiederaufnahmetaste",
+      "modul"
+    ],
+    "references": [
+      "Zur Beseitigung eines Papierstaus wird zuerst die Wiederaufnahmetaste gedrueckt und Etikettenboegen kontrolliert; je nach Ausstattung folgen getrennte Anweisungen fuer Drucker mit oder ohne Duplexmodul."
+    ]
+  },
+  {
+    "query": "HP Drucker Duplexmodul verwenden",
+    "relevant_ids": [
+      192,
+      198
+    ],
+    "gains": {
+      "192": 3,
+      "198": 2
+    },
+    "expected_answer_keywords": [
+      "drucker",
+      "duplex",
+      "beidseitig",
+      "modul"
+    ],
+    "references": [
+      "Das Duplexmodul beschreibt automatisches beidseitiges Drucken ohne erneutes Einlegen; alternativ wird der manuelle beidseitige Druck mit Schritt-fuer-Schritt-Anleitung erklaert."
+    ]
+  },
+  {
+    "query": "HP Drucker Patronen reinigen",
+    "relevant_ids": [
+      233,
+      121
+    ],
+    "gains": {
+      "233": 3,
+      "121": 2
+    },
+    "expected_answer_keywords": [
+      "drucker",
+      "patrone",
+      "reinigen",
+      "kontakte"
+    ],
+    "references": [
+      "Fuer das manuelle Reinigen werden destilliertes Wasser und fusselfreie Tucher benoetigt; gereinigt werden nur die Kupferkontakte, bis keine Rueckstaende mehr sichtbar sind."
+    ]
+  },
+  {
+    "query": "Abwesenheitsagent in Clerk anlegen",
+    "relevant_ids": [
+      0,
+      4
+    ],
+    "gains": {
+      "0": 3,
+      "4": 2
+    },
+    "expected_answer_keywords": [
+      "abwesenheitsagent",
+      "clerk",
+      "abwesenheit",
+      "periodisch"
+    ],
+    "references": [
+      "Der Abwesenheitsagent wird von jedem Mitarbeiter selbst je Abwesenheit eingerichtet, damit automatische Benachrichtigungen verschickt werden.",
+      "Bei der Anlage wird zwischen einmaliger und periodischer Abwesenheit unterschieden; fuer wiederkehrende Termine wie jeden Freitag dient die periodische Variante."
+    ]
+  },
+  {
+    "query": "Outlook Ordner fuer Stellvertreter freigeben",
+    "relevant_ids": [
+      62,
+      64
+    ],
+    "gains": {
+      "62": 3,
+      "64": 2
+    },
+    "expected_answer_keywords": [
+      "outlook",
+      "stellvertreter",
+      "ordner",
+      "berechtigung"
+    ],
+    "references": [
+      "Neue Outlook-Ordner werden ueber Ordnerberechtigungen freigegeben: Rechtsklick auf die Mailadresse, Reiter Berechtigungen waehlen und Vertreter hinzufuegen.",
+      "Bestehende Ordner erhalten Freigaben, indem fuer jeden Ordner die Vertreter hinzugefuegt und entsprechende Rechte gesetzt werden."
+    ]
+  },
+  {
+    "query": "Raeume oder Ressourcen buchen",
+    "relevant_ids": [
+      305
+    ],
+    "gains": {
+      "305": 3
+    },
+    "expected_answer_keywords": [
+      "outlook",
+      "raum",
+      "ressource",
+      "besprechung"
+    ],
+    "references": [
+      "Raeume lassen sich direkt beim Erstellen einer Besprechung ueber das Feld Ort oder die Suche hinzufuegen; Termine muessen als Besprechung angelegt werden.",
+      "Alternativ werden Raeume ueber den Kalender gebucht; empfohlen ist eine eigene Kalendergruppe fuer benoetigte Raeume und Ressourcen."
+    ]
+  },
+  {
+    "query": "Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?",
+    "relevant_ids": [
+      12,
+      29
+    ],
+    "gains": {
+      "12": 3,
+      "29": 2
+    },
+    "expected_answer_keywords": [
+      "proxy",
+      "pac",
+      "kunden-proxy",
+      "8080"
+    ],
+    "references": [
+      "Die Anleitung nennt fuer die manuelle Konfiguration die PAC-Datei http://kunden-proxypac.rz.bankenit.de sowie den Proxy kunden-proxy.rz.bankenit.de:8080."
+    ]
+  },
+  {
+    "query": "Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?",
+    "relevant_ids": [
+      6,
+      13
+    ],
+    "gains": {
+      "6": 3,
+      "13": 2
+    },
+    "expected_answer_keywords": [
+      "secure webgateway",
+      "filtern",
+      "proxy",
+      "malware"
+    ],
+    "references": [
+      "Das Kapitel erlaeutert, dass das Secure Webgateway als Proxy fungiert, Inhalte filtert, verschluesselte Verbindungen zur Pruefung aufbricht und Malware-Pruefungen sowie Sperrlisten ermoeglicht."
+    ]
+  },
+  {
+    "query": "Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?",
+    "relevant_ids": [
+      56,
+      61
+    ],
+    "gains": {
+      "56": 3,
+      "61": 2
+    },
+    "expected_answer_keywords": [
+      "ldap",
+      "389",
+      "636",
+      "starttls"
+    ],
+    "references": [
+      "Die Anleitung nennt Port 389 fuer LDAP mit StartTLS und Port 636 fuer LDAPS und beschreibt die zu aktivierenden Optionen StartTLS bzw. LDAPS."
+    ]
+  },
+  {
+    "query": "Welche Forms-Regeln gelten laut Spielregeln M365?",
+    "relevant_ids": [
+      324
+    ],
+    "gains": {
+      "324": 3
+    },
+    "expected_answer_keywords": [
+      "forms",
+      "mitarbeiter",
+      "betriebsrat",
+      "auswertung"
+    ],
+    "references": [
+      "Die Spielregeln untersagen Auswertungen von Mitarbeitenden ueber Forms und verlangen vor Umfragen zu Betriebsprozessen die Genehmigung des Betriebsrats."
+    ]
+  },
+  {
+    "query": "Wie legt man Postfachregeln laut Anleitung in Outlook Online an?",
+    "relevant_ids": [
+      302,
+      299
+    ],
+    "gains": {
+      "302": 3,
+      "299": 2
+    },
+    "expected_answer_keywords": [
+      "postfach",
+      "regeln",
+      "outlook online",
+      "weiteres postfach"
+    ],
+    "references": [
+      "Die Schritte beschreiben das Anmelden an Office.com, das Starten von Outlook Online und das Oeffnen eines weiteren Postfachs ueber das Benutzer-Menue, bevor Regeln erstellt werden."
+    ]
+  },
+  {
+    "query": "Wie aktiviert man Senden-von in Outlook laut Anleitung?",
+    "relevant_ids": [
+      315,
+      316
+    ],
+    "gains": {
+      "315": 3,
+      "316": 2
+    },
+    "expected_answer_keywords": [
+      "senden von",
+      "outlook",
+      "webclient",
+      "office.com"
+    ],
+    "references": [
+      "Die Anleitung empfiehlt den Webclient via office.com oder den Desktop-Client und beschreibt zwei Moeglichkeiten, Mails im Auftrag eines Postfachs zu versenden."
+    ]
+  },
+  {
+    "query": "Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?",
+    "relevant_ids": [
+      387,
+      396
+    ],
+    "gains": {
+      "387": 3,
+      "396": 2
+    },
+    "expected_answer_keywords": [
+      "stellvertreter",
+      "zugriff",
+      "freigabe",
+      "hinzufuegen"
+    ],
+    "references": [
+      "Die Guidance erklaert, wie Berechtigungen fuer Posteingang, Kalender und Aufgaben vergeben werden und dass ueber Hinzufuegen weitere Stellvertreter inklusive Senden im Auftrag definiert werden koennen."
+    ]
+  },
+  {
+    "query": "Wie erstellt man Screenshots mit Greenshot laut Anleitung?",
+    "relevant_ids": [
+      51,
+      52
+    ],
+    "gains": {
+      "51": 3,
+      "52": 2
+    },
+    "expected_answer_keywords": [
+      "greenshot",
+      "bereich",
+      "screenshot",
+      "speichern"
+    ],
+    "references": [
+      "Die Anleitung beschreibt den Modus Bereich abfotografieren sowie die Optionen Sofort speichern und Speichern unter fuer Greenshot."
+    ]
+  }
+]

@@ -6,9 +6,23 @@ from sentence_transformers import CrossEncoder
 
 
 class CrossEncoderReranker:
-    def __init__(self, model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2") -> None:
+    def __init__(
+        self,
+        model_name: str = "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        device: str | None = None,
+    ) -> None:
         self.model_name = model_name
-        self.model = CrossEncoder(model_name)
+        if device is None:
+            try:
+                import torch  # type: ignore
+
+                if torch.cuda.is_available():
+                    device = "cuda"
+            except Exception:  # noqa: BLE001
+                device = None
+
+        init_kwargs = {"device": device} if device else {}
+        self.model = CrossEncoder(model_name, **init_kwargs)
 
     def rerank(
         self,

@@ -1,0 +1,88 @@
+%% Mermaid class diagram for SupportAssistantApp core components
+classDiagram
+    class KeywordSet {
+        +bm25_terms: Set~str~
+        +expanded_terms: Dict~str, Set~str~~
+        +section_numbers: Set~str~
+        +raw_question: str
+        +canonical_term_count() int
+    }
+
+    class KeywordGenerator {
+        -_token_pattern
+        +extract(question: str) KeywordSet
+    }
+
+    class BM25FieldIndex {
+        -field_weights: Dict~str, float~
+        -doc_term_freqs: List~Dict~str, float~~
+        -doc_lengths: List~float~
+        -doc_freqs: Counter~str~
+        -avg_doc_len: float
+        +search(terms: Set~str~, top_k: int) List~Tuple~int, float~~
+    }
+
+    class HybridRetriever {
+        +chunk_records: List~Dict~
+        +embeddings: np.ndarray
+        +faiss_index: faiss.Index
+        +keyword_generator: KeywordGenerator
+        +bm25_index: BM25FieldIndex
+        +retrieve(question: str, query_embedding: np.ndarray, top_k: int, reranker: CrossEncoderReranker, reranker_k: int, reranker_weight: float) List~Dict~
+    }
+
+    class CrossEncoderReranker {
+        +model_name: str
+        +model: CrossEncoder
+        +rerank(question: str, chunks: Sequence~Dict~, top_k: int) List~Dict~
+    }
+
+    class GeneratorSetting {
+        +name: str
+        +model: str
+        +temperature: float
+        +top_p: float
+    }
+
+    class EvalRow {
+        +question_id: str
+        +question: str
+        +generator: str
+        +recall_at_k: float
+        +ndcg_at_k: float
+        +bleu: float
+        +rouge_l: float
+        +latency_seconds: float
+        +response: str
+        +tokens_per_second: Optional[float]
+        +vram_delta_gb: Optional[float]
+    }
+
+    class ModelComparator {
+        +generators: Sequence~GeneratorSetting~
+        +top_k: int
+        +dataset: List~Dict~
+        +retriever: HybridRetriever
+        +reranker: Optional[CrossEncoderReranker]
+        +evaluate() List~EvalRow~
+        +_retrieve(question: str, optimized_query: str) List~Dict~
+        +_rewrite(question: str) str
+    }
+
+    class RagEvalF1Script {
+        <<script>>
+        +main()
+        +evaluate_dataset(start: int, limit: int, model_id: str)
+        +keyword_f1(answer: str, expected: Iterable~str~) float
+    }
+
+    KeywordGenerator --> KeywordSet
+    HybridRetriever --> KeywordGenerator
+    HybridRetriever --> BM25FieldIndex
+    HybridRetriever --> CrossEncoderReranker : <<optional>>
+    ModelComparator --> HybridRetriever
+    ModelComparator --> CrossEncoderReranker : <<optional>>
+    ModelComparator --> GeneratorSetting
+    ModelComparator --> EvalRow
+    RagEvalF1Script --> HybridRetriever
+    RagEvalF1Script --> CrossEncoderReranker : <<optional>>

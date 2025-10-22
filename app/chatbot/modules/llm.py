@@ -1,45 +1,53 @@
-import requests
+﻿from __future__ import annotations
+
 import json
+import requests
 
-def query_ollama(prompt, model="llama3", language="Deutsch"):
-    print(f">> Schicke Prompt an Ollama mit Streaming...")
-    try:
-        url = "http://localhost:11434/api/generate"
-        headers = {"Content-Type": "application/json"}
-        full_prompt = f"Beantworte die folgende Frage auf {language}.\n\n{prompt}"
-        
-        payload = {
-            "model": model,
-            "prompt": full_prompt,
-            "stream": True,
-            "options": {
-                "temperature": 0.3,
-                "top_p": 0.7
-            }
-        }
-        
-        response = requests.post(url, headers=headers, json=payload, timeout=600, stream=True)
-        response.raise_for_status()
-        
-        answer = ""
-        for line in response.iter_lines():
-            if line:
-                try:
-                    data = json.loads(line.decode('utf-8'))  # <-- RICHTIG: bytes → str → dict
-                    text_piece = data.get("response", "")
-                    answer += text_piece
-                except Exception as e:
-                    print(f"WARN: Fehler beim Verarbeiten einer Zeile: {e}")
 
-        print(f"OK: Antwort fertig: {answer[:300]}...")
-        return answer
+def query_ollama(
+    prompt: str,
+    model: str = "llama3",
+    language: str = "Deutsch",
+    *,
+    options: dict | None = None,
+    max_retries: int = 1,\n    timeout: int = 300,\n) -> str:
+    full_prompt = f"Beantworte die folgende Frage auf {language}.\n\n{prompt}"
+    default_options = {
+        "temperature": 0.05,
+        "top_p": 0.75,
+        "repeat_penalty": 1.05,
+        "num_predict": 64,
+        "num_ctx": 4096,
+    }
 
-    except requests.exceptions.Timeout:
-        print("ERROR: Anfrage an Ollama: Timeout nach 60 Sekunden!")
-        return "Timeout bei der Anfrage an das Modell."
-    except requests.exceptions.RequestException as e:
-        print(f"ERROR: Fehler bei Anfrage an Ollama: {e}")
-        return f"Fehler bei der Kommunikation mit dem Modell: {e}"
-    except Exception as e:
-        print(f"ERROR: Unerwarteter Fehler: {e}")
-        return "Ein unerwarteter Fehler ist aufgetreten."
+    payload_options = default_options | (options or {})
+
+    payload = {
+        "model": model,
+        "prompt": full_prompt,
+        "stream": False,
+        "options": payload_options,
+    }
+
+    url = "http://localhost:11434/api/generate"
+    headers = {"Content-Type": "application/json"}
+
+    for attempt in range(max_retries):
+        try:
+            response = requests.post(url, headers=headers, json=payload, timeout=timeout)
+            response.raise_for_status()
+            data = response.json()
+            return data.get("response", "")
+        except requests.exceptions.Timeout:
+            print(f"ERROR: Anfrage an Ollama: Timeout nach {timeout} Sekunden!")
+        except requests.exceptions.RequestException as exc:
+            print(f"ERROR: Fehler bei Anfrage an Ollama: {exc}")
+        except json.JSONDecodeError as exc:
+            print(f"ERROR: Konnte Ollama-Antwort nicht dekodieren: {exc}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"ERROR: Unerwarteter Fehler: {exc}")
+        if attempt + 1 < max_retries:
+            print("Versuche erneut...")
+    return "Fehler bei der Kommunikation mit dem Modell."
+
+

@@ -34,11 +34,18 @@ except Exception as exc:  # noqa: BLE001
     print(f"Warnung: Reranker konnte nicht geladen werden: {exc}")
     reranker = None
 
-RERANKER_WEIGHT = 0.65
-RERANKER_CANDIDATES = 40
+RERANKER_WEIGHT = 0.6
+RERANKER_CANDIDATES = 100
 
 
-PROMPT_TEMPLATE = "Nutze den folgenden Kontext, um die Frage zu beantworten:\n\n{context}\n\nFrage: {question}"
+PROMPT_TEMPLATE = (
+    "Du bist ein Assistenzsystem fuer den bankinternen IT-Support. Nutze NUR den folgenden Kontext, "
+    "um die Frage zu beantworten. Wenn die Information nicht im Kontext steht, sage hoe?ich, dass sie "
+    "im bereitgestellten Material nicht belegt ist. Jeder Absatz der Antwort muss die Quelle im Format "
+    "(Dokument, Seite X) nennen.\n\n"
+    "KONTEXT:\n{context}\n\n"
+    "FRAGE: {question}"
+)
 
 
 TOKEN_PATTERN = re.compile(r"[a-z0-9]{3,}", re.IGNORECASE)
@@ -213,6 +220,7 @@ def summarize_sources(chunks: Sequence[Dict[str, object]], max_snippet_len: int 
         entries.append(_build_source_entry(secondary, max_snippet_len=max_snippet_len))
     return entries
 
+
 def _filter_context_chunks(
     chunks: Sequence[Dict[str, object]],
     *,
@@ -244,10 +252,10 @@ def _filter_context_chunks(
         return sorted(
             source_stats.items(),
             key=lambda item: (
-                item[1]["signal"] > 0,
-                item[1]["signal"],
-                item[1]["coverage"],
+                item[1]["score"] > 0,
                 item[1]["score"],
+                item[1]["coverage"],
+                item[1]["signal"],
             ),
             reverse=True,
         )
@@ -255,7 +263,13 @@ def _filter_context_chunks(
     ranked_sources = _rank_sources()
     if ranked_sources:
         top_coverage = ranked_sources[0][1]["coverage"]
-        cross_doc_threshold = max(0.15, min(min_cross_doc_coverage, top_coverage * 0.6 if top_coverage else min_cross_doc_coverage))
+        cross_doc_threshold = max(
+            0.15,
+            min(
+                min_cross_doc_coverage,
+                top_coverage * 0.6 if top_coverage else min_cross_doc_coverage,
+            ),
+        )
     else:
         cross_doc_threshold = min_cross_doc_coverage
 
@@ -277,13 +291,25 @@ def _filter_context_chunks(
         cross_doc_threshold = min_cross_doc_coverage
         max_documents = max(1, min(max_context_chunks, max_documents))
 
-    primary = max(chunks, key=lambda chunk: (_signal_count(chunk), _coverage(chunk), _score(chunk)))
+    primary = max(chunks, key=lambda chunk: (_score(chunk), _coverage(chunk), _signal_count(chunk)))
     if _signal_count(primary) == 0 and len(chunks) > 1:
         primary = chunks[0]
 
     ordered: List[Dict[str, object]] = [primary]
-    ordered.extend(chunk for chunk in chunks if chunk is not primary and _signal_count(chunk) > 0)
-    ordered.extend(chunk for chunk in chunks if chunk is not primary and _signal_count(chunk) == 0)
+    ordered.extend(
+        sorted(
+            (chunk for chunk in chunks if chunk is not primary and _signal_count(chunk) > 0),
+            key=lambda chunk: (_score(chunk), _coverage(chunk), _signal_count(chunk)),
+            reverse=True,
+        )
+    )
+    ordered.extend(
+        sorted(
+            (chunk for chunk in chunks if chunk is not primary and _signal_count(chunk) == 0),
+            key=lambda chunk: _score(chunk),
+            reverse=True,
+        )
+    )
 
     selected: List[Dict[str, object]] = []
     seen: Set[Tuple[object, object]] = set()
@@ -302,6 +328,7 @@ def _filter_context_chunks(
         source = chunk.get("source")
         coverage = _coverage(chunk)
         signals = _signal_count(chunk)
+        score = _score(chunk)
 
         if source != primary_source:
             if len(allowed_sources) >= max_documents:
@@ -310,7 +337,12 @@ def _filter_context_chunks(
                 continue
             if coverage < cross_doc_threshold:
                 continue
+            if score <= 0:
+                continue
             allowed_sources.add(source)
+
+        if source == primary_source and score <= 0:
+            continue
 
         selected.append(chunk)
         seen.add(chunk_key)
@@ -532,6 +564,9 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
+
+
 
 
 

@@ -7,7 +7,7 @@
         "Voice_Softphone.pdf#page=7"
       ],
       "relevant_chunk_indices": [
-        260
+        302
       ],
       "reference_answers": [
         "Doppelklicke auf das OpenScape Fusion Icon, warte auf den Anmeldedialog und halte die achtstellige DLS PIN bereit. Gib die PIN innerhalb von fuenf Minuten ein, bestaetige die Eingabe und starte das Softphone erst, nachdem die PIN akzeptiert wurde."
@@ -27,7 +27,7 @@
         "Voice_Softphone.pdf#page=8"
       ],
       "relevant_chunk_indices": [
-        261
+        303
       ],
       "reference_answers": [
         "Aktiviere beim ersten Login den Haken Anmeldedaten speichern, damit das Softphone die Zugangsdaten persistiert und das Fenster nicht bei jedem Start erneut erscheint. Danach gib das Initialkennwort oder das vorhandene UC Kennwort ein und bestaetige den Dialog."
@@ -48,8 +48,7 @@
         "Voice_Softphone.pdf#page=10"
       ],
       "relevant_chunk_indices": [
-        262,
-        263
+        305
       ],
       "reference_answers": [
         "Nach 90 Tagen fordert dich das System zur Kennwortaenderung auf. Waehle dann ein neues Kennwort mit mindestens acht Zeichen, einer Ziffer, einem Grossbuchstaben und einem Sonderzeichen, und verwende keine Umlaute."
@@ -70,7 +69,7 @@
         "Voice_Softphone.pdf#page=10"
       ],
       "relevant_chunk_indices": [
-        264
+        306
       ],
       "reference_answers": [
         "Schliesse das Softphone nicht nur ueber das Kreuz, sondern klicke in der Windows Taskleiste auf das Softphone Symbol, oeffne das Kontextmenue und waehle Beenden, damit der Prozess vollstaendig endet."
@@ -90,7 +89,7 @@
         "Voice_Softphone.pdf#page=12"
       ],
       "relevant_chunk_indices": [
-        266
+        308
       ],
       "reference_answers": [
         "Die Fusion Leiste enthaelt Optionen fuer die Anzeige, Favoriten und Kontakte, Konferenzen, die Anrufliste sowie Sammelanschluss- und Anrufumleitungsfunktionen. Zusaetzlich kannst du dort suchen, das aktive Endgeraet festlegen, deinen Praesenzstatus setzen und das Men oeffnen."
@@ -111,7 +110,7 @@
         "Voice_Softphone.pdf#page=5"
       ],
       "relevant_chunk_indices": [
-        259
+        301
       ],
       "reference_answers": [
         "Das KSC Softphone richtet sich an Servicecenter Nutzer, benoetigt eigene KSC Rufnummern und Lizenzen und erlaubt einen Mischbetrieb mit Hardwaretelefonen. Es verzichtet auf One Number Funktionen, waehrend das Standard Softphone unveraendert bleibt."
@@ -132,8 +131,8 @@
         "Voice_Softphone.pdf#page=17"
       ],
       "relevant_chunk_indices": [
-        269,
-        271
+        313,
+        315
       ],
       "reference_answers": [
         "Oeffne die Gerateeinstellungen, hinterlege deine Telefone oder Headsets und markiere das bevorzugte Endgeraet. In der Fusion Leiste kannst du anschliessend per Dropdown das aktive Endgeraet auswaehlen oder kurzfristig wechseln."
@@ -153,7 +152,7 @@
         "Voice_Softphone.pdf#page=22"
       ],
       "relevant_chunk_indices": [
-        276
+        321
       ],
       "reference_answers": [
         "Rufe im Softphone das Fenster Anrufumleitung und Regeln auf, definiere dort Zielnummer und Bedingungen und aktiviere die passende Regel. Achte darauf, dass einfache Umleitungen nur greifen, wenn keine speziellen Endgeraete oder individuellen Profile aktiv sind."
@@ -174,8 +173,8 @@
         "HpDrucker_Anleitung.pdf#page=86"
       ],
       "relevant_chunk_indices": [
-        125,
-        128
+        150,
+        153
       ],
       "reference_answers": [
         "Die Bedienoberflaeche umfasst Abbruch- und Wiederaufnahmetaste sowie mehrere Status LEDs. Die Wiederaufnahmetaste setzt angehaltene Jobs fort, die Druckpatronen LED weist auf Wartungsbedarf hin und verschiedene LED Kombinationen zeigen Papiernachlage, Papierstau oder Patronenfehler an."
@@ -195,7 +194,7 @@
         "HpDrucker_Anleitung.pdf#page=88"
       ],
       "relevant_chunk_indices": [
-        130
+        156
       ],
       "reference_answers": [
         "Beseitige einen Papierstau, indem du zuerst die Wiederaufnahmetaste drueckst, die hintere Abdeckung abnimmst und alle Papierreste vorsichtig entfernst. Setze das Modul wieder ein, verschliesse den Drucker und starte den Auftrag erneut."
@@ -215,7 +214,7 @@
         "HpDrucker_Anleitung.pdf#page=144"
       ],
       "relevant_chunk_indices": [
-        186
+        214
       ],
       "reference_answers": [
         "Die automatische Reinigung startest du ueber das Wartungsmenue unter Patronen reinigen. Bestaetige den Vorgang, warte die internen Durchlaeufe ab und verwende die Funktion nur bei sichtbaren Qualitaetsproblemen, weil dabei viel Tinte verbraucht wird."
@@ -235,7 +234,7 @@
         "HpDrucker_Anleitung.pdf#page=47"
       ],
       "relevant_chunk_indices": [
-        89
+        110
       ],
       "reference_answers": [
         "Fordere ueber hp.com/recycle frankierte Umschlaege oder Sammelkartons an, fuelle sie mit leeren Original HP Patronen und sende sie zurueck. HP verwertet bis zu 65 Prozent des Materials erneut und entsorgt den Rest fachgerecht."
@@ -255,7 +254,7 @@
         "HpDrucker_Anleitung.pdf#page=97"
       ],
       "relevant_chunk_indices": [
-        139
+        165
       ],
       "reference_answers": [
         "Nach dem Einsetzen einer neuen Patrone kalibriert der Drucker automatisch. Wenn Ausdrucke dennoch schief bleiben, leg normales Papier ein und starte ueber das Wartungsmenue eine erneute Kalibrierung."
@@ -275,7 +274,7 @@
         "HpDrucker_Anleitung.pdf#page=90"
       ],
       "relevant_chunk_indices": [
-        132
+        158
       ],
       "reference_answers": [
         "Pruefe, dass das Duplexmodul fest eingerastet ist, lasse die erste Seite drucken und fuehre das Modul fuer den Ruecklauf erneut ein. Befolge anschliessend die Hinweise des Druckers, um die Rueckseite zu bedrucken."

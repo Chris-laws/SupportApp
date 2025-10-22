@@ -13,7 +13,14 @@ torch
 langchain
 langchain-community
 pypdf
+tiktoken
+ocrmypdf
 
 # Utilities & integrations
 requests
 pynvml
+pyyaml
+matplotlib
+pandas
+nltk
+rouge-score
