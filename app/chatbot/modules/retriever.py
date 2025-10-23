@@ -316,13 +316,20 @@ class HybridRetriever:
         reranker: "CrossEncoderReranker | None" = None,
         reranker_k: int | None = None,
         reranker_weight: float = 0.6,
+        mode: str = "hybrid",
     ) -> List[Dict[str, object]]:
+        mode_normalized = (mode or "hybrid").lower()
+        use_bm25 = mode_normalized in {"hybrid", "bm25"}
+        use_dense = mode_normalized in {"hybrid", "dense"}
+
         keywords = self.keyword_generator.extract(question)
-        bm25_hits = self.bm25_index.search(keywords.bm25_terms, top_k=bm25_k)
+        bm25_hits: List[Tuple[int, float]] = []
+        if use_bm25:
+            bm25_hits = self.bm25_index.search(keywords.bm25_terms, top_k=bm25_k)
 
         dense_hits: List[Tuple[int, float]] = []
         dense_global_k = max(bm25_k, 80)
-        if self.faiss_index is not None and self.chunk_records:
+        if use_dense and self.faiss_index is not None and self.chunk_records:
             query = np.array([query_embedding], dtype=np.float32)
             distances, indices = self.faiss_index.search(query, dense_global_k)
             dense_hits = [

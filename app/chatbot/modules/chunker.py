@@ -4,7 +4,6 @@ import re
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 from typing import Any, Dict, Iterable, List, Optional, Tuple
-
 from langchain_community.document_loaders import PyPDFLoader
 
 logger = logging.getLogger(__name__)

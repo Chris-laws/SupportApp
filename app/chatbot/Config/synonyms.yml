@@ -2,24 +2,83 @@ synonyms:
   kennwort:
     - passwort
     - password
+    - passcode
     - pwd
   passwort:
     - kennwort
     - password
+    - passcode
+  zuruecksetzen:
+    - reset
+    - ruecksetzen
+    - wiederherstellen
+  reset:
+    - zuruecksetzen
+    - ruecksetzen
   softphone:
     - agree21voice
     - voice softphone
-  reset:
-    - zuruecksetzen
-    - wechseln
+    - cti client
+  anmeldedaten:
+    - login daten
+    - anmeldeinformationen
+    - credentials
+  greenshot:
+    - screenshot tool
+    - screen capture
+  stellvertreter:
+    - delegate
+    - vertretung
+  outlook:
+    - outlook online
+    - office outlook
+  papierstau:
+    - paper jam
+    - jam
+  vpn:
+    - remote zugang
+    - firmenzugang
+  token:
+    - otp
+    - tan
+  starttls:
+    - start tls
+    - start-tls
+  self-service:
+    - selfservice
+    - saga self-service
+    - saga selfservice
+  clir:
+    - rufnummernunterdrueckung
+    - calling line identification restriction
+  iq suite:
+    - iq.suite
+    - iqsuite
+  office.com:
+    - office com
+    - office portal
+  kalendergruppe:
+    - kalender gruppe
+  vram:
+    - grafikspeicher
 phrases:
   kennwort aendern:
     - passwort aendern
     - kennwort reset
     - passwort reset
+    - kennwort zuruecksetzen
   passwort zuruecksetzen:
     - kennwort zuruecksetzen
     - password reset
+    - kennwort reset
   softphone anrufumleitung:
     - anrufumleitung softphone
     - voice softphone forwarding
+  anmelden daten speichern:
+    - anmeldeinformationen speichern
+    - save credentials
+  senden von:
+    - send as
+    - senden als
+    - senden-von
+    - sendenvon

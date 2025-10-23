@@ -1,0 +1,123 @@
+﻿G001:
+  - kennwort
+  - softphone
+G002:
+  - anmeldedaten
+  - softphone
+G003:
+  - dls
+  - pin
+G004:
+  - beenden
+  - taskleiste
+G005:
+  - fusion
+  - favoriten
+G006:
+  - endgeraet
+  - fusion
+G007:
+  - one
+  - number
+G008:
+  - clir
+  - rufnummer
+G009:
+  - clir
+  - deaktivieren
+G010:
+  - kontakte
+  - rufnummer
+G011:
+  - konferenz
+  - moderator
+G012:
+  - papierstau
+  - drucker
+G013:
+  - duplex
+  - drucker
+G014:
+  - patrone
+  - reinigen
+G015:
+  - abwesenheitsagent
+  - clerk
+G016:
+  - stellvertreter
+  - ordner
+G017:
+  - raum
+  - buchung
+G018:
+  - proxy
+  - webgateway
+G019:
+  - secure
+  - webgateway
+G020:
+  - ldap
+  - starttls
+G021:
+  - forms
+  - betriebsrat
+G022:
+  - postfach
+  - regeln
+G023:
+  - senden von
+  - outlook
+G024:
+  - stellvertreter
+  - zugriff
+G025:
+  - greenshot
+  - screenshot
+G026:
+  - periodisch
+  - zeitraum
+G027:
+  - halbtagig
+  - wiederholungsrhythmus
+G028:
+  - ordnerberechtigungen
+  - vertreter
+G029:
+  - iq suite
+  - passwortmanager
+G030:
+  - serverseitig
+  - office.com
+G031:
+  - kalendergruppe
+  - adressbuch
+G032:
+  - hinweise
+  - warnungen
+G033:
+  - ssl-analyse
+  - filter
+G034:
+  - vertrauensstellung
+  - root-zertifikat
+G035:
+  - sonderzeichen
+  - favoriten importieren
+G036:
+  - benutzerdefiniertes profil
+  - prasenzstatus
+G037:
+  - anrufumleitung
+  - praferiertes endgerat
+G038:
+  - saga
+  - internetprofile
+G039:
+  - sofort speichern
+  - zwischenablage
+G040:
+  - test
+  - anmeldeinformationen
+G041:
+  - druckqualitat
+  - druckersoftware
