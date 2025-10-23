@@ -1,0 +1,4 @@
+,spearman_recall_f1,spearman_ndcg_f1,spearman_mrr_f1,spearman_recall_factual,spearman_ndcg_factual,spearman_mrr_factual,pearson_recall_f1,pearson_ndcg_f1,pearson_mrr_f1,pearson_recall_factual,pearson_ndcg_factual,pearson_mrr_factual
+Hybrid (BM25+Dense),0.031880,0.057722,0.091814,0.009748,0.077491,0.103738,0.059929,0.078693,0.105896,0.038233,0.069901,0.104159
+BM25 only,0.031880,0.057722,0.091814,0.046762,0.127456,0.145250,0.059929,0.078693,0.105896,0.073547,0.112366,0.144138
+Dense only,0.243713,0.271054,0.307065,0.349041,0.259824,0.268985,0.261155,0.290783,0.325284,0.367502,0.304102,0.280899

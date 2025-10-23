@@ -1,0 +1,2 @@
+label,runs,keyword_f1_mean,keyword_f1_std,factual_mean,factual_std,time_mean,time_std
+hybrid_k10_mistral,3,0.626326,0.023162,0.739837,0.014082,4.092624,0.010876

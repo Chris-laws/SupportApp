@@ -3,6 +3,7 @@
 import argparse
 import csv
 import json
+import logging
 import math
 import os
 import re
@@ -227,6 +228,60 @@ def canonical_keyword_set(normalizer: KeywordNormalizer, keywords: Sequence[str]
     return result
 
 
+_CITATION_RE = re.compile(r"\([^)]*?\bS\.\s*\d+\)", re.IGNORECASE)
+
+
+def analyze_answer_format(
+    answer: str,
+    expected_set: set[str],
+    normalizer: KeywordNormalizer,
+) -> tuple[bool, bool, bool, int]:
+    lines = [line.strip() for line in answer.splitlines() if line.strip()]
+    bullet_lines = [line for line in lines if line.startswith("- ")]
+    bullet_count = len(bullet_lines)
+    if not bullet_lines:
+        return False, False, "nicht im kontext" in answer.lower(), 0
+
+    keyword_ok = True
+    citation_ok = True
+    for line in bullet_lines:
+        body = line[2:].strip()
+        prefix = body.split(":", 1)[0].strip()
+        canonical = normalizer.canonical_keyword(prefix) if prefix else ""
+        if expected_set:
+            if canonical not in expected_set:
+                keyword_ok = False
+        else:
+            if not canonical:
+                keyword_ok = False
+
+        if not _CITATION_RE.search(line):
+            citation_ok = False
+
+    contains_nic = "nicht im kontext" in answer.lower()
+    return keyword_ok, citation_ok, contains_nic, bullet_count
+
+
+def kendall_tau(pre_ranks: Sequence[int]) -> float:
+    n = len(pre_ranks)
+    if n < 2:
+        return 0.0
+    concordant = 0
+    discordant = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            if pre_ranks[i] == pre_ranks[j]:
+                continue
+            if pre_ranks[i] < pre_ranks[j]:
+                concordant += 1
+            else:
+                discordant += 1
+    total = concordant + discordant
+    if total == 0:
+        return 0.0
+    return (concordant - discordant) / total
+
+
 def evaluate_keywords(
     qid: str,
     expected_keywords: Sequence[str],
@@ -283,14 +338,19 @@ def main() -> None:
     parser.add_argument("--retrieval-mode", choices=["hybrid", "bm25", "dense"], default="hybrid")
     parser.add_argument("--max-context-chars", type=int, default=2200)
     parser.add_argument("--timeout", type=int, default=60)
+    parser.add_argument("--reranker-k", type=int, default=None, help="Wie viele Kandidaten an den Cross-Encoder geben")
     parser.add_argument("--disable-query-rewrite", action="store_true")
     parser.add_argument("--synonyms", type=Path, default=Path("app/chatbot/Config/synonyms.yml"))
     parser.add_argument("--mandatory-keywords", type=Path, default=Path("app/chatbot/Config/mandatory_keywords.yml"))
     parser.add_argument("--log-missing-keywords", action="store_true")
+    parser.add_argument("--log-retrieval-details", action="store_true", help="Log Anteil BM25/Dense je Anfrage")
     args = parser.parse_args()
 
     if args.disable_query_rewrite:
         os.environ["SUPPORTAPP_DISABLE_QUERY_REWRITE"] = "1"
+
+    if args.log_retrieval_details:
+        logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
     ground_truth_entries = load_ground_truth(args.ground_truth)
     if not ground_truth_entries:
@@ -328,6 +388,18 @@ def main() -> None:
         "tokens_in",
         "tokens_out",
         "factual_correct",
+        "top_k",
+        "bm25_in_topk",
+        "dense_in_topk",
+        "overlap_in_topk",
+        "rerank_delta_top1",
+        "avg_score_delta_topk",
+        "kendall_tau_topk",
+        "format_bullet_keyword",
+        "format_citation_per_bullet",
+        "contains_nicht_im_kontext",
+        "bullet_count",
+        "error_bucket",
     ]
 
     with args.output.open("w", newline="", encoding="utf-8") as csvfile:
@@ -348,9 +420,11 @@ def main() -> None:
                 top_k=args.candidate_pool,
                 bm25_k=max(200, args.candidate_pool * 4),
                 reranker=reranker,
-                reranker_k=max(args.candidate_pool * 3, 150),
+                reranker_k=args.reranker_k if args.reranker_k is not None else max(args.candidate_pool * 3, 150),
                 reranker_weight=0.7,
                 mode=args.retrieval_mode,
+                question_id=qid,
+                log_details=args.log_retrieval_details,
             )
 
             ranked_pairs: List[Pair] = []
@@ -363,6 +437,29 @@ def main() -> None:
                 contexts.append(str(chunk.get("content") or ""))
 
             ranked_pairs = dedupe_pairs(ranked_pairs)
+
+            top_chunks = ranked_chunks[: args.k]
+            bm25_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_bm25"))
+            dense_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_dense"))
+            overlap_in_topk = sum(
+                1 for chunk in top_chunks if chunk.get("from_bm25") and chunk.get("from_dense")
+            )
+            if top_chunks:
+                top1 = top_chunks[0]
+                retriever_score_top1 = float(top1.get("retriever_score", top1.get("score", 0.0)))
+                rerank_delta_top1 = float(top1.get("score", retriever_score_top1)) - retriever_score_top1
+                deltas = [
+                    float(chunk.get("score", chunk.get("retriever_score", 0.0)))
+                    - float(chunk.get("retriever_score", 0.0))
+                    for chunk in top_chunks
+                ]
+                avg_score_delta_topk = float(np.mean(deltas))
+                pre_ranks = [int(chunk.get("pre_rank", idx + 1)) for idx, chunk in enumerate(top_chunks)]
+                kendall_tau_topk = kendall_tau(pre_ranks)
+            else:
+                rerank_delta_top1 = 0.0
+                avg_score_delta_topk = 0.0
+                kendall_tau_topk = 0.0
 
             recall = recall_at_k(relevant_pairs, ranked_pairs, args.k)
             ndcg = ndcg_at_k(relevant_pairs, ranked_pairs, args.k)
@@ -380,19 +477,21 @@ def main() -> None:
             if expected_keywords:
                 keyword_list = ", ".join(expected_keywords)
                 keyword_clause = (
-                    "Pflicht-Schluesselwoerter (genau in dieser Schreibweise verwenden, sofern durch den Kontext gedeckt): "
+                    "Pflicht-Schluesselwoerter (exakt in dieser Schreibweise verwenden): "
                     f"{keyword_list}.\n"
-                    "Vermeide Synonyme. Die letzte Zeile muss stets 'Fehlend: ...' lauten: "
-                    "Schreibe 'Fehlend: -', wenn nichts fehlt, ansonsten liste die fehlenden Begriffe wortwoertlich und komma-getrennt nach 'Fehlend: '.\n"
+                    "Formatiere die Antwort als Liste mit kurzen Saetzen. Jede Zeile beginnt mit '- ' und enthaelt GENAU EIN Pflicht-Schluesselwort, gefolgt von einem belegten Kurzsatz und der Quelle im Format '(Dokument, S.X)'.\n"
+                    "Setze keine Synonyme ein. Wenn eine Information fehlt, verwende statt eines Satzes den Eintrag '- <Schluesselwort>: Nicht im Kontext'.\n"
+                    "Beende die Antwort mit der Zeile 'Fehlend: ...' (verwende '-' falls nichts fehlt). Fuehre danach die Zeile 'Quellen: ...' mit allen verwendeten Quellen auf.\n"
                 )
 
             prompt = (
-                "Beantworte die Frage anhand der bereitgestellten Dokumentenabschnitte.\n"
-                "Nutze nur Fakten aus dem Kontext und gib Quellen als (Dokument, S.X) an.\n"
+                "Beantworte die Frage ausschliesslich anhand der bereitgestellten Dokumentenabschnitte.\n"
+                "Wenn sich eine geforderte Information nicht sicher aus dem Kontext belegen laesst, schreibe 'Nicht im Kontext'.\n"
                 f"{keyword_clause}\n"
                 f"FRAGE:\n{query}\n\nKONTEXT:\n{context_text}\n\nANTWORT:"
             )
             tokens_in = tokens_from_text(prompt)
+            expected_canonical = canonical_keyword_set(keyword_normalizer, expected_keywords)
 
             for model_id in models:
                 start = time.time()
@@ -401,7 +500,7 @@ def main() -> None:
                         prompt,
                         model=model_id,
                         language="Deutsch",
-                        options={"timeout": args.timeout},
+                        options={"timeout": args.timeout, "temperature": 0.1, "top_p": 0.9},
                     )
                 except Exception as exc:  # noqa: BLE001
                     answer = f"Antwort fehlgeschlagen: {exc}"
@@ -416,6 +515,21 @@ def main() -> None:
                 )
                 factual = factual_check(answer, contexts[: args.k])
                 tokens_out = tokens_from_text(answer)
+
+                format_keyword_ok, format_citation_ok, contains_nic, bullet_count = analyze_answer_format(
+                    answer,
+                    expected_canonical,
+                    keyword_normalizer,
+                )
+
+                if first_rank is None or first_rank == "":
+                    error_bucket = "B"
+                elif not factual:
+                    error_bucket = "A"
+                elif not (format_keyword_ok and format_citation_ok):
+                    error_bucket = "C"
+                else:
+                    error_bucket = "OK"
 
                 row = {
                     "question_id": qid,
@@ -432,6 +546,18 @@ def main() -> None:
                     "tokens_in": tokens_in,
                     "tokens_out": tokens_out,
                     "factual_correct": int(factual),
+                    "top_k": args.k,
+                    "bm25_in_topk": bm25_in_topk,
+                    "dense_in_topk": dense_in_topk,
+                    "overlap_in_topk": overlap_in_topk,
+                    "rerank_delta_top1": round(rerank_delta_top1, 6),
+                    "avg_score_delta_topk": round(avg_score_delta_topk, 6),
+                    "kendall_tau_topk": round(kendall_tau_topk, 6),
+                    "format_bullet_keyword": int(format_keyword_ok),
+                    "format_citation_per_bullet": int(format_citation_ok),
+                    "contains_nicht_im_kontext": int(contains_nic),
+                    "bullet_count": bullet_count,
+                    "error_bucket": error_bucket,
                 }
                 writer.writerow(row)
 

@@ -317,6 +317,9 @@ class HybridRetriever:
         reranker_k: int | None = None,
         reranker_weight: float = 0.6,
         mode: str = "hybrid",
+        *,
+        question_id: str | None = None,
+        log_details: bool = False,
     ) -> List[Dict[str, object]]:
         mode_normalized = (mode or "hybrid").lower()
         use_bm25 = mode_normalized in {"hybrid", "bm25"}
@@ -326,23 +329,33 @@ class HybridRetriever:
         bm25_hits: List[Tuple[int, float]] = []
         if use_bm25:
             bm25_hits = self.bm25_index.search(keywords.bm25_terms, top_k=bm25_k)
+        bm25_indices = {idx for idx, _ in bm25_hits}
+        bm25_score_map: Dict[int, float] = {idx: float(score) for idx, score in bm25_hits}
 
         dense_hits: List[Tuple[int, float]] = []
+        dense_indices: Set[int] = set()
         dense_global_k = max(bm25_k, 80)
         if use_dense and self.faiss_index is not None and self.chunk_records:
             query = np.array([query_embedding], dtype=np.float32)
             distances, indices = self.faiss_index.search(query, dense_global_k)
-            dense_hits = [
-                (int(idx), float(score))
-                for idx, score in zip(indices[0], distances[0])
-                if idx >= 0
-            ]
+            dense_hits = []
+            for idx, distance in zip(indices[0], distances[0]):
+                if idx < 0:
+                    continue
+                sim = 1.0 / (1.0 + float(distance))
+                dense_hits.append((int(idx), float(sim)))
+            dense_indices = {idx for idx, _ in dense_hits}
+            dense_score_map: Dict[int, float] = {idx: float(score) for idx, score in dense_hits}
         elif not bm25_hits and self.chunk_records:
             # Fallback: dense Hits erzeugen, wenn kein BM25 und kein Index vorhanden
             texts = [str(chunk.get("content") or "") for chunk in self.chunk_records]
             dense_embeddings = get_embeddings(texts)
             sims = dense_embeddings @ query_embedding
             dense_hits = sorted([(idx, float(score)) for idx, score in enumerate(sims)], key=lambda item: item[1], reverse=True)[:dense_global_k]
+            dense_indices = {idx for idx, _ in dense_hits}
+            dense_score_map = {idx: float(score) for idx, score in dense_hits}
+        else:
+            dense_score_map = {}
 
         # Kandidatenpool vereinigen
         cand_scores: Dict[int, float] = {}
@@ -354,22 +367,21 @@ class HybridRetriever:
         candidate_indices = list(cand_scores.keys())
         if not candidate_indices:
             candidate_indices = list(range(len(self.chunk_records)))
-            bm25_hits = [(idx, 0.0) for idx in candidate_indices]
+            bm25_indices = set(candidate_indices)
+            bm25_score_map = {idx: 0.0 for idx in candidate_indices}
         else:
             max_pool = max(bm25_k, dense_global_k)
-            candidate_indices = [
-                idx for idx, _ in sorted(cand_scores.items(), key=lambda item: item[1], reverse=True)[:max_pool]
-            ]
-            bm25_hits = [(idx, cand_scores.get(idx, 0.0)) for idx in candidate_indices]
+            candidate_indices = [idx for idx, _ in sorted(cand_scores.items(), key=lambda item: item[1], reverse=True)[:max_pool]]
 
         vector_scores, l2_distances = self._vector_scores(query_embedding, candidate_indices)
 
-        max_bm25 = max((score for _, score in bm25_hits), default=0.0)
+        max_bm25 = max(bm25_score_map.values(), default=0.0)
         max_vec = max(vector_scores.values(), default=0.0)
         max_l2 = max(l2_distances.values(), default=0.0)
 
         results: List[Dict[str, object]] = []
-        for idx, bm25_score in bm25_hits:
+        for idx in candidate_indices:
+            bm25_score = bm25_score_map.get(idx, 0.0)
             chunk = dict(self.chunk_records[idx])
             vec_score = vector_scores.get(idx, 0.0)
             l2_distance = l2_distances.get(idx, 0.0)
@@ -387,9 +399,14 @@ class HybridRetriever:
                 max_l2=max_l2,
             )
 
+            in_bm25 = idx in bm25_indices
+            in_dense = idx in dense_indices
+            dense_score = dense_score_map.get(idx, 0.0)
+
             chunk.update(
                 {
                     "bm25_score": bm25_score,
+                    "dense_score": dense_score,
                     "vector_score": vec_score,
                     "l2_distance": l2_distance,
                     "matched_terms": match_info["matches"],
@@ -397,9 +414,14 @@ class HybridRetriever:
                     "section_hit": match_info["section_score"] > 0,
                     "section_score": match_info["section_score"],
                     "score": score,
+                    "combined_score": score,
+                    "retriever_score": score,
                     "chunk_index": idx,
+                    "from_bm25": in_bm25,
+                    "from_dense": in_dense,
                 }
             )
+            chunk["pre_rank"] = len(results) + 1
             results.append(chunk)
 
         results.sort(key=lambda item: item["score"], reverse=True)
@@ -417,7 +439,26 @@ class HybridRetriever:
                 base = float(chunk.get("score", 0.0))
                 chunk.setdefault("retriever_score", base)
                 chunk.setdefault("combined_score", base)
-        return results[:top_k]
+
+        final_results = results[:top_k]
+
+        if log_details and logger.isEnabledFor(logging.INFO):
+            bm25_top = sum(1 for item in final_results if item.get("from_bm25") and not item.get("from_dense"))
+            dense_top = sum(1 for item in final_results if item.get("from_dense") and not item.get("from_bm25"))
+            overlap_top = sum(1 for item in final_results if item.get("from_bm25") and item.get("from_dense"))
+            logger.info(
+                "Retriever mix | question=%s | top_k=%s | bm25_only=%s | dense_only=%s | overlap=%s | pool_sizes=(bm25:%s dense:%s union:%s)",
+                question_id or "<unknown>",
+                len(final_results),
+                bm25_top,
+                dense_top,
+                overlap_top,
+                len(bm25_indices),
+                len(dense_indices),
+                len(cand_scores),
+            )
+
+        return final_results
 
     def _apply_reranking(
         self,

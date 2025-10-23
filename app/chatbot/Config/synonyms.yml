@@ -61,6 +61,37 @@ synonyms:
     - kalender gruppe
   vram:
     - grafikspeicher
+  taskleiste:
+    - task-leiste
+    - taskbar
+  endgeraet:
+    - endgerat
+    - geraet
+    - hauptgeraet
+  rufnummer:
+    - telefonnummer
+    - nummer
+  auswaehlen:
+    - auswahl
+    - waehlen
+  periodisch:
+    - wiederkehrend
+    - regelmaessig
+  sonderzeichen:
+    - special characters
+    - zeichen bereinigung
+  prasenzstatus:
+    - praesenz
+    - anwesenheitsstatus
+  internetprofile:
+    - internet profile
+    - profil internet
+  freigabe:
+    - freischaltung
+    - sharing
+  druckqualitat:
+    - druck qualitaet
+    - print quality
 phrases:
   kennwort aendern:
     - passwort aendern
