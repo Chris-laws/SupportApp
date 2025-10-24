@@ -1,2 +1,2 @@
 label,runs,keyword_f1_mean,keyword_f1_std,factual_mean,factual_std,time_mean,time_std
-hybrid_k10_llama3,3,0.609135,0.008635,0.813008,0.014082,4.125218,0.011793
+hybrid_k12_ctx8_llama3,3,0.610446,0.014826,0.926829,0.000000,4.151720,0.070472

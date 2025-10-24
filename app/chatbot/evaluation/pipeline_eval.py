@@ -333,7 +333,8 @@ def main() -> None:
     parser.add_argument("--ground-truth", type=Path, default=Path("app/chatbot/evaluation/questions_curated20.jsonl"))
     parser.add_argument("--output", type=Path, default=Path("app/chatbot/evaluation/results_pipeline.csv"))
     parser.add_argument("--models", nargs="*", default=["mistral:instruct", "gemma:2b", "phi3:latest"])
-    parser.add_argument("--k", type=int, default=5, help="k fuer Retrieval-Metriken")
+    parser.add_argument("--k", type=int, default=5, help="Anzahl der Chunks fuer Retrieval-Metriken (k-retrieve)")
+    parser.add_argument("--k-context", type=int, default=8, help="Anzahl der Chunks, die in den Prompt aufgenommen werden")
     parser.add_argument("--candidate-pool", type=int, default=80, help="Anzahl der Kandidaten fuer den Retriever")
     parser.add_argument("--retrieval-mode", choices=["hybrid", "bm25", "dense"], default="hybrid")
     parser.add_argument("--max-context-chars", type=int, default=2200)
@@ -438,6 +439,8 @@ def main() -> None:
 
             ranked_pairs = dedupe_pairs(ranked_pairs)
 
+            expected_canonical = canonical_keyword_set(keyword_normalizer, expected_keywords)
+
             top_chunks = ranked_chunks[: args.k]
             bm25_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_bm25"))
             dense_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_dense"))
@@ -466,11 +469,13 @@ def main() -> None:
             mrr_value = mrr(relevant_pairs, ranked_pairs[: args.k])
             first_rank = rank_first_rel(relevant_pairs, ranked_pairs)
 
+            context_candidates = ranked_chunks[: args.k]
             window = select_context_window(
-                ranked_chunks[: max(args.k * 2, 10)],
-                max_chunks=6,
-                min_chunks=3,
+                context_candidates,
+                max_chunks=args.k_context,
+                min_chunks=min(args.k_context, 3),
                 max_chars=args.max_context_chars,
+                expected_tokens=expected_canonical,
             )
             context_text = "\n\n".join(str(chunk.get("content") or "") for chunk in window if chunk.get("content"))
             keyword_clause = ""
@@ -491,7 +496,6 @@ def main() -> None:
                 f"FRAGE:\n{query}\n\nKONTEXT:\n{context_text}\n\nANTWORT:"
             )
             tokens_in = tokens_from_text(prompt)
-            expected_canonical = canonical_keyword_set(keyword_normalizer, expected_keywords)
 
             for model_id in models:
                 start = time.time()
