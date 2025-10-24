@@ -212,14 +212,13 @@ def export_retrieval_mix(source: Path, output: Path) -> None:
 if __name__ == "__main__":
     base = Path("app/chatbot/evaluation")
     run_map = {
-        "hybrid_k5": base / "results_hybrid_k5_mistral_ce.csv",
-        "hybrid_k8": base / "results_hybrid_k8_mistral_ce.csv",
-        "hybrid_k10": base / "results_hybrid_k10_mistral_ce.csv",
-        "hybrid_k12": base / "results_hybrid_k12_mistral_ce.csv",
-        "hybrid_k10_r50": base / "results_hybrid_k10_mistral_ce_r50.csv",
-        "hybrid_k10_r50_chunk260": base / "results_hybrid_k10_mistral_ce_r50_chunk260.csv",
-        "dense_k10": base / "results_dense_k10_mistral_ce.csv",
-        "model_mistral": base / "results_model_mistral_k10.csv",
+        "hybrid_k5": base / "results_hybrid_k5_llama3_8b.csv",
+        "hybrid_k8": base / "results_hybrid_k8_llama3_8b.csv",
+        "hybrid_k10": base / "results_hybrid_k10_llama3_8b.csv",
+        "hybrid_k12": base / "results_hybrid_k12_llama3_8b.csv",
+        "hybrid_k10_r50": base / "results_hybrid_k10_llama3_8b_r50.csv",
+        "dense_k10": base / "results_dense_k10_llama3_8b.csv",
+        "model_llama3": base / "results_model_llama3_8b_k10.csv",
         "model_gemma": base / "results_model_gemma_k10.csv",
         "model_phi3": base / "results_model_phi3_k10.csv",
     }
@@ -227,13 +226,13 @@ if __name__ == "__main__":
     export_correlations(run_map, base / "summary_run_correlations.csv")
 
     stability_runs = {
-        "hybrid_k10_mistral": [
-            base / "results_hybrid_k10_mistral_ce.csv",
-            base / "results_hybrid_k10_mistral_ce_run2.csv",
-            base / "results_hybrid_k10_mistral_ce_run3.csv",
+        "hybrid_k10_llama3": [
+            base / "results_hybrid_k10_llama3_8b.csv",
+            base / "results_hybrid_k10_llama3_8b_run2.csv",
+            base / "results_hybrid_k10_llama3_8b_run3.csv",
         ],
     }
     write_stability_report(stability_runs, base / "summary_stability.csv")
 
-    export_retrieval_mix(base / "results_hybrid_k10_mistral_ce.csv", base / "retrieval_mix_hybrid_k10.csv")
-    export_retrieval_mix(base / "results_dense_k10_mistral_ce.csv", base / "retrieval_mix_dense_k10.csv")
+    export_retrieval_mix(base / "results_hybrid_k10_llama3_8b.csv", base / "retrieval_mix_hybrid_k10.csv")
+    export_retrieval_mix(base / "results_dense_k10_llama3_8b.csv", base / "retrieval_mix_dense_k10.csv")
