@@ -20,7 +20,12 @@ import yaml
 
 from app.chatbot.modules.embeddings import get_embeddings, load_faiss_index
 from app.chatbot.modules.llm import query_ollama
-from app.chatbot.modules.retriever import HybridRetriever, select_context_window
+from app.chatbot.modules.retriever import (
+    HybridRetriever,
+    generate_multi_queries,
+    merge_ranked_results,
+    select_context_window,
+)
 
 try:
     from app.chatbot.modules.reranker import CrossEncoderReranker
@@ -333,13 +338,14 @@ def main() -> None:
     parser.add_argument("--ground-truth", type=Path, default=Path("app/chatbot/evaluation/questions_curated20.jsonl"))
     parser.add_argument("--output", type=Path, default=Path("app/chatbot/evaluation/results_pipeline.csv"))
     parser.add_argument("--models", nargs="*", default=["mistral:instruct", "gemma:2b", "phi3:latest"])
-    parser.add_argument("--k", type=int, default=5, help="Anzahl der Chunks fuer Retrieval-Metriken (k-retrieve)")
+    parser.add_argument("--k", type=int, default=20, help="Anzahl der Chunks fuer Retrieval-Metriken (k-retrieve)")
     parser.add_argument("--k-context", type=int, default=8, help="Anzahl der Chunks, die in den Prompt aufgenommen werden")
-    parser.add_argument("--candidate-pool", type=int, default=80, help="Anzahl der Kandidaten fuer den Retriever")
+    parser.add_argument("--multi-queries", type=int, default=4, help="Anzahl der Query-Varianten fuer Multi-Query-Retrieval")
+    parser.add_argument("--candidate-pool", type=int, default=20, help="Anzahl der finalen Retriever-Kandidaten (top-k)")
     parser.add_argument("--retrieval-mode", choices=["hybrid", "bm25", "dense"], default="hybrid")
     parser.add_argument("--max-context-chars", type=int, default=2200)
     parser.add_argument("--timeout", type=int, default=60)
-    parser.add_argument("--reranker-k", type=int, default=None, help="Wie viele Kandidaten an den Cross-Encoder geben")
+    parser.add_argument("--reranker-k", type=int, default=50, help="Wie viele Kandidaten an den Cross-Encoder geben")
     parser.add_argument("--disable-query-rewrite", action="store_true")
     parser.add_argument("--synonyms", type=Path, default=Path("app/chatbot/Config/synonyms.yml"))
     parser.add_argument("--mandatory-keywords", type=Path, default=Path("app/chatbot/Config/mandatory_keywords.yml"))
@@ -414,19 +420,26 @@ def main() -> None:
             if not relevant_pairs:
                 print(f"WARN: Keine relevanten Dokumente fuer {qid}")
 
-            embedding = get_embeddings([query])[0]
-            ranked_chunks = retriever.retrieve(
-                question=query,
-                query_embedding=np.array(embedding, dtype=np.float32),
-                top_k=args.candidate_pool,
-                bm25_k=max(200, args.candidate_pool * 4),
-                reranker=reranker,
-                reranker_k=args.reranker_k if args.reranker_k is not None else max(args.candidate_pool * 3, 150),
-                reranker_weight=0.7,
-                mode=args.retrieval_mode,
-                question_id=qid,
-                log_details=args.log_retrieval_details,
-            )
+            query_variants = generate_multi_queries(query, total_variants=args.multi_queries)
+            query_embeddings = get_embeddings(query_variants)
+            result_batches = []
+            for variant, embedding in zip(query_variants, query_embeddings):
+                kwargs = {
+                    "question": variant,
+                    "query_embedding": np.array(embedding, dtype=np.float32),
+                    "top_k": args.candidate_pool,
+                    "bm25_k": max(200, args.candidate_pool * 4),
+                    "reranker_weight": 0.7,
+                    "mode": args.retrieval_mode,
+                    "question_id": qid,
+                    "log_details": args.log_retrieval_details,
+                }
+                if reranker is not None:
+                    kwargs["reranker"] = reranker
+                    kwargs["reranker_k"] = args.reranker_k
+                result_batches.append(retriever.retrieve(**kwargs))
+
+            ranked_chunks = merge_ranked_results(result_batches, args.candidate_pool)
 
             ranked_pairs: List[Pair] = []
             contexts: List[str] = []

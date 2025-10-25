@@ -3,19 +3,27 @@ from __future__ import annotations
 import os
 from typing import List
 
+import numpy as np
 
 from modules.chunker import load_and_chunk_pdf
 from modules.embeddings import get_embeddings, load_faiss_index, save_embeddings_to_faiss
 from modules.llm import query_ollama
 from modules.reranker import CrossEncoderReranker
-from modules.retriever import HybridRetriever, rewrite_query_with_llama3, select_context_window
+from modules.retriever import (
+    HybridRetriever,
+    generate_multi_queries,
+    merge_ranked_results,
+    select_context_window,
+)
 
 BASE_DIR = os.path.dirname(__file__)
 INDEX_BASE_PATH = os.path.join(BASE_DIR, "data", "faiss_index", "index")
 PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "system_prompts.txt")
 
 RERANKER_WEIGHT = 0.6
-RERANKER_CANDIDATES = 100
+RERANKER_CANDIDATES = 50
+RETRIEVAL_TOP_K = 20
+MULTI_QUERY_VARIANTS = 4
 
 try:
     RERANKER = CrossEncoderReranker()
@@ -81,21 +89,28 @@ def ask_question(question: str) -> str:
 
     retriever = HybridRetriever(chunk_records, embeddings=embeddings, faiss_index=index)
 
-    optimized_query = rewrite_query_with_llama3(question)
-    print(f"Optimierte Suchanfrage: {optimized_query}")
+    query_variants = generate_multi_queries(question, total_variants=MULTI_QUERY_VARIANTS)
+    print("Suchanfragen: " + " | ".join(query_variants))
 
-    query_embedding = get_embeddings([optimized_query])[0]
-    top_k = 15
-    rerank_kwargs = {}
-    if RERANKER is not None:
-        rerank_kwargs.update(
-            {
-                "reranker": RERANKER,
-                "reranker_k": max(top_k * 2, RERANKER_CANDIDATES),
-                "reranker_weight": RERANKER_WEIGHT,
-            }
-        )
-    ranked_chunks = retriever.retrieve(question, query_embedding, top_k=top_k, **rerank_kwargs)
+    query_embeddings = get_embeddings(query_variants)
+    result_batches = []
+    for variant, embedding in zip(query_variants, query_embeddings):
+        kwargs = {
+            "question": variant,
+            "query_embedding": np.array(embedding, dtype=np.float32),
+            "top_k": RETRIEVAL_TOP_K,
+        }
+        if RERANKER is not None:
+            kwargs.update(
+                {
+                    "reranker": RERANKER,
+                    "reranker_k": RERANKER_CANDIDATES,
+                    "reranker_weight": RERANKER_WEIGHT,
+                }
+            )
+        result_batches.append(retriever.retrieve(**kwargs))
+
+    ranked_chunks = merge_ranked_results(result_batches, RETRIEVAL_TOP_K)
     if not ranked_chunks:
         raise RuntimeError("Keine relevanten Chunks gefunden.")
 
