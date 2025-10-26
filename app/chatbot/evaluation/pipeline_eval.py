@@ -10,10 +10,12 @@ import re
 import sys
 import time
 import unicodedata
+import threading
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from hashlib import sha1
 from pathlib import Path
-from typing import Iterable, Iterator, List, Mapping, Sequence, Tuple
+from typing import Dict, Iterable, Iterator, List, Mapping, Sequence, Tuple
 
 import numpy as np
 import yaml
@@ -378,17 +380,23 @@ def main() -> None:
     parser.add_argument("--models", nargs="*", default=["mistral:instruct", "gemma:2b", "phi3:latest"])
     parser.add_argument("--k", type=int, default=20, help="Anzahl der Chunks fuer Retrieval-Metriken (k-retrieve)")
     parser.add_argument("--k-context", type=int, default=8, help="Anzahl der Chunks, die in den Prompt aufgenommen werden")
-    parser.add_argument("--multi-queries", type=int, default=4, help="Anzahl der Query-Varianten fuer Multi-Query-Retrieval")
-    parser.add_argument("--candidate-pool", type=int, default=20, help="Anzahl der finalen Retriever-Kandidaten (top-k)")
+    parser.add_argument("--multi-queries", type=int, default=2, help="Anzahl der Query-Varianten fuer Multi-Query-Retrieval")
+    parser.add_argument("--candidate-pool", type=int, default=40, help="Anzahl der finalen Retriever-Kandidaten (top-k)")
     parser.add_argument("--retrieval-mode", choices=["hybrid", "bm25", "dense"], default="hybrid")
     parser.add_argument("--max-context-chars", type=int, default=2200)
     parser.add_argument("--timeout", type=int, default=60)
     parser.add_argument("--reranker-k", type=int, default=50, help="Wie viele Kandidaten an den Cross-Encoder geben")
     parser.add_argument("--disable-query-rewrite", action="store_true")
+    parser.add_argument("--disable-reranker", action="store_true", help="Cross-Encoder fuer schnellere Laeufe deaktivieren")
     parser.add_argument("--synonyms", type=Path, default=Path("app/chatbot/Config/synonyms.yml"))
     parser.add_argument("--mandatory-keywords", type=Path, default=Path("app/chatbot/Config/mandatory_keywords.yml"))
     parser.add_argument("--log-missing-keywords", action="store_true")
     parser.add_argument("--log-retrieval-details", action="store_true", help="Log Anteil BM25/Dense je Anfrage")
+    parser.add_argument("--max-per-doc", type=int, default=2, help="Maximale Anzahl Chunks pro Dokument im finalen Ranking")
+    parser.add_argument("--max-workers", type=int, default=max(1, min(4, os.cpu_count() or 2)), help="Parallelisierte Fragenverarbeitung")
+    parser.add_argument("--llm-workers", type=int, default=1, help="Parallele Ollama-Anfragen (1 = sequenziell)")
+    parser.add_argument("--answer-max-tokens", type=int, default=160, help="Maximale Token fuer LLM-Antworten")
+    parser.add_argument("--max-questions", type=int, default=None, help="Optional: Nur die ersten N Fragen verarbeiten")
     args = parser.parse_args()
 
     if args.disable_query_rewrite:
@@ -398,6 +406,8 @@ def main() -> None:
         logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
     ground_truth_entries = load_ground_truth(args.ground_truth)
+    if args.max_questions is not None:
+        ground_truth_entries = ground_truth_entries[: max(0, args.max_questions)]
     if not ground_truth_entries:
         print(f"Keine Ground-Truth-Daten in {args.ground_truth}", file=sys.stderr)
         sys.exit(1)
@@ -411,12 +421,18 @@ def main() -> None:
     retriever = HybridRetriever(records, embeddings=embeddings, faiss_index=index)
     chunk_lookup = build_chunk_lookup(records)
     reranker = None
-    if CrossEncoderReranker is not None:
+    if not args.disable_reranker and CrossEncoderReranker is not None:
         try:
             reranker = CrossEncoderReranker()
         except Exception as exc:  # noqa: BLE001
             print(f"WARN: Reranker konnte nicht geladen werden ({exc}), fahre ohne.")
             reranker = None
+
+    use_reranker = reranker is not None and not args.disable_reranker
+    if args.max_workers > 1 and use_reranker:
+        print("INFO: Cross-Encoder wird fuer parallele Ausfuehrung deaktiviert.", file=sys.stderr)
+        use_reranker = False
+    reranker_in_use = reranker if use_reranker else None
 
     ensure_output(args.output)
     fieldnames = [
@@ -448,146 +464,163 @@ def main() -> None:
         "error_bucket",
     ]
 
-    with args.output.open("w", newline="", encoding="utf-8") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+    llm_options: Dict[str, object] = {
+        "temperature": 0.05,
+        "top_p": 0.8,
+    }
+    if args.answer_max_tokens:
+        llm_options["num_predict"] = args.answer_max_tokens
 
-        for entry in ground_truth_entries:
-            qid, query, relevant_pairs, expected_keywords = parse_ground_truth_entry(entry, chunk_lookup)
-            if not query:
-                continue
-            if not relevant_pairs:
-                print(f"WARN: Keine relevanten Dokumente fuer {qid}")
+    llm_semaphore = threading.BoundedSemaphore(max(1, args.llm_workers))
+    pool_size = max(args.candidate_pool, args.k)
+    bm25_pool = max(200, pool_size * 3)
+    reranker_candidates = args.reranker_k if args.reranker_k is not None else max(pool_size * 2, 150)
+    model_order = {model: idx for idx, model in enumerate(models)}
+    question_order = {
+        (entry.get("id") or entry.get("question_id") or str(idx)): idx for idx, entry in enumerate(ground_truth_entries)
+    }
 
-            query_variants = generate_multi_queries(query, total_variants=args.multi_queries)
-            query_embeddings = get_embeddings(query_variants)
-            result_batches = []
-            for variant, embedding in zip(query_variants, query_embeddings):
-                kwargs = {
-                    "question": variant,
-                    "query_embedding": np.array(embedding, dtype=np.float32),
-                    "top_k": args.candidate_pool,
-                    "bm25_k": max(200, args.candidate_pool * 4),
-                    "reranker_weight": 0.7,
-                    "mode": args.retrieval_mode,
-                    "question_id": qid,
-                    "log_details": args.log_retrieval_details,
-                }
-                if reranker is not None:
-                    kwargs["reranker"] = reranker
-                    kwargs["reranker_k"] = args.reranker_k
-                result_batches.append(retriever.retrieve(**kwargs))
+    def process_entry(entry: dict) -> List[dict]:
+        qid, query, relevant_pairs, expected_keywords = parse_ground_truth_entry(entry, chunk_lookup)
+        rows: List[dict] = []
+        if not query:
+            return rows
+        if not relevant_pairs:
+            print(f"WARN: Keine relevanten Dokumente fuer {qid}")
 
-            ranked_chunks = merge_ranked_results(result_batches, args.candidate_pool)
+        query_variants = generate_multi_queries(query, total_variants=args.multi_queries)
+        query_embeddings = get_embeddings(query_variants)
+        result_batches = []
+        for variant, embedding in zip(query_variants, query_embeddings):
+            kwargs = {
+                "question": variant,
+                "query_embedding": np.array(embedding, dtype=np.float32),
+                "top_k": pool_size,
+                "bm25_k": bm25_pool,
+                "reranker_weight": 0.7,
+                "mode": args.retrieval_mode,
+                "question_id": qid,
+                "log_details": args.log_retrieval_details,
+            }
+            if reranker_in_use is not None:
+                kwargs["reranker"] = reranker_in_use
+                kwargs["reranker_k"] = reranker_candidates
+            result_batches.append(retriever.retrieve(**kwargs))
 
-            ranked_pairs: List[Pair] = []
-            contexts: List[str] = []
-            for chunk in ranked_chunks:
-                doc = Path(chunk.get("source") or "").name
-                page = chunk.get("page")
-                if doc and page is not None:
-                    ranked_pairs.append((doc, int(page)))
-                contexts.append(str(chunk.get("content") or ""))
+        ranked_chunks = merge_ranked_results(result_batches, pool_size, max_per_doc=args.max_per_doc)
 
-            ranked_pairs = dedupe_pairs(ranked_pairs)
+        ranked_pairs: List[Pair] = []
+        contexts: List[str] = []
+        for chunk in ranked_chunks:
+            doc = Path(chunk.get("source") or "").name
+            page = chunk.get("page")
+            if doc and page is not None:
+                ranked_pairs.append((doc, int(page)))
+            contexts.append(str(chunk.get("content") or ""))
 
-            expected_canonical = canonical_keyword_set(keyword_normalizer, expected_keywords)
+        ranked_pairs = dedupe_pairs(ranked_pairs)
+        expected_canonical = canonical_keyword_set(keyword_normalizer, expected_keywords)
 
-            top_chunks = ranked_chunks[: args.k]
-            bm25_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_bm25"))
-            dense_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_dense"))
-            overlap_in_topk = sum(
-                1 for chunk in top_chunks if chunk.get("from_bm25") and chunk.get("from_dense")
+        top_chunks = ranked_chunks[: args.k]
+        bm25_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_bm25"))
+        dense_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_dense"))
+        overlap_in_topk = sum(1 for chunk in top_chunks if chunk.get("from_bm25") and chunk.get("from_dense"))
+        if top_chunks:
+            top1 = top_chunks[0]
+            retriever_score_top1 = float(top1.get("retriever_score", top1.get("score", 0.0)))
+            rerank_delta_top1 = float(top1.get("score", retriever_score_top1)) - retriever_score_top1
+            deltas = [
+                float(chunk.get("score", chunk.get("retriever_score", 0.0))) - float(chunk.get("retriever_score", 0.0))
+                for chunk in top_chunks
+            ]
+            avg_score_delta_topk = float(np.mean(deltas))
+            pre_ranks = [int(chunk.get("pre_rank", idx + 1)) for idx, chunk in enumerate(top_chunks)]
+            kendall_tau_topk = kendall_tau(pre_ranks)
+        else:
+            rerank_delta_top1 = 0.0
+            avg_score_delta_topk = 0.0
+            kendall_tau_topk = 0.0
+
+        recall = recall_at_k(relevant_pairs, ranked_pairs, args.k)
+        ndcg = ndcg_at_k(relevant_pairs, ranked_pairs, args.k)
+        mrr_value = mrr(relevant_pairs, ranked_pairs[: args.k])
+        first_rank = rank_first_rel(relevant_pairs, ranked_pairs)
+
+        context_candidates = ranked_chunks[: args.k]
+        window = select_context_window(
+            context_candidates,
+            max_chunks=args.k_context,
+            min_chunks=min(args.k_context, 3),
+            max_chars=args.max_context_chars,
+            expected_tokens=expected_canonical,
+        )
+        context_text = "\n\n".join(str(chunk.get("content") or "") for chunk in window if chunk.get("content"))
+        keyword_clause = ""
+        if expected_keywords:
+            keyword_list = ", ".join(expected_keywords)
+            keyword_clause = (
+                "Pflicht-Schluesselwoerter (exakt in dieser Schreibweise verwenden): "
+                f"{keyword_list}.\n"
+                "Formatiere die Antwort als Liste mit kurzen Saetzen. Jede Zeile beginnt mit '- ' und enthaelt GENAU EIN "
+                "Pflicht-Schluesselwort, gefolgt von einem belegten Kurzsatz und der Quelle im Format '(Dokument, S.X)'.\n"
+                "Setze keine Synonyme ein. Wenn eine Information fehlt, verwende statt eines Satzes den Eintrag "
+                "'- <Schluesselwort>: Nicht im Kontext'.\n"
+                "Beende die Antwort mit der Zeile 'Fehlend: ...' (verwende '-' falls nichts fehlt). Fuehre danach die Zeile "
+                "'Quellen: ...' mit allen verwendeten Quellen auf.\n"
             )
-            if top_chunks:
-                top1 = top_chunks[0]
-                retriever_score_top1 = float(top1.get("retriever_score", top1.get("score", 0.0)))
-                rerank_delta_top1 = float(top1.get("score", retriever_score_top1)) - retriever_score_top1
-                deltas = [
-                    float(chunk.get("score", chunk.get("retriever_score", 0.0)))
-                    - float(chunk.get("retriever_score", 0.0))
-                    for chunk in top_chunks
-                ]
-                avg_score_delta_topk = float(np.mean(deltas))
-                pre_ranks = [int(chunk.get("pre_rank", idx + 1)) for idx, chunk in enumerate(top_chunks)]
-                kendall_tau_topk = kendall_tau(pre_ranks)
-            else:
-                rerank_delta_top1 = 0.0
-                avg_score_delta_topk = 0.0
-                kendall_tau_topk = 0.0
 
-            recall = recall_at_k(relevant_pairs, ranked_pairs, args.k)
-            ndcg = ndcg_at_k(relevant_pairs, ranked_pairs, args.k)
-            mrr_value = mrr(relevant_pairs, ranked_pairs[: args.k])
-            first_rank = rank_first_rel(relevant_pairs, ranked_pairs)
+        prompt = (
+            "Beantworte die Frage ausschliesslich anhand der bereitgestellten Dokumentenabschnitte.\n"
+            "Wenn sich eine geforderte Information nicht sicher aus dem Kontext belegen laesst, schreibe 'Nicht im Kontext'.\n"
+            f"{keyword_clause}\n"
+            f"FRAGE:\n{query}\n\nKONTEXT:\n{context_text}\n\nANTWORT:"
+        )
+        tokens_in = tokens_from_text(prompt)
+        factual_context = contexts[: args.k] or contexts or [""]
 
-            context_candidates = ranked_chunks[: args.k]
-            window = select_context_window(
-                context_candidates,
-                max_chunks=args.k_context,
-                min_chunks=min(args.k_context, 3),
-                max_chars=args.max_context_chars,
-                expected_tokens=expected_canonical,
-            )
-            context_text = "\n\n".join(str(chunk.get("content") or "") for chunk in window if chunk.get("content"))
-            keyword_clause = ""
-            if expected_keywords:
-                keyword_list = ", ".join(expected_keywords)
-                keyword_clause = (
-                    "Pflicht-Schluesselwoerter (exakt in dieser Schreibweise verwenden): "
-                    f"{keyword_list}.\n"
-                    "Formatiere die Antwort als Liste mit kurzen Saetzen. Jede Zeile beginnt mit '- ' und enthaelt GENAU EIN Pflicht-Schluesselwort, gefolgt von einem belegten Kurzsatz und der Quelle im Format '(Dokument, S.X)'.\n"
-                    "Setze keine Synonyme ein. Wenn eine Information fehlt, verwende statt eines Satzes den Eintrag '- <Schluesselwort>: Nicht im Kontext'.\n"
-                    "Beende die Antwort mit der Zeile 'Fehlend: ...' (verwende '-' falls nichts fehlt). Fuehre danach die Zeile 'Quellen: ...' mit allen verwendeten Quellen auf.\n"
-                )
-
-            prompt = (
-                "Beantworte die Frage ausschliesslich anhand der bereitgestellten Dokumentenabschnitte.\n"
-                "Wenn sich eine geforderte Information nicht sicher aus dem Kontext belegen laesst, schreibe 'Nicht im Kontext'.\n"
-                f"{keyword_clause}\n"
-                f"FRAGE:\n{query}\n\nKONTEXT:\n{context_text}\n\nANTWORT:"
-            )
-            tokens_in = tokens_from_text(prompt)
-
-            for model_id in models:
-                start = time.time()
-                try:
+        for model_id in models:
+            start = time.time()
+            try:
+                with llm_semaphore:
                     answer = query_ollama(
                         prompt,
                         model=model_id,
                         language="Deutsch",
-                        options={"timeout": args.timeout, "temperature": 0.1, "top_p": 0.9},
+                        options=dict(llm_options),
+                        timeout=args.timeout,
+                        stream=True,
                     )
-                except Exception as exc:  # noqa: BLE001
-                    answer = f"Antwort fehlgeschlagen: {exc}"
-                duration = time.time() - start
+            except Exception as exc:  # noqa: BLE001
+                answer = f"Antwort fehlgeschlagen: {exc}"
+            duration = time.time() - start
 
-                f1_score, missing_keywords = evaluate_keywords(
-                    qid,
-                    expected_keywords,
-                    answer,
-                    keyword_normalizer,
-                    mandatory_map,
-                )
-                factual = factual_check(answer, contexts[: args.k])
-                tokens_out = tokens_from_text(answer)
+            f1_score, missing_keywords = evaluate_keywords(
+                qid,
+                expected_keywords,
+                answer,
+                keyword_normalizer,
+                mandatory_map,
+            )
+            factual = factual_check(answer, factual_context)
+            tokens_out = tokens_from_text(answer)
 
-                format_keyword_ok, format_citation_ok, contains_nic, bullet_count = analyze_answer_format(
-                    answer,
-                    expected_canonical,
-                    keyword_normalizer,
-                )
+            format_keyword_ok, format_citation_ok, contains_nic, bullet_count = analyze_answer_format(
+                answer,
+                expected_canonical,
+                keyword_normalizer,
+            )
 
-                if first_rank is None or first_rank == "":
-                    error_bucket = "B"
-                elif not factual:
-                    error_bucket = "A"
-                elif not (format_keyword_ok and format_citation_ok):
-                    error_bucket = "C"
-                else:
-                    error_bucket = "OK"
+            if first_rank is None or first_rank == "":
+                error_bucket = "B"
+            elif not factual:
+                error_bucket = "A"
+            elif not (format_keyword_ok and format_citation_ok):
+                error_bucket = "C"
+            else:
+                error_bucket = "OK"
 
-                row = {
+            rows.append(
+                {
                     "question_id": qid,
                     "query": query,
                     "model": model_id,
@@ -597,7 +630,9 @@ def main() -> None:
                     "mrr": round(mrr_value, 4),
                     "rank_first_rel": first_rank if first_rank is not None else "",
                     "keyword_f1": round(f1_score, 4),
-                    "missing_keywords": ", ".join(missing_keywords) if args.log_missing_keywords and missing_keywords else "",
+                    "missing_keywords": ", ".join(missing_keywords)
+                    if args.log_missing_keywords and missing_keywords
+                    else "",
                     "time_s": round(duration, 4),
                     "tokens_in": tokens_in,
                     "tokens_out": tokens_out,
@@ -615,7 +650,37 @@ def main() -> None:
                     "bullet_count": bullet_count,
                     "error_bucket": error_bucket,
                 }
-                writer.writerow(row)
+            )
+        return rows
+
+    worker_count = max(1, min(args.max_workers, len(ground_truth_entries)))
+    all_rows: List[dict] = []
+    if worker_count == 1:
+        for entry in ground_truth_entries:
+            all_rows.extend(process_entry(entry))
+    else:
+        with ThreadPoolExecutor(max_workers=worker_count) as executor:
+            future_map = {executor.submit(process_entry, entry): entry for entry in ground_truth_entries}
+            for future in as_completed(future_map):
+                entry = future_map[future]
+                qid = entry.get("id") or entry.get("question_id") or "<unknown>"
+                try:
+                    all_rows.extend(future.result())
+                except Exception as exc:  # noqa: BLE001
+                    print(f"FEHLER bei {qid}: {exc}", file=sys.stderr)
+
+    def sort_key(row: dict) -> tuple[int, int]:
+        return (
+            question_order.get(row.get("question_id"), 0),
+            model_order.get(row.get("model"), 0),
+        )
+
+    all_rows.sort(key=sort_key)
+
+    with args.output.open("w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(all_rows)
 
     print(f"Ergebnisse gespeichert in {args.output}")
 
