@@ -1,0 +1,396 @@
+[
+  {
+    "question_id": "Q701",
+    "question": "Welche Abwesenheitsarten müssen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind für die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Abwesenheitsagent anlegen.pdf#page=1",
+        "Abwesenheitsagent anlegen.pdf#page=3"
+      ],
+      "relevant_chunk_indices": [0, 2, 4],
+      "relevance_scores": {
+        "0": 3,
+        "2": 2,
+        "4": 1
+      },
+      "reference_answers": [
+        "Der Leitfaden verlangt, dass Mitarbeitende Urlaub, Gleitzeit, ganztägige Seminare sowie wiederkehrende Teilzeitabwesenheiten eigenständig im Clerk erfassen. Für eine periodische Serie wird die Option „Periodische Abwesenheit“ gewählt, eine sprechende Bezeichnung vergeben, Zeitraumbegrenzung und Wiederholungsrhythmus gesetzt und der Vorgang mit „Weiter“ bzw. „Beenden“ abgeschlossen."
+      ],
+      "expected_keywords": [
+        "Urlaub",
+        "periodisch",
+        "Beschreibung",
+        "Zeitraum"
+      ]
+    }
+  },
+  {
+    "question_id": "Q702",
+    "question": "Wie werden im Clerk-Abwesenheitsagenten halbtägige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wöchentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Abwesenheitsagent anlegen.pdf#page=2",
+        "Abwesenheitsagent anlegen.pdf#page=4"
+      ],
+      "relevant_chunk_indices": [2, 3, 4],
+      "relevance_scores": {
+        "2": 2,
+        "3": 3,
+        "4": 1
+      },
+      "reference_answers": [
+        "Bei periodischen Abwesenheiten werden Zeitraumbegrenzung und Wiederholungsrhythmus konfiguriert. Für halbtägige Einträge ist der Regler „Ganztägige Abwesenheit“ zu deaktivieren und es sind Start- und Endzeiten einzutragen; der Abschnitt zu periodischen Serien empfiehlt zudem eine eindeutige Bezeichnung."
+      ],
+      "expected_keywords": [
+        "halbtägig",
+        "Regler",
+        "Wiederholungsrhythmus",
+        "Zeiten"
+      ]
+    }
+  },
+  {
+    "question_id": "Q703",
+    "question": "Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch für Stellvertreter freigegeben sind?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf#page=1",
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf#page=2",
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf#page=3"
+      ],
+      "relevant_chunk_indices": [37, 38, 39],
+      "relevance_scores": {
+        "37": 3,
+        "38": 2,
+        "39": 1
+      },
+      "reference_answers": [
+        "Die Anleitung sieht vor, über „Ordnerberechtigungen“ Stellvertreter mit passenden Rechten einzutragen, damit neue Ordner automatisch freigegeben sind. Bereits vorhandene Ordner müssen einmalig manuell berechtigt werden; jeder relevante Ordner erfordert eine entsprechende Berechtigungsstufe."
+      ],
+      "expected_keywords": [
+        "Ordnerberechtigungen",
+        "Vertreter",
+        "neue Ordner",
+        "bestehende Ordner"
+      ]
+    }
+  },
+  {
+    "question_id": "Q704",
+    "question": "Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpasswörter einzusehen und anschließend ein neues Passwort zu vergeben?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung_PDF_Crypt_PW.pdf#page=1",
+        "Anleitung_PDF_Crypt_PW.pdf#page=2"
+      ],
+      "relevant_chunk_indices": [40, 41],
+      "relevance_scores": {
+        "40": 2,
+        "41": 3
+      },
+      "reference_answers": [
+        "Zuerst wird über den Atruvia Hub der IQ.Suite WebClient Cloud geöffnet, um im PDF-Crypt-Passwortmanager bestehende Passwörter einzusehen. Anschließend werden die Schritte 1 bis 4 wiederholt, ein neues Passwort vergeben, bestätigt und im Kundendatensatz dokumentiert."
+      ],
+      "expected_keywords": [
+        "IQ.Suite",
+        "Passwortmanager",
+        "anzeigen",
+        "neues Passwort"
+      ]
+    }
+  },
+  {
+    "question_id": "Q705",
+    "question": "Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig über Outlook Online einzurichten, und wie wird die Regel anschließend aktiviert?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Postfach Regeln Einstellen.pdf#page=1",
+        "Postfach Regeln Einstellen.pdf#page=2",
+        "Postfach Regeln Einstellen.pdf#page=3"
+      ],
+      "relevant_chunk_indices": [37400, 37401, 37402],
+      "relevance_scores": {
+        "37400": 3,
+        "37401": 2,
+        "37402": 1
+      },
+      "reference_answers": [
+        "Die Anleitung fordert den Login auf office.com und den Start von Outlook Online, damit Regeln serverseitig gelten. Anschließend wird „Regeln verwalten“ geöffnet, die Regel konfiguriert und gespeichert; laut Beschreibung ist sie nach ca. 10–20 Minuten aktiv."
+      ],
+      "expected_keywords": [
+        "office.com",
+        "Regeln verwalten",
+        "serverseitig",
+        "Aktivierung"
+      ]
+    }
+  },
+  {
+    "question_id": "Q706",
+    "question": "Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind für die Kalendergruppe notwendig?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Räume und Ressourcen-FW0C6WGP.pdf#page=1",
+        "Räume und Ressourcen-FW0C6WGP.pdf#page=3",
+        "Räume und Ressourcen-FW0C6WGP.pdf#page=5"
+      ],
+      "relevant_chunk_indices": [37406, 37407, 37408],
+      "relevance_scores": {
+        "37406": 3,
+        "37407": 2,
+        "37408": 1
+      },
+      "reference_answers": [
+        "Es gibt Möglichkeit A (Reservierung direkt aus dem Termin) und Möglichkeit B über den Ressourcenkalender. Für die Kalendervariante wird eine neue Kalendergruppe erstellt, aus dem Adressbuch werden die benötigten Räume hinzugefügt und anschließend sichtbar gemacht."
+      ],
+      "expected_keywords": [
+        "Möglichkeit A",
+        "Möglichkeit B",
+        "Kalendergruppe",
+        "Adressbuch"
+      ]
+    }
+  },
+  {
+    "question_id": "Q707",
+    "question": "Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch für den Umgang mit dem Gerät und welche Leistungsmerkmale werden hervorgehoben?",
+    "ground_truth": {
+      "relevant_sources": [
+        "HpDrucker_Anleitung.pdf#page=2",
+        "HpDrucker_Anleitung.pdf#page=3",
+        "HpDrucker_Anleitung.pdf#page=6"
+      ],
+      "relevant_chunk_indices": [31346, 31348, 31349],
+      "relevance_scores": {
+        "31346": 3,
+        "31348": 2,
+        "31349": 2
+      },
+      "reference_answers": [
+        "Das Handbuch hebt Begriffe und Symbole hervor, warnt beispielsweise vor dem Reinigen des Druckerinneren und listet Leistungsmerkmale wie Druckqualitäten und Zusatzfunktionen des HP DeskJet auf."
+      ],
+      "expected_keywords": [
+        "Hinweise",
+        "Warnungen",
+        "Leistungsmerkmale",
+        "Druckqualität"
+      ]
+    }
+  },
+  {
+    "question_id": "Q708",
+    "question": "Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfügung?",
+    "ground_truth": {
+      "relevant_sources": [
+        "agree21Internet (1).pdf#page=3",
+        "agree21Internet (1).pdf#page=4",
+        "agree21Internet (1).pdf#page=7"
+      ],
+      "relevant_chunk_indices": [8, 9, 12],
+      "relevance_scores": {
+        "8": 2,
+        "9": 3,
+        "12": 2
+      },
+      "reference_answers": [
+        "Das Dokument beschreibt Proxy-, Filter- und Virenprüfmodule, erläutert URL-, Kategorie- und Webinhalte-Filter sowie die SSL-Analyse, die verschlüsselte Verbindungen aufbricht und deren Aktivierung empfohlen wird."
+      ],
+      "expected_keywords": [
+        "Proxy",
+        "Filter",
+        "SSL-Analyse",
+        "Empfehlung"
+      ]
+    }
+  },
+  {
+    "question_id": "Q709",
+    "question": "Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung LDAP.pdf#page=3",
+        "Anleitung LDAP.pdf#page=4",
+        "Anleitung LDAP.pdf#page=5"
+      ],
+      "relevant_chunk_indices": [32, 33, 34],
+      "relevance_scores": {
+        "32": 3,
+        "33": 2,
+        "34": 1
+      },
+      "reference_answers": [
+        "Die Anleitung sieht vor, die Vertrauensstellung über ein in GDix gespeichertes Zertifikat oder den Windows-Zertifikatsspeicher zu aktivieren. Anschließend wird das Root-Zertifikat über den Installationsassistenten importiert und bestätigt."
+      ],
+      "expected_keywords": [
+        "Vertrauensstellung",
+        "GDix",
+        "Root-Zertifikat",
+        "Assistent"
+      ]
+    }
+  },
+  {
+    "question_id": "Q710",
+    "question": "Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind für den erneuten Import erforderlich?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Firefox zu Edge importieren.pdf#page=1"
+      ],
+      "relevant_chunk_indices": [15842],
+      "relevance_scores": {
+        "15842": 2
+      },
+      "reference_answers": [
+        "Empfohlen wird, problematische Sonderzeichen in den Firefox-Lesezeichen zu bereinigen und danach über „Favoriten – Weitere Optionen – Favoriten importieren“ den Import nach Edge erneut anzustoßen."
+      ],
+      "expected_keywords": [
+        "Sonderzeichen",
+        "bereinigen",
+        "Favoriten importieren"
+      ]
+    }
+  },
+  {
+    "question_id": "Q711",
+    "question": "Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen f\u00fcr Regeln und Pr\u00e4senzstatus k\u00f6nnen festgelegt werden?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Voice_Softphone.pdf#page=25",
+        "Voice_Softphone.pdf#page=26",
+        "Voice_Softphone.pdf#page=27"
+      ],
+      "relevant_chunk_indices": [74655, 74656, 74657],
+      "relevance_scores": {
+        "74655": 3,
+        "74656": 2,
+        "74657": 1
+      },
+      "reference_answers": [
+        "Im Reiter Regeln legt man zun\u00e4chst eine benutzerdefinierte Anrufweiterleitungsregel mit Namen, Zeitraum, Pr\u00e4senzstatus, einsch\u00e4nkbarem Anruferkreis und Zieladresse an. Anschlie\u00dfend wird im Bereich Profile ein Profil mit Namen erzeugt, optional ein Pr\u00e4senzstatus zugewiesen und die zuvor definierte Regel hinterlegt; aktiviert wird das Profil \u00fcber die Fusion-Leiste, wobei aktive Profile einfache Umleitungen und pr\u00e4ferierte Endger\u00e4te \u00fcbersteuern."
+      ],
+      "expected_keywords": [
+        "benutzerdefiniertes profil",
+        "regel",
+        "pr\u00e4senzstatus",
+        "fusion-leiste"
+      ]
+    }
+  },
+  {
+    "question_id": "Q712",
+    "question": "Welche Voraussetzungen m\u00fcssen im agree21Voice Softphone erf\u00fcllt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Voice_Softphone.pdf#page=24"
+      ],
+      "relevant_chunk_indices": [74654],
+      "relevance_scores": {
+        "74654": 3
+      },
+      "reference_answers": [
+        "Einfache Anrufumleitungen greifen nur, wenn kein pr\u00e4feriertes Endger\u00e4t aktiv ist und kein benutzerdefiniertes Profil definiert wurde; beide w\u00fcrden die Regel sonst \u00fcbersteuern. Deaktiviert wird die Umleitung \u00fcber die Fusion-Leiste, in der sich der zuvor aktivierte Eintrag wieder abschalten l\u00e4sst."
+      ],
+      "expected_keywords": [
+        "anrufumleitung",
+        "pr\u00e4feriertes endger\u00e4t",
+        "profil",
+        "fusion-leiste"
+      ]
+    }
+  },
+  {
+    "question_id": "Q713",
+    "question": "Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie k\u00f6nnen Internetprofile kopiert und angepasst werden?",
+    "ground_truth": {
+      "relevant_sources": [
+        "agree21Internet (1).pdf#page=11",
+        "agree21Internet (1).pdf#page=12",
+        "agree21Internet (1).pdf#page=13"
+      ],
+      "relevant_chunk_indices": [17, 18, 19, 20],
+      "relevance_scores": {
+        "17": 3,
+        "18": 2,
+        "19": 2,
+        "20": 1
+      },
+      "reference_answers": [
+        "Die komplette Administration findet in SAGA unter Infrastruktur \u2194 Netz \u2194 agree21Internet statt; Administratoren ben\u00f6tigen keine zus\u00e4tzliche Freischaltung und arbeiten auf Basis von Smartlisten. Neben den vorgegebenen Profilen stehen eigene Internetprofile zur Verf\u00fcgung, die sich \u00fcber das Dropdown \u201eKopie von\u201c klonen lassen, wobei alle Einstellungen des Quellprofils \u00fcbernommen und anschlie\u00dfend individuell angepasst werden k\u00f6nnen."
+      ],
+      "expected_keywords": [
+        "saga",
+        "internetprofile",
+        "klonen",
+        "anpassen"
+      ]
+    }
+  },
+  {
+    "question_id": "Q714",
+    "question": "Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung f\u00fcr Greenshot.pdf#page=1"
+      ],
+      "relevant_chunk_indices": [34],
+      "relevance_scores": {
+        "34": 3
+      },
+      "reference_answers": [
+        "Nach der Bereichsauswahl kann der Screenshot sofort gespeichert, \u00fcber \u201eSpeichern unter\u201c abgelegt, im Greenshot-Editor ge\u00f6ffnet, direkt an einen Drucker gesendet, in die Zwischenablage kopiert oder in MS Paint ge\u00f6ffnet werden."
+      ],
+      "expected_keywords": [
+        "sofort speichern",
+        "zwischenablage",
+        "drucker",
+        "editor"
+      ]
+    }
+  },
+  {
+    "question_id": "Q715",
+    "question": "Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung LDAP.pdf#page=6"
+      ],
+      "relevant_chunk_indices": [42],
+      "relevance_scores": {
+        "42": 3
+      },
+      "reference_answers": [
+        "Nach Abschluss der Zertifikatsinstallation wird im Dialog der Button \u201eTest\u201c genutzt; fordert der Assistent im Anschluss die Eingabe der Anmeldeinformationen an, konnte die Verbindung zum LDAP-Server erfolgreich hergestellt werden."
+      ],
+      "expected_keywords": [
+        "test",
+        "anmeldeinformationen",
+        "ldap-server",
+        "konfiguration"
+      ]
+    }
+  },
+  {
+    "question_id": "Q716",
+    "question": "Wie stellt man laut HP-Druckerhandbuch die Druckqualit\u00e4t \u00fcber die Druckersoftware und die Druckqualit\u00e4tsauswahltaste ein, und welche Qualit\u00e4tsmodi stehen zur Verf\u00fcgung?",
+    "ground_truth": {
+      "relevant_sources": [
+        "HpDrucker_Anleitung.pdf#page=8",
+        "HpDrucker_Anleitung.pdf#page=9"
+      ],
+      "relevant_chunk_indices": [62277, 62278],
+      "relevance_scores": {
+        "62277": 3,
+        "62278": 2
+      },
+      "reference_answers": [
+        "In der Druckersoftware w\u00e4hlt man im Dialog Papier/Qualit\u00e4t die gew\u00fcnschte Druckqualit\u00e4t oder aktiviert die Druckqualit\u00e4tsauswahltaste; \u00fcber die Taste lassen sich am Ger\u00e4t Modi wie Entwurf (schnell), Normal (schnell), Normal, Optimal oder Maximale Aufl\u00f6sung einstellen, wobei h\u00f6here Stufen mehr Zeit und Ressourcen beanspruchen."
+      ],
+      "expected_keywords": [
+        "druckqualitat",
+        "druckersoftware",
+        "taste",
+        "optimal"
+      ]
+    }
+  }
+]

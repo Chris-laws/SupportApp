@@ -1,0 +1,26 @@
+llm_model,dataset_index,query,recall@10,cndcg@10,mrr@10,answer_f1_kw,retrieval_time_s,generation_time_s,answer_length
+llama3.1:8b-instruct-q4_K_M,0,Softphone Kennwort aendern,1.0,1.0,1.0,0.087,44.4595,120.652,199
+llama3.1:8b-instruct-q4_K_M,1,Softphone Anmeldedaten speichern aktivieren,1.0,1.0,1.0,0.3333,53.5061,166.5017,217
+llama3.1:8b-instruct-q4_K_M,2,Softphone Erstanmeldung mit DLS PIN,1.0,1.0,1.0,0.1429,47.929,180.411,222
+llama3.1:8b-instruct-q4_K_M,3,Softphone vollstaendig beenden,1.0,1.0,1.0,0.1905,64.6317,177.6564,199
+llama3.1:8b-instruct-q4_K_M,4,Softphone Fusion Leiste Funktionen,1.0,0.9386,1.0,0.1905,72.5449,164.9618,202
+llama3.1:8b-instruct-q4_K_M,5,Softphone praefiertes Endgeraet wechseln,1.0,0.6788,0.5,0.1667,72.6499,179.8832,213
+llama3.1:8b-instruct-q4_K_M,6,Softphone One Number Service konfigurieren,1.0,0.9134,1.0,0.0645,55.713,228.6391,426
+llama3.1:8b-instruct-q4_K_M,7,Softphone Rufnummernanzeige steuern (CLIR),0.0,0.0,0.0,0.1905,83.0937,209.9864,208
+llama3.1:8b-instruct-q4_K_M,8,Softphone Rufnummer fuer CLIR deaktivieren,1.0,0.3785,0.1429,0.1667,57.9385,180.4303,212
+llama3.1:8b-instruct-q4_K_M,9,Softphone Rufnummernanzeige fuer Kontakte anpassen,0.5,0.1672,0.1667,0.087,60.8544,216.0862,218
+llama3.1:8b-instruct-q4_K_M,10,Softphone Konferenz planen,1.0,0.9134,1.0,0.0833,68.0508,177.5515,224
+llama3.1:8b-instruct-q4_K_M,11,HP Drucker Papierstau beheben,1.0,0.906,1.0,0.0769,71.2606,146.3958,200
+llama3.1:8b-instruct-q4_K_M,12,HP Drucker Duplexmodul verwenden,1.0,0.72,1.0,0.0769,74.596,157.6984,239
+llama3.1:8b-instruct-q4_K_M,13,HP Drucker Patronen reinigen,0.5,0.352,0.3333,0.0952,55.7353,164.3253,208
+llama3.1:8b-instruct-q4_K_M,14,Abwesenheitsagent in Clerk anlegen,1.0,1.0,1.0,0.16,67.8582,165.4436,231
+llama3.1:8b-instruct-q4_K_M,15,Outlook Ordner fuer Stellvertreter freigeben,1.0,0.852,1.0,0.1127,52.6679,249.1886,1215
+llama3.1:8b-instruct-q4_K_M,16,Raeume oder Ressourcen buchen,1.0,1.0,1.0,0.1818,118.7783,523.2949,198
+llama3.1:8b-instruct-q4_K_M,17,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,0.5,0.4441,0.5,0.0,72.4553,243.1264,184
+llama3.1:8b-instruct-q4_K_M,18,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,1.0,0.7724,1.0,0.0984,226.135,546.1579,1000
+llama3.1:8b-instruct-q4_K_M,19,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,0.5,0.4693,1.0,0.1333,157.1785,546.2314,848
+llama3.1:8b-instruct-q4_K_M,20,Welche Forms-Regeln gelten laut Spielregeln M365?,0.0,0.0,0.0,0.2143,854.1121,546.1333,394
+llama3.1:8b-instruct-q4_K_M,21,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,1.0,0.6788,0.5,0.2051,131.4935,546.1683,709
+llama3.1:8b-instruct-q4_K_M,22,Wie aktiviert man Senden-von in Outlook laut Anleitung?,0.5,0.7039,1.0,0.1067,145.1357,546.1271,1098
+llama3.1:8b-instruct-q4_K_M,23,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,1.0,0.9134,1.0,0.0769,207.5445,546.1068,756
+llama3.1:8b-instruct-q4_K_M,24,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,0.5,0.7039,1.0,0.1053,101.0774,546.2774,827

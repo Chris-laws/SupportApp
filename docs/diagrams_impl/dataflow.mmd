@@ -1,8 +1,0 @@
-﻿flowchart TD
-    Loader["PDF Loader / OCR"] --> Chunker["Chunking (320 Tokens / 50 Overlap)"]
-    Chunker -->|Chunk: ID, Doc, Page, Section, Text| Metadata["Chunk-Metadaten"]
-    Chunker --> Embedding["Sentence-BERT Embedding"]
-    Embedding -->|Vector + Chunk Ref| Faiss["FAISS HNSW Index"]
-    Metadata -->|Tokens + Terms| BM25["BM25-Index"]
-    Metadata --> Store[("Persistente Metadaten<br/>Embeddings.npy")]
-    Faiss --> Store
