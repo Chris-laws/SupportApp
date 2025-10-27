@@ -1,0 +1,35 @@
+﻿sequenceDiagram
+    participant User
+    participant Frontend
+    participant Service
+    participant Retriever
+    participant Reranker
+    participant LLM
+    participant Sources
+
+    User->>Frontend: Frage eingeben
+    Frontend->>Service: POST /ask { question }
+    Service->>Service: Payload validieren
+    Service->>Retriever: prepare_context(question)
+    Retriever->>Retriever: Query-Expansion & Embeddings
+    Retriever->>Retriever: BM25 + Dense Merge
+    Retriever->>Retriever: Kontextfensterbildung
+    opt Cross-Encoder aktiv
+        Retriever->>Reranker: Kandidaten übergeben
+        Reranker-->>Retriever: Rerank-Scores
+    end
+    Note over Service: Kontextfensterbildung
+    Service->>Service: Prompt aufbauen
+    Service->>LLM: Anfrage an Ollama
+    alt Streaming aktiviert
+        LLM-->>Service: Token-Stream
+    else Standardantwort
+        LLM-->>Service: Vollständige Antwort
+    end
+    Service->>Sources: Quellen aggregieren
+    Note over Service,Sources: Quellenaggregation
+    Service-->>Frontend: JSON { answer, sources }
+    Frontend-->>User: Antwort anzeigen
+    alt Fehlerfall
+        Service-->>Frontend: Fehlerantwort
+    end

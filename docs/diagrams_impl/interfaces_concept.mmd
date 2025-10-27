@@ -1,0 +1,43 @@
+﻿flowchart TB
+  subgraph Client
+    C1["Chat-UI"]
+  end
+
+  subgraph API["Service-API (REST, JSON)"]
+    A1[/POST /ask/]
+    A2[/POST /index/]
+    A3[/GET /health/]
+  end
+
+  subgraph Pipeline["Server-intern"]
+    P1["Validierung & Normalisierung"]
+    P2["Retrieval (Hybrid)"]
+    P3["Re-Ranking (optional)"]
+    P4["Prompt-Build"]
+    P5["LLM (lokal)"]
+    P6["Antwortformatierung & Quellen"]
+  end
+
+  subgraph Stores["Persistenz"]
+    S1[("Dokumente")]
+    S2[("Vektorindex")]
+    S3[("Termindex")]
+    S4[("Metadaten/Logs")]
+  end
+
+  %% Flüsse
+  C1 --> A1
+  A1 --> P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> A1
+  C1 --> A3
+  A3 --> C1
+  A2 --> P1 --> S1
+  P2 --- S2
+  P2 --- S3
+  P6 --- S4
+
+  %% Schemaskizzen
+  classDef note fill:#f6f6f6,stroke:#aaa,color:#333,stroke-dasharray: 3 3,font-size:11px
+  Nreq["Request Schema (vereinfacht):<br/>{ &quot;question&quot;: string }"]:::note
+  Nres["Response Schema (vereinfacht):<br/>{ &quot;answer&quot;: string,<br/>  &quot;sources&quot;: [{doc,page,snippet}] }"]:::note
+  C1 --- Nreq
+  A1 --- Nres

@@ -1,0 +1,46 @@
+﻿classDiagram
+  class Document {
+    +id: string
+    +title: string
+    +type: string
+    +source_path: string
+  }
+
+  class Chunk {
+    +chunk_id: string
+    +doc_id: string
+    +page: int
+    +section: string
+    +text: string
+    +norm_keywords: string[]
+  }
+
+  class Embedding {
+    +chunk_id: string
+    +vector: float[d]
+    +model_id: string
+  }
+
+  class VectorIndex {
+    +index_type: "HNSW" | "IVF" | ...
+    +dim: int
+    +persisted: bool
+  }
+
+  class TermIndex {
+    +analyzer: string
+    +tokens: map<string,int>
+  }
+
+  class SourceTrace {
+    +chunk_id: string
+    +doc_ref: string
+    +page: int
+    +snippet: string
+  }
+
+  Document "1" -- "many" Chunk : enthält
+  Chunk "1" -- "1" Embedding : hat
+  Embedding "many" -- "1" VectorIndex : indexiert in
+  Chunk "many" -- "1" TermIndex : tokenisiert in
+  Chunk "1" -- "many" SourceTrace : liefert Nachweis
