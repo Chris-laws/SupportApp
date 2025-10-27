@@ -311,7 +311,7 @@ class HybridRetriever:
         self,
         question: str,
         query_embedding: np.ndarray,
-        top_k: int = 20,
+        top_k: int = 15,
         bm25_k: int = 50,
         reranker: "CrossEncoderReranker | None" = None,
         reranker_k: int | None = None,
@@ -653,94 +653,6 @@ def _keyword_present(chunk: Mapping[str, Any], expected_tokens: Set[str]) -> boo
     return any(token in content for token in expected_tokens)
 
 
-
-
-def generate_multi_queries(question: str, total_variants: int = 4) -> List[str]:
-    total_variants = max(1, total_variants)
-    base_query = (question or "").strip()
-    queries: List[str] = []
-    if base_query:
-        queries.append(base_query)
-    try:
-        rewritten = rewrite_query_with_llama3(question).strip()
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("Query rewrite failed: %s", exc)
-        rewritten = base_query
-    if rewritten and rewritten not in queries:
-        queries.append(rewritten)
-    needed = max(0, total_variants - len(queries))
-    if needed > 0:
-        prompt = (
-            "Du agierst als Recherche-Assistent fuer den bankinternen IT-Support. "
-            "Erstelle {needed} weitere unterschiedliche Suchanfragen zur folgenden Frage. "
-            "Nutze Kernbegriffe, Synonyme und Produktbezeichnungen. Gib jede Suchanfrage als eigene Zeile ohne Erklaerung aus.\n\n"
-            "Frage: {question}\nSuchanfragen:"
-        ).format(needed=needed, question=question)
-        try:
-            response = requests.post(
-                "http://localhost:11434/api/generate",
-                json={
-                    "model": "llama3",
-                    "prompt": prompt,
-                    "stream": False,
-                    "options": {
-                        "temperature": 0.0,
-                        "top_p": 0.2,
-                        "repeat_penalty": 1.1,
-                    },
-                },
-                timeout=60,
-            )
-            if response.status_code == 200:
-                raw = (response.json().get("response") or "")
-                for line in raw.splitlines():
-                    candidate = line.strip().lstrip("-*•	")
-                    if not candidate:
-                        continue
-                    while candidate and candidate[0].isdigit():
-                        candidate = candidate[1:]
-                    candidate = candidate.lstrip(")}.:- ").strip()
-                    if candidate and candidate not in queries:
-                        queries.append(candidate)
-                        if len(queries) >= total_variants:
-                            break
-            else:
-                logger.warning("Multi-query Expansion HTTP %s: %s", response.status_code, response.text)
-        except Exception as exc:  # noqa: BLE001
-            logger.warning("Multi-query Expansion fehlgeschlagen: %s", exc)
-    ordered: List[str] = []
-    seen: Set[str] = set()
-    for candidate in queries:
-        clean = candidate.strip()
-        key = clean.lower()
-        if clean and key not in seen:
-            seen.add(key)
-            ordered.append(clean)
-        if len(ordered) >= total_variants:
-            break
-    if not ordered:
-        ordered.append(base_query or question)
-    return ordered[:total_variants]
-
-
-def merge_ranked_results(result_sets: Sequence[Sequence[Mapping[str, Any]]], top_k: int) -> List[Dict[str, Any]]:
-    if not result_sets:
-        return []
-    best: Dict[Any, Dict[str, Any]] = {}
-    for batch in result_sets:
-        for chunk in batch:
-            key = chunk.get("chunk_index")
-            if key is None:
-                key = (chunk.get("source"), chunk.get("page"), chunk.get("content"))
-            score = float(chunk.get("score", chunk.get("combined_score", chunk.get("retriever_score", 0.0))))
-            existing = best.get(key)
-            if existing is None or score > float(existing.get("score", 0.0)):
-                copy_chunk = dict(chunk)
-                copy_chunk["score"] = score
-                best[key] = copy_chunk
-    ranked = sorted(best.values(), key=lambda item: float(item.get("score", 0.0)), reverse=True)
-    return ranked[:top_k] if top_k else ranked
-
 def select_context_window(
     ranked_chunks: Sequence[Mapping[str, Any]],
     *,
@@ -827,7 +739,5 @@ __all__ = [
     "KeywordGenerator",
     "HybridRetriever",
     "rewrite_query_with_llama3",
-    "generate_multi_queries",
-    "merge_ranked_results",
     "select_context_window",
 ]

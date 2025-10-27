@@ -5,20 +5,13 @@ import re
 import uuid
 from typing import Dict, List, Optional, Sequence, Set, Tuple
 
-import numpy as np
-
 from fastapi import Body, FastAPI, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 
 from modules.embeddings import get_embeddings, load_faiss_index
 from modules.llm import query_ollama
-from modules.retriever import (
-    HybridRetriever,
-    generate_multi_queries,
-    merge_ranked_results,
-    select_context_window,
-)
+from modules.retriever import HybridRetriever, rewrite_query_with_llama3, select_context_window
 from modules.reranker import CrossEncoderReranker
 
 BASE_DIR = os.path.dirname(__file__)
@@ -42,9 +35,7 @@ except Exception as exc:  # noqa: BLE001
     reranker = None
 
 RERANKER_WEIGHT = 0.6
-RERANKER_CANDIDATES = 50
-RETRIEVAL_TOP_K = 20
-MULTI_QUERY_VARIANTS = 4
+RERANKER_CANDIDATES = 100
 
 
 PROMPT_TEMPLATE = (
@@ -375,27 +366,25 @@ def _filter_context_chunks(
         return list(chunks[:max_context_chunks])
     return selected
 
-def prepare_context(question: str, top_k: int = RETRIEVAL_TOP_K):
-    query_variants = generate_multi_queries(question, total_variants=MULTI_QUERY_VARIANTS)
-    query_embeddings = get_embeddings(query_variants)
-    result_batches = []
-    for variant, embedding in zip(query_variants, query_embeddings):
-        kwargs: Dict[str, object] = {
-            "question": variant,
-            "query_embedding": np.array(embedding, dtype=np.float32),
-            "top_k": top_k,
-        }
-        if reranker is not None:
-            kwargs.update(
-                {
-                    "reranker": reranker,
-                    "reranker_k": RERANKER_CANDIDATES,
-                    "reranker_weight": RERANKER_WEIGHT,
-                }
-            )
-        result_batches.append(retriever.retrieve(**kwargs))
+def prepare_context(question: str, top_k: int = 15):
+    optimized_query = rewrite_query_with_llama3(question)
+    query_embedding = get_embeddings([optimized_query])[0]
+    retrieve_kwargs: Dict[str, object] = {}
+    if reranker is not None:
+        retrieve_kwargs.update(
+            {
+                "reranker": reranker,
+                "reranker_k": max(top_k * 2, RERANKER_CANDIDATES),
+                "reranker_weight": RERANKER_WEIGHT,
+            }
+        )
+    ranked_chunks = retriever.retrieve(
+        question,
+        query_embedding,
+        top_k=top_k,
+        **retrieve_kwargs,
+    )
 
-    ranked_chunks = merge_ranked_results(result_batches, top_k)
     context_chunks_raw = select_context_window(ranked_chunks, max_chunks=6, min_chunks=4, max_chars=1800)
 
     sanitized_ranked = _sanitize_chunks(ranked_chunks)
@@ -404,9 +393,7 @@ def prepare_context(question: str, top_k: int = RETRIEVAL_TOP_K):
 
     context_text = "\n\n".join(chunk.get("content", "") for chunk in context_chunks if chunk.get("content"))
     sources = summarize_sources(context_chunks)
-    queries_repr = " | ".join(query_variants)
-    return context_text, sources, sanitized_ranked, context_chunks, queries_repr
-
+    return context_text, sources, sanitized_ranked, context_chunks, optimized_query
 
 
 @app.get("/", response_class=HTMLResponse)
