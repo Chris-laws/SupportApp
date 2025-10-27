@@ -212,20 +212,12 @@ def export_retrieval_mix(source: Path, output: Path) -> None:
 if __name__ == "__main__":
     base = Path("app/chatbot/evaluation")
     run_map = {
-        "hybrid_k20_ctx8_llama3": base / "results_hybrid_k20_ctx8_llama3_8b.csv",
-        "hybrid_k12_ctx8_llama3": base / "results_hybrid_k12_ctx8_llama3_8b_run2.csv",
+        "hybrid_k12_ctx8_llama3": base / "results_hybrid_k12_ctx8_llama3_8b.csv",
         "hybrid_k12_ctx8_phi3": base / "results_hybrid_k12_ctx8_phi3.csv",
         "hybrid_k12_ctx8_gemma": base / "results_hybrid_k12_ctx8_gemma.csv",
     }
     aggregate_runs(run_map, base / "summary_runs.csv")
     export_correlations(run_map, base / "summary_run_correlations.csv")
-
-    model_map = {
-        "model_llama3": base / "results_hybrid_k20_ctx8_llama3_8b.csv",
-        "model_phi3": base / "results_hybrid_k12_ctx8_phi3.csv",
-        "model_gemma": base / "results_hybrid_k12_ctx8_gemma.csv",
-    }
-    aggregate_runs(model_map, base / "summary_models.csv")
 
     stability_runs = {
         "hybrid_k12_ctx8_llama3": [
@@ -236,7 +228,4 @@ if __name__ == "__main__":
     }
     write_stability_report(stability_runs, base / "summary_stability.csv")
 
-    export_retrieval_mix(
-        base / "results_hybrid_k20_ctx8_llama3_8b.csv",
-        base / "retrieval_mix_hybrid_k20_ctx8_llama3.csv",
-    )
+    export_retrieval_mix(base / "results_hybrid_k12_ctx8_llama3_8b.csv", base / "retrieval_mix_hybrid_k12_ctx8_llama3.csv")

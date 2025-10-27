@@ -13,7 +13,7 @@ import unicodedata
 from collections import defaultdict
 from hashlib import sha1
 from pathlib import Path
-from typing import Iterable, Iterator, List, Mapping, Sequence, Tuple
+from typing import Iterable, Iterator, List, Sequence, Tuple
 
 import numpy as np
 import yaml
@@ -33,7 +33,6 @@ except Exception:  # noqa: BLE001
     CrossEncoderReranker = None  # type: ignore[assignment]
 
 Pair = Tuple[str, int]
-logger = logging.getLogger(__name__)
 
 
 def load_yaml(path: Path) -> dict:
@@ -320,27 +319,7 @@ def ensure_output(path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
 
 
-def build_chunk_lookup(records: Sequence[Mapping[str, object]]) -> dict[int, Pair]:
-    lookup: dict[int, Pair] = {}
-    for record in records or []:
-        chunk_idx = record.get("chunk_index")
-        source = record.get("source") or ""
-        page = record.get("page")
-        if chunk_idx is None or page is None or not source:
-            continue
-        doc = Path(str(source)).name
-        if not doc:
-            continue
-        try:
-            idx_int = int(chunk_idx)
-            page_int = int(page)
-        except (TypeError, ValueError):
-            continue
-        lookup[idx_int] = (doc, page_int)
-    return lookup
-
-
-def parse_ground_truth_entry(entry: dict, chunk_lookup: dict[int, Pair] | None = None) -> tuple[str, str, List[Pair], List[str]]:
+def parse_ground_truth_entry(entry: dict) -> tuple[str, str, List[Pair], List[str]]:
     qid = entry.get("id") or entry.get("question_id")
     query = entry.get("query") or entry.get("question")
     relevant_pairs: List[Pair] = []
@@ -350,23 +329,6 @@ def parse_ground_truth_entry(entry: dict, chunk_lookup: dict[int, Pair] | None =
         page = item.get("page")
         if doc and page is not None:
             relevant_pairs.append((doc, int(page)))
-    chunk_indices = (
-        entry.get("relevant_chunk_indices")
-        or entry.get("ground_truth", {}).get("relevant_chunk_indices")
-        or []
-    )
-    missing_chunks: List[int] = []
-    for chunk_idx in chunk_indices:
-        try:
-            idx_int = int(chunk_idx)
-        except (TypeError, ValueError):
-            continue
-        if chunk_lookup and idx_int in chunk_lookup:
-            relevant_pairs.append(chunk_lookup[idx_int])
-        else:
-            missing_chunks.append(idx_int)
-    if missing_chunks and qid:
-        logger.warning("Ground Truth: unbekannte Chunk-Indizes %s fuer %s", missing_chunks, qid)
     expected_keywords = entry.get("expected_keywords") or entry.get("ground_truth", {}).get("expected_keywords", [])
     return qid, query, relevant_pairs, expected_keywords
 
@@ -409,7 +371,6 @@ def main() -> None:
 
     index, records, embeddings = load_faiss_index("app/chatbot/data/faiss_index/index")
     retriever = HybridRetriever(records, embeddings=embeddings, faiss_index=index)
-    chunk_lookup = build_chunk_lookup(records)
     reranker = None
     if CrossEncoderReranker is not None:
         try:
@@ -453,7 +414,7 @@ def main() -> None:
         writer.writeheader()
 
         for entry in ground_truth_entries:
-            qid, query, relevant_pairs, expected_keywords = parse_ground_truth_entry(entry, chunk_lookup)
+            qid, query, relevant_pairs, expected_keywords = parse_ground_truth_entry(entry)
             if not query:
                 continue
             if not relevant_pairs:
