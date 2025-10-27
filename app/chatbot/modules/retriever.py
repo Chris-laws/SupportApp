@@ -2,9 +2,7 @@ from __future__ import annotations
 
 import logging
 import math
-import os
 import re
-import threading
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -238,8 +236,6 @@ class BM25FieldIndex:
 
 
 def rewrite_query_with_llama3(question: str) -> str:
-    if os.getenv("SUPPORTAPP_DISABLE_QUERY_REWRITE") == "1":
-        return question
     prompt = (
         "Du agierst als Recherche-Assistent fuer den bankinternen IT-Support. "
         "Formuliere die folgende Frage als praezise Suchanfrage mit Kernbegriffen, Synonymen "
@@ -305,7 +301,6 @@ class HybridRetriever:
         self.keyword_generator = KeywordGenerator()
         self.bm25_index = BM25FieldIndex(self.chunk_records)
         self.max_page = self._compute_max_page()
-        self._faiss_lock = threading.Lock()
 
     def _compute_max_page(self) -> int:
         pages = [chunk.get("page") for chunk in self.chunk_records]
@@ -342,8 +337,7 @@ class HybridRetriever:
         dense_global_k = max(bm25_k, 80)
         if use_dense and self.faiss_index is not None and self.chunk_records:
             query = np.array([query_embedding], dtype=np.float32)
-            with self._faiss_lock:
-                distances, indices = self.faiss_index.search(query, dense_global_k)
+            distances, indices = self.faiss_index.search(query, dense_global_k)
             dense_hits = []
             for idx, distance in zip(indices[0], distances[0]):
                 if idx < 0:
@@ -609,11 +603,11 @@ class HybridRetriever:
             page_norm = 1 - (page / (self.max_page + 1))
 
         return (
-            0.55 * bm25_norm
-            + 0.25 * vector_norm
-            + 0.1 * keyword_coverage
-            + 0.04 * section_score
-            + 0.04 * l2_norm
+            0.4 * bm25_norm
+            + 0.35 * vector_norm
+            + 0.15 * keyword_coverage
+            + 0.05 * section_score
+            + 0.03 * l2_norm
             + 0.02 * page_norm
         )
 
@@ -667,7 +661,6 @@ def generate_multi_queries(question: str, total_variants: int = 4) -> List[str]:
     queries: List[str] = []
     if base_query:
         queries.append(base_query)
-    disable_expansion = os.getenv("SUPPORTAPP_DISABLE_QUERY_REWRITE") == "1"
     try:
         rewritten = rewrite_query_with_llama3(question).strip()
     except Exception as exc:  # noqa: BLE001
@@ -676,7 +669,7 @@ def generate_multi_queries(question: str, total_variants: int = 4) -> List[str]:
     if rewritten and rewritten not in queries:
         queries.append(rewritten)
     needed = max(0, total_variants - len(queries))
-    if needed > 0 and not disable_expansion:
+    if needed > 0:
         prompt = (
             "Du agierst als Recherche-Assistent fuer den bankinternen IT-Support. "
             "Erstelle {needed} weitere unterschiedliche Suchanfragen zur folgenden Frage. "
@@ -715,15 +708,6 @@ def generate_multi_queries(question: str, total_variants: int = 4) -> List[str]:
                 logger.warning("Multi-query Expansion HTTP %s: %s", response.status_code, response.text)
         except Exception as exc:  # noqa: BLE001
             logger.warning("Multi-query Expansion fehlgeschlagen: %s", exc)
-    elif needed > 0 and disable_expansion:
-        normalized = re.sub(r"[^a-zA-Z0-9äöüÄÖÜß ]+", " ", base_query).strip()
-        if normalized and normalized not in queries:
-            queries.append(normalized)
-        tokens = [token for token in normalized.split() if token]
-        if tokens:
-            reversed_tokens = " ".join(reversed(tokens))
-            if reversed_tokens and reversed_tokens not in queries:
-                queries.append(reversed_tokens)
     ordered: List[str] = []
     seen: Set[str] = set()
     for candidate in queries:
@@ -739,12 +723,7 @@ def generate_multi_queries(question: str, total_variants: int = 4) -> List[str]:
     return ordered[:total_variants]
 
 
-def merge_ranked_results(
-    result_sets: Sequence[Sequence[Mapping[str, Any]]],
-    top_k: int,
-    *,
-    max_per_doc: int | None = None,
-) -> List[Dict[str, Any]]:
+def merge_ranked_results(result_sets: Sequence[Sequence[Mapping[str, Any]]], top_k: int) -> List[Dict[str, Any]]:
     if not result_sets:
         return []
     best: Dict[Any, Dict[str, Any]] = {}
@@ -760,22 +739,6 @@ def merge_ranked_results(
                 copy_chunk["score"] = score
                 best[key] = copy_chunk
     ranked = sorted(best.values(), key=lambda item: float(item.get("score", 0.0)), reverse=True)
-    if max_per_doc is not None and max_per_doc > 0:
-        limited: List[Dict[str, Any]] = []
-        doc_counts: Dict[str, int] = {}
-        for chunk in ranked:
-            source = Path(str(chunk.get("source") or "")).name if chunk.get("source") else ""
-            if source:
-                count = doc_counts.get(source, 0)
-                if count >= max_per_doc:
-                    continue
-                doc_counts[source] = count + 1
-            limited.append(chunk)
-            if top_k and len(limited) >= top_k:
-                break
-        if top_k:
-            return limited[:top_k]
-        return limited
     return ranked[:top_k] if top_k else ranked
 
 def select_context_window(

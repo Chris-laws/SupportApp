@@ -1,5 +1,5 @@
 spearman_recall_f1,spearman_ndcg_f1,spearman_mrr_f1,spearman_recall_factual,spearman_ndcg_factual,spearman_mrr_factual,pearson_recall_f1,pearson_ndcg_f1,pearson_mrr_f1,pearson_recall_factual,pearson_ndcg_factual,pearson_mrr_factual,label,model,retrieval_mode,top_k
-,,,0.299568,0.228587,0.286511,,,,0.291801,0.227034,0.261691,hybrid_k20_ctx8_llama3,llama3:8b,hybrid,20
+-0.336076,-0.331184,-0.327953,0.329514,0.299444,0.315366,-0.251914,-0.169262,-0.032093,0.294446,0.188221,0.029597,hybrid_k20_ctx8_llama3,llama3:8b,hybrid,20
 0.113330,0.132443,0.140269,0.293247,0.224017,0.178136,0.032361,0.073366,0.097307,0.240764,0.238089,0.175115,hybrid_k12_ctx8_llama3,llama3:8b,hybrid,12
 0.086444,0.117920,-0.000917,-0.100746,-0.074377,-0.087966,-0.017293,-0.044346,-0.140179,-0.102601,-0.103468,-0.098102,hybrid_k12_ctx8_phi3,phi3:latest,hybrid,10
 0.249127,0.220732,0.217314,0.287340,0.213620,0.231191,0.265950,0.266225,0.221019,0.289533,0.250746,0.237723,hybrid_k12_ctx8_gemma,gemma:2b,hybrid,10
