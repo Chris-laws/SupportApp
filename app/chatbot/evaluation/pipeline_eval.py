@@ -341,6 +341,11 @@ def main() -> None:
     parser.add_argument("--timeout", type=int, default=60)
     parser.add_argument("--reranker-k", type=int, default=None, help="Wie viele Kandidaten an den Cross-Encoder geben")
     parser.add_argument("--disable-query-rewrite", action="store_true")
+    parser.add_argument(
+        "--enable-reranker",
+        action="store_true",
+        help="Cross-Encoder fuer hoehere Qualitaet aktivieren (Standard: deaktiviert)",
+    )
     parser.add_argument("--synonyms", type=Path, default=Path("app/chatbot/Config/synonyms.yml"))
     parser.add_argument("--mandatory-keywords", type=Path, default=Path("app/chatbot/Config/mandatory_keywords.yml"))
     parser.add_argument("--log-missing-keywords", action="store_true")
@@ -366,12 +371,15 @@ def main() -> None:
     index, records, embeddings = load_faiss_index("app/chatbot/data/faiss_index/index")
     retriever = HybridRetriever(records, embeddings=embeddings, faiss_index=index)
     reranker = None
-    if CrossEncoderReranker is not None:
+    if args.enable_reranker and CrossEncoderReranker is not None:
         try:
             reranker = CrossEncoderReranker()
         except Exception as exc:  # noqa: BLE001
             print(f"WARN: Reranker konnte nicht geladen werden ({exc}), fahre ohne.")
             reranker = None
+
+    use_reranker = reranker is not None and args.enable_reranker
+    reranker_in_use = reranker if use_reranker else None
 
     ensure_output(args.output)
     fieldnames = [
@@ -420,7 +428,7 @@ def main() -> None:
                 query_embedding=np.array(embedding, dtype=np.float32),
                 top_k=args.candidate_pool,
                 bm25_k=max(200, args.candidate_pool * 4),
-                reranker=reranker,
+                reranker=reranker_in_use,
                 reranker_k=args.reranker_k if args.reranker_k is not None else max(args.candidate_pool * 3, 150),
                 reranker_weight=0.7,
                 mode=args.retrieval_mode,

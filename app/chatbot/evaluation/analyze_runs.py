@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import logging
 from pathlib import Path
 from typing import Iterable
 
@@ -67,6 +68,9 @@ def basic_summary(df: pd.DataFrame) -> dict:
 def aggregate_runs(run_map: dict[str, Path], output: Path) -> None:
     rows: list[dict] = []
     for label, path in run_map.items():
+        if not path.exists():
+            logging.warning("Ueberspringe fehlende Datei %s (%s)", path, label)
+            continue
         df = load_csv(path)
         if df.empty:
             continue
@@ -124,6 +128,9 @@ def correlation_summary(df: pd.DataFrame) -> dict:
 def export_correlations(run_map: dict[str, Path], output: Path) -> None:
     rows: list[dict] = []
     for label, path in run_map.items():
+        if not path.exists():
+            logging.warning("Ueberspringe fehlende Datei %s (%s)", path, label)
+            continue
         df = load_csv(path)
         if df.empty:
             continue
@@ -145,6 +152,9 @@ def export_correlations(run_map: dict[str, Path], output: Path) -> None:
 def stability_stats(paths: Iterable[Path], metric: str) -> tuple[float, float]:
     values = []
     for path in paths:
+        if not path.exists():
+            logging.warning("Ueberspringe fehlende Datei %s fuer Stabilitaet", path)
+            continue
         df = load_csv(path)
         if df.empty:
             continue
@@ -187,6 +197,9 @@ def write_stability_report(
 
 
 def export_retrieval_mix(source: Path, output: Path) -> None:
+    if not source.exists():
+        logging.warning("Ueberspringe fehlende Datei %s fuer Retrieval-Mix", source)
+        return
     df = load_csv(source)
     if df.empty:
         return
@@ -215,17 +228,22 @@ if __name__ == "__main__":
         "hybrid_k12_ctx8_llama3": base / "results_hybrid_k12_ctx8_llama3_8b.csv",
         "hybrid_k12_ctx8_phi3": base / "results_hybrid_k12_ctx8_phi3.csv",
         "hybrid_k12_ctx8_gemma": base / "results_hybrid_k12_ctx8_gemma.csv",
+        "hybrid_k10_llama3": base / "results_hybrid_k10_llama3_8b.csv",
+        "hybrid_k10_llama3_70b": base / "results_hybrid_k10_llama3_70b.csv",
+        "hybrid_k10_gemma_2b": base / "results_hybrid_k10_gemma_2b.csv",
+        "hybrid_k12_ctx8_llama3_70b_oldsetup": base / "results_hybrid_k12_ctx8_llama3_70b_oldsetup.csv",
     }
     aggregate_runs(run_map, base / "summary_runs.csv")
     export_correlations(run_map, base / "summary_run_correlations.csv")
 
     stability_runs = {
-        "hybrid_k12_ctx8_llama3": [
-            base / "results_hybrid_k12_ctx8_llama3_8b.csv",
-            base / "results_hybrid_k12_ctx8_llama3_8b_run2.csv",
-            base / "results_hybrid_k12_ctx8_llama3_8b_run3.csv",
+        "hybrid_k10_llama3": [
+            base / "results_hybrid_k10_llama3_8b.csv",
+            base / "results_hybrid_k10_llama3_8b_run2.csv",
+            base / "results_hybrid_k10_llama3_8b_run3.csv",
         ],
     }
     write_stability_report(stability_runs, base / "summary_stability.csv")
 
     export_retrieval_mix(base / "results_hybrid_k12_ctx8_llama3_8b.csv", base / "retrieval_mix_hybrid_k12_ctx8_llama3.csv")
+    export_retrieval_mix(base / "results_hybrid_k10_llama3_8b.csv", base / "retrieval_mix_hybrid_k10.csv")

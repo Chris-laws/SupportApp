@@ -1,2 +1,6 @@
 label,runs,keyword_f1_mean,keyword_f1_std,factual_mean,factual_std,time_mean,time_std
+<<<<<<< HEAD
 hybrid_k12_ctx8_llama3,3,0.610446,0.014826,0.926829,0.000000,4.151720,0.070472
+=======
+hybrid_k10_llama3,3,0.604176,0.000000,0.951220,0.000000,4.247820,0.000000
+>>>>>>> 503eb89 (Make reranker opt-in and refresh evaluation summaries)
