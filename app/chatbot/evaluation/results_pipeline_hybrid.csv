@@ -1,0 +1,76 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.1429,"90, self, service, tage",5.1892,507,25,1
+G001,Softphone Kennwort aendern,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1579,"self, service, tage",4.4298,507,41,1
+G001,Softphone Kennwort aendern,phi3:latest,hybrid,1.0,1.0,1.0,1,0.25,"90, tage",4.3505,507,32,1
+G002,Softphone Anmeldedaten speichern aktivieren,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.2759,,3.5638,346,29,1
+G002,Softphone Anmeldedaten speichern aktivieren,gemma:2b,hybrid,1.0,1.0,1.0,1,0.16,"haken, speichern",2.7518,346,26,0
+G002,Softphone Anmeldedaten speichern aktivieren,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1714,haken,3.1376,346,32,0
+G003,Softphone Erstanmeldung mit DLS PIN,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.1765,erstmalig,3.6319,317,36,1
+G003,Softphone Erstanmeldung mit DLS PIN,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1714,erstmalig,2.9663,317,38,1
+G003,Softphone Erstanmeldung mit DLS PIN,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1935,erstmalig,3.1043,317,34,1
+G004,Softphone vollstaendig beenden,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,taskleiste,3.6749,288,36,1
+G004,Softphone vollstaendig beenden,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,taskleiste,2.5883,288,15,1
+G004,Softphone vollstaendig beenden,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,taskleiste,3.0715,288,32,1
+G005,Softphone Fusion Leiste Funktionen,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,favoriten,3.7143,282,28,1
+G005,Softphone Fusion Leiste Funktionen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,favoriten,2.7248,282,25,1
+G005,Softphone Fusion Leiste Funktionen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,favoriten,3.0944,282,31,0
+G006,Softphone praefiertes Endgeraet wechseln,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,endgeraet,3.7433,290,28,1
+G006,Softphone praefiertes Endgeraet wechseln,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,endgeraet,2.7273,290,26,1
+G006,Softphone praefiertes Endgeraet wechseln,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"endgeraet, fusion",3.0918,290,32,0
+G007,Softphone One Number Service konfigurieren,mistral:instruct,hybrid,0.8,0.8688,1.0,1,0.2424,,3.9544,580,30,1
+G007,Softphone One Number Service konfigurieren,gemma:2b,hybrid,0.8,0.8688,1.0,1,0.381,,2.8139,580,21,1
+G007,Softphone One Number Service konfigurieren,phi3:latest,hybrid,0.8,0.8688,1.0,1,0.2286,,3.3121,580,33,0
+G008,Softphone Rufnummernanzeige steuern (CLIR),mistral:instruct,hybrid,1.0,1.0,1.0,1,0.1429,"anzeige, geraet",3.685,290,26,1
+G008,Softphone Rufnummernanzeige steuern (CLIR),gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,clir,2.583,290,12,1
+G008,Softphone Rufnummernanzeige steuern (CLIR),phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"clir, rufnummer",3.2323,290,29,0
+G009,Softphone Rufnummer fuer CLIR deaktivieren,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.129,"auswaehlen, geraet",3.7456,391,31,1
+G009,Softphone Rufnummer fuer CLIR deaktivieren,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,deaktivieren,2.575,391,16,1
+G009,Softphone Rufnummer fuer CLIR deaktivieren,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1176,"auswaehlen, geraet",3.2503,391,32,0
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,mistral:instruct,hybrid,1.0,0.9675,1.0,1,0.0,rufnummer,3.6905,312,32,1
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,gemma:2b,hybrid,1.0,0.9675,1.0,1,0.0,"kontakte, rufnummer",2.4965,312,9,0
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,phi3:latest,hybrid,1.0,0.9675,1.0,1,0.0,rufnummer,3.1938,312,29,0
+G011,Softphone Konferenz planen,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,moderator,3.6553,265,29,1
+G011,Softphone Konferenz planen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"konferenz, moderator",2.5435,265,14,0
+G011,Softphone Konferenz planen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,moderator,3.1348,265,32,1
+G012,HP Drucker Papierstau beheben,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.2222,modul,3.7086,314,27,1
+G012,HP Drucker Papierstau beheben,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,drucker,2.7178,314,25,0
+G012,HP Drucker Papierstau beheben,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,drucker,3.1645,314,27,1
+G013,HP Drucker Duplexmodul verwenden,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,"drucker, duplex",3.6904,271,26,1
+G013,HP Drucker Duplexmodul verwenden,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,duplex,2.6388,271,19,1
+G013,HP Drucker Duplexmodul verwenden,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,duplex,3.0956,271,30,1
+G014,HP Drucker Patronen reinigen,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,patrone,3.7722,316,23,1
+G014,HP Drucker Patronen reinigen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,patrone,2.9568,316,41,1
+G014,HP Drucker Patronen reinigen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,patrone,3.1757,316,23,1
+G015,Abwesenheitsagent in Clerk anlegen,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.1429,"abwesenheit, periodisch",3.981,625,25,1
+G015,Abwesenheitsagent in Clerk anlegen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,clerk,2.9852,625,28,1
+G015,Abwesenheitsagent in Clerk anlegen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,abwesenheitsagent,3.367,625,29,0
+G016,Outlook Ordner fuer Stellvertreter freigeben,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.2069,berechtigung,3.6282,298,27,1
+G016,Outlook Ordner fuer Stellvertreter freigeben,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1875,berechtigung,2.9459,298,37,1
+G016,Outlook Ordner fuer Stellvertreter freigeben,phi3:latest,hybrid,1.0,1.0,1.0,1,0.24,berechtigung,3.0903,298,26,1
+G017,Raeume oder Ressourcen buchen,mistral:instruct,hybrid,1.0,0.6309,0.5,2,0.0,"buchung, raum",3.7483,280,27,1
+G017,Raeume oder Ressourcen buchen,gemma:2b,hybrid,1.0,0.6309,0.5,2,0.0,"buchung, raum",2.9337,280,38,1
+G017,Raeume oder Ressourcen buchen,phi3:latest,hybrid,1.0,0.6309,0.5,2,0.0,raum,3.1274,280,29,0
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.0,webgateway,3.9748,454,23,1
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,webgateway,2.7151,454,18,1
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,webgateway,3.3641,454,26,0
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,mistral:instruct,hybrid,1.0,0.5,0.3333,3,0.1379,"filtern, malware, proxy",3.7873,372,24,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,gemma:2b,hybrid,1.0,0.5,0.3333,3,0.1111,"filtern, malware, proxy",2.9589,372,33,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,phi3:latest,hybrid,1.0,0.5,0.3333,3,0.1379,"filtern, malware, proxy",3.187,372,24,1
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,mistral:instruct,hybrid,1.0,0.6309,0.5,2,0.2069,389,4.2928,955,30,1
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,gemma:2b,hybrid,1.0,0.6309,0.5,2,0.25,"389, 636",2.8048,955,13,0
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,phi3:latest,hybrid,1.0,0.6309,0.5,2,0.129,"389, 636",3.6174,955,29,1
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,mistral:instruct,hybrid,0.0,0.0,0.0,,0.0667,"auswertung, betriebsrat, mitarbeiter",3.7389,463,28,0
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0909,"auswertung, betriebsrat, mitarbeiter",2.6585,463,18,0
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0667,"auswertung, betriebsrat, mitarbeiter",3.199,463,28,0
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,mistral:instruct,hybrid,1.0,0.6934,0.5,2,0.1212,"postfach, regeln, weiteres",3.9906,684,29,1
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,gemma:2b,hybrid,1.0,0.6934,0.5,2,0.2051,regeln,3.0181,684,39,1
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,phi3:latest,hybrid,1.0,0.6934,0.5,2,0.1143,"postfach, regeln, weiteres",3.3968,684,32,1
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,mistral:instruct,hybrid,1.0,1.0,1.0,1,0.375,,4.3759,1003,33,1
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1429,"com, office, senden, webclient",2.8553,1003,23,1
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1579,"com, office, webclient",3.6964,1003,35,0
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,mistral:instruct,hybrid,0.0,0.0,0.0,,0.1429,"freigabe, hinzufuegen",3.9652,697,27,0
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,gemma:2b,hybrid,0.0,0.0,0.0,,0.129,"freigabe, hinzufuegen",2.8816,697,32,0
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,phi3:latest,hybrid,0.0,0.0,0.0,,0.08,"freigabe, hinzufuegen, zugriff",3.323,697,28,1
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,mistral:instruct,hybrid,0.0,0.0,0.0,,0.1935,speichern,4.1527,721,31,0
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0714,"bereich, screenshot, speichern",2.8418,721,28,0
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0769,"bereich, screenshot, speichern",3.4582,721,25,0

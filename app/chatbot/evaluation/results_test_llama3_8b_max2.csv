@@ -1,0 +1,6 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct,top_k,bm25_in_topk,dense_in_topk,overlap_in_topk,rerank_delta_top1,avg_score_delta_topk,kendall_tau_topk,format_bullet_keyword,format_citation_per_bullet,contains_nicht_im_kontext,bullet_count,error_bucket
+G001,Softphone Kennwort aendern,llama3:8b,hybrid,0.6667,0.7654,1.0,1,1.0,,12.0694,1010,96,1,12,11,1,0,0.203726,0.053473,0.606061,1,0,0,5,C
+G002,Softphone Anmeldedaten speichern aktivieren,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.5962,793,77,1,12,10,2,0,0.211208,0.088337,0.454545,1,1,0,4,OK
+G003,Softphone Erstanmeldung mit DLS PIN,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,7.5283,677,112,1,12,11,1,0,0.155809,0.043821,0.666667,1,1,0,4,OK
+G004,Softphone vollstaendig beenden,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.5079,293,97,1,12,11,1,0,0.162527,0.037946,0.878788,1,0,0,4,C
+G005,Softphone Fusion Leiste Funktionen,llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,5.4896,411,64,1,12,11,1,0,0.138791,0.05299,0.818182,1,0,1,4,B

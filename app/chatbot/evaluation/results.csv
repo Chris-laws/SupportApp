@@ -1,0 +1,61 @@
+query,model,recall@k,ndcg@k,mrr,keyword_f1,time_s,factual_correct
+Wie finde ich das Kapitel zur Kennwortänderung im agree21Voice Handbuch?,mistral:instruct,0.0,0.0,0.0,0.24,4.1486,1
+Wie finde ich das Kapitel zur Kennwortänderung im agree21Voice Handbuch?,gemma:2b,0.0,0.0,0.0,0.2727,2.7539,1
+Wie finde ich das Kapitel zur Kennwortänderung im agree21Voice Handbuch?,phi3:latest,0.0,0.0,0.0,0.0588,3.3927,0
+Wo steht etwas über die Initial-PIN beim Softphone Start?,mistral:instruct,0.0,0.0,0.0,0.1875,4.0935,1
+Wo steht etwas über die Initial-PIN beim Softphone Start?,gemma:2b,0.0,0.0,0.0,0.0769,2.8386,1
+Wo steht etwas über die Initial-PIN beim Softphone Start?,phi3:latest,0.0,0.0,0.0,0.0588,3.476,1
+In welchem Kapitel wird der One Number Service erläutert?,mistral:instruct,0.0,0.0,0.0,0.2,4.1396,1
+In welchem Kapitel wird der One Number Service erläutert?,gemma:2b,0.0,0.0,0.0,0.4615,2.6352,1
+In welchem Kapitel wird der One Number Service erläutert?,phi3:latest,0.0,0.0,0.0,0.1579,3.5422,0
+Wo finde ich Informationen zur Anrufumleitung in der Softphone Dokumentation?,mistral:instruct,1.0,0.5,0.3333,0.0909,4.2516,1
+Wo finde ich Informationen zur Anrufumleitung in der Softphone Dokumentation?,gemma:2b,1.0,0.5,0.3333,0.1538,2.7538,1
+Wo finde ich Informationen zur Anrufumleitung in der Softphone Dokumentation?,phi3:latest,1.0,0.5,0.3333,0.1379,3.6543,1
+Wie speichere ich einen Greenshot Bereich als PNG?,mistral:instruct,1.0,1.0,1.0,0.1935,3.8003,1
+Wie speichere ich einen Greenshot Bereich als PNG?,gemma:2b,1.0,1.0,1.0,0.1935,2.8886,1
+Wie speichere ich einen Greenshot Bereich als PNG?,phi3:latest,1.0,1.0,1.0,0.1935,3.2292,1
+Welche Option kopiert den Greenshot in die Zwischenablage?,mistral:instruct,1.0,1.0,1.0,0.1739,3.7913,1
+Welche Option kopiert den Greenshot in die Zwischenablage?,gemma:2b,1.0,1.0,1.0,0.1538,2.6323,1
+Welche Option kopiert den Greenshot in die Zwischenablage?,phi3:latest,1.0,1.0,1.0,0.1081,3.2996,0
+Wie lege ich Favoriten in der Softphone Fusion-Leiste an?,mistral:instruct,1.0,1.0,1.0,0.1481,4.0404,1
+Wie lege ich Favoriten in der Softphone Fusion-Leiste an?,gemma:2b,1.0,1.0,1.0,0.2667,2.7073,1
+Wie lege ich Favoriten in der Softphone Fusion-Leiste an?,phi3:latest,1.0,1.0,1.0,0.1667,3.4399,1
+"Wie erreiche ich, dass neue Outlook-Ordner automatisch für Vertreter freigegeben werden?",mistral:instruct,1.0,1.0,1.0,0.1538,4.0623,1
+"Wie erreiche ich, dass neue Outlook-Ordner automatisch für Vertreter freigegeben werden?",gemma:2b,1.0,1.0,1.0,0.1081,3.0067,1
+"Wie erreiche ich, dass neue Outlook-Ordner automatisch für Vertreter freigegeben werden?",phi3:latest,1.0,1.0,1.0,0.1429,3.3908,1
+Welche Berechtigung sollte als Standard gesetzt werden damit Vertreter bearbeiten können?,mistral:instruct,1.0,0.6309,0.5,0.1538,3.9218,1
+Welche Berechtigung sollte als Standard gesetzt werden damit Vertreter bearbeiten können?,gemma:2b,1.0,0.6309,0.5,0.1667,2.6042,1
+Welche Berechtigung sollte als Standard gesetzt werden damit Vertreter bearbeiten können?,phi3:latest,1.0,0.6309,0.5,0.0625,4.2938,0
+Wer legt den Abwesenheitsagenten bei Krankheit an?,mistral:instruct,1.0,1.0,1.0,0.1429,3.5188,1
+Wer legt den Abwesenheitsagenten bei Krankheit an?,gemma:2b,1.0,1.0,1.0,0.2222,2.7651,1
+Wer legt den Abwesenheitsagenten bei Krankheit an?,phi3:latest,1.0,1.0,1.0,0.1,3.1381,1
+Welche Angaben gehören zu einer einmaligen Abwesenheit im Clerk?,mistral:instruct,1.0,1.0,1.0,0.069,4.0351,1
+Welche Angaben gehören zu einer einmaligen Abwesenheit im Clerk?,gemma:2b,1.0,1.0,1.0,0.2609,2.9333,1
+Welche Angaben gehören zu einer einmaligen Abwesenheit im Clerk?,phi3:latest,1.0,1.0,1.0,0.0667,3.3648,0
+Wo finde ich im IQ Suite WebClient die PDF-Crypt Kennwörter?,mistral:instruct,1.0,1.0,1.0,0.0,3.9619,1
+Wo finde ich im IQ Suite WebClient die PDF-Crypt Kennwörter?,gemma:2b,1.0,1.0,1.0,0.0667,2.8917,1
+Wo finde ich im IQ Suite WebClient die PDF-Crypt Kennwörter?,phi3:latest,1.0,1.0,1.0,0.0,3.3543,1
+Wie ändere ich das Passwort für eine verschlüsselte PDF Mail?,mistral:instruct,1.0,1.0,1.0,0.1875,3.8373,1
+Wie ändere ich das Passwort für eine verschlüsselte PDF Mail?,gemma:2b,1.0,1.0,1.0,0.1538,2.9889,1
+Wie ändere ich das Passwort für eine verschlüsselte PDF Mail?,phi3:latest,1.0,1.0,1.0,0.1765,3.2524,1
+Wie starte ich den Softphone Client?,mistral:instruct,0.0,0.0,0.0,0.087,3.9617,1
+Wie starte ich den Softphone Client?,gemma:2b,0.0,0.0,0.0,0.1,2.9244,1
+Wie starte ich den Softphone Client?,phi3:latest,0.0,0.0,0.0,0.1333,3.3546,1
+Wie beende ich das Softphone?,mistral:instruct,0.0,0.0,0.0,0.25,3.305,1
+Wie beende ich das Softphone?,gemma:2b,0.0,0.0,0.0,0.0952,2.6716,1
+Wie beende ich das Softphone?,phi3:latest,0.0,0.0,0.0,0.1333,3.4701,1
+Welche Schritte brauche ich für die Softphone Erstanmeldung?,mistral:instruct,0.0,0.0,0.0,0.0,3.9492,1
+Welche Schritte brauche ich für die Softphone Erstanmeldung?,gemma:2b,0.0,0.0,0.0,0.0,2.7006,0
+Welche Schritte brauche ich für die Softphone Erstanmeldung?,phi3:latest,0.0,0.0,0.0,0.0,3.3552,0
+Welche Funktion beschreibt die Softphone Funktionsübersicht?,mistral:instruct,0.0,0.0,0.0,0.0741,4.0588,1
+Welche Funktion beschreibt die Softphone Funktionsübersicht?,gemma:2b,0.0,0.0,0.0,0.1333,2.7422,1
+Welche Funktion beschreibt die Softphone Funktionsübersicht?,phi3:latest,0.0,0.0,0.0,0.0741,3.4165,1
+Wie aktualisiere ich mein Profilbild im Softphone?,mistral:instruct,0.0,0.0,0.0,0.1379,4.1593,0
+Wie aktualisiere ich mein Profilbild im Softphone?,gemma:2b,0.0,0.0,0.0,0.1818,2.6464,1
+Wie aktualisiere ich mein Profilbild im Softphone?,phi3:latest,0.0,0.0,0.0,0.0667,3.5247,1
+Wie finde ich Informationen zur Anrufsteuerung bei Bildschirmsperre?,mistral:instruct,1.0,1.0,1.0,0.1739,4.2452,1
+Wie finde ich Informationen zur Anrufsteuerung bei Bildschirmsperre?,gemma:2b,1.0,1.0,1.0,0.1429,2.9334,0
+Wie finde ich Informationen zur Anrufsteuerung bei Bildschirmsperre?,phi3:latest,1.0,1.0,1.0,0.125,3.5875,1
+Wie kann ich die Rufnummern in der Softphone Fusion-Leiste anzeigen lassen?,mistral:instruct,0.0,0.0,0.0,0.1333,3.8951,1
+Wie kann ich die Rufnummern in der Softphone Fusion-Leiste anzeigen lassen?,gemma:2b,0.0,0.0,0.0,0.1111,2.6673,1
+Wie kann ich die Rufnummern in der Softphone Fusion-Leiste anzeigen lassen?,phi3:latest,0.0,0.0,0.0,0.0769,3.3075,1

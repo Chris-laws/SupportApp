@@ -1,0 +1,268 @@
+{
+  "documents": {
+    "softphone_chunk000": "Anwenderdokumentation agree21Voice (Softphone) Version 1.6 INHALTSVERZEICHNIS Letzte Änderungen.................................................................................................................................... 4 1 Softphone Aufrufen und Anmelden........................................... 5 1.1 Unterscheidung agree21Voice Softphone und agree21Voi- ce KSC-Softphone....................................................................... 5 1.2 Erstmaliges Anmelden................................................................ 7 1.2.1 Erstmaliges Anmelden am Softphone mit Initial-PIN.................................... 7 1.2.2 Anmeldung mit UC-Informationen.................................................................. 7 1.3 Ändern des Kennworts................................................................9 1.4 Öffnen des Softphones............................................................. 10 1.5 Beenden des Softphones..........................................................11 2 Funktionsübersicht....................................................................12 3 Präferierte Endgeräte nutzen....................................................16 3.1 Geräte hinzufügen..................................................................... 16 3.2 Endgeräte bearbeiten................................................................ 18 3.3 Präferiertes Endgerät: One Number Service...........................19 3.3.1 Präferiertes Endgerät auf Basis des Präsenzstatus....................................20 3.3.2 Automatische Anrufsteuerung bei Bildschirmsperre................................. 21 3.4 Profilbild hinzufügen................................................................. 22 4 Anrufumleitung und Regeln......................................................23 4.1 Einfache Anrufumleitung.......................................................... 23 4.2 Benutzerdefinierte Profile zur Anrufumleitung.......................25 4.3 Anrufumleitung über den Präsenzstatus steuern...................27 5 Telefonie-Funktionen und Verbindungssteuerung.................29 agree21Voice (Softphone) Atruvia AG 2 5.1",
+    "softphone_chunk001": "22 4 Anrufumleitung und Regeln......................................................23 4.1 Einfache Anrufumleitung.......................................................... 23 4.2 Benutzerdefinierte Profile zur Anrufumleitung.......................25 4.3 Anrufumleitung über den Präsenzstatus steuern...................27 5 Telefonie-Funktionen und Verbindungssteuerung.................29 agree21Voice (Softphone) Atruvia AG 2 5.1 Hinweise zu den Telefonie-Funktionen....................................30 5.2 Ausgehender Anruf................................................................... 31 5.3 Eingehender Anruf.....................................................................32 5.3.1 Anrufübernahmegruppe.................................................................................32 5.4 Laufendes Gespräch................................................................. 33 5.4.1 Gespräch halten..............................................................................................34 5.4.2 Gespräch weiterleiten.....................................................................................34 5.4.3 Zwei parallele Gespräche führen...................................................................35 5.4.4 Endgerät wechseln......................................................................................... 36 5.4.5 DTMF-Tasten................................................................................................... 36 5.4.6 Gespräch beenden..........................................................................................37 6 Kontakte......................................................................................38 6.1 Kontakte und Gruppen anlegen............................................... 38 6.2 Kommunikation mit Kontakten.................................................39 6.3 Präsenzstatus.............................................................................41 6.4 Verzeichnissuche.......................................................................42 7 Konferenzen............................................................................... 45 7.1 Konferenz erstellen....................................................................45 7.2 Konferenz starten und steuern.................................................47 agree21Voice (Softphone) Atruvia AG 3 Inhaltsverzeichnis Letzte Änderungen Änderungen in der Version Juli 2024 n Einfache Anrufumleitung (S. 23) l Anrufumleitung aktivieren (ab Softphone-Version 2.1.41)",
+    "softphone_chunk002": "7.2 Konferenz starten und steuern.................................................47 agree21Voice (Softphone) Atruvia AG 3 Inhaltsverzeichnis Letzte Änderungen Änderungen in der Version Juli 2024 n Einfache Anrufumleitung (S. 23) l Anrufumleitung aktivieren (ab Softphone-Version 2.1.41) (S. 23) l Anrufumleitung deaktivieren (S. 23) agree21Voice (Softphone) Version 1.6 Atruvia AG 4 Letzte Änderungen 1 Softphone Aufrufen und Anmelden 1.1 Unterscheidung agree21Voice Softphone und ag- ree21Voice KSC-Softphone Das Softphone existiert in zwei Ausprägungen/Konfigurationen: n Am bisherigen Softphone ändert sich nichts. n Ab Juni 2023 steht zusätzlich das KSC-Softphone zur Verfügung, das in Verbindung mit ag- ree21KSC 2.0 von KSC-Mitarbeitern genutzt werden kann. Beim KSC-Softphone fallen alle Funktionen weg, die im Rahmen des One Number Service (ONS) be- reitgestellt werden. Darauf wird im entsprechenden Kapitel hingewiesen. Alle anderen Beschreibungen",
+    "softphone_chunk003": "KSC-Mitarbeitern genutzt werden kann. Beim KSC-Softphone fallen alle Funktionen weg, die im Rahmen des One Number Service (ONS) be- reitgestellt werden. Darauf wird im entsprechenden Kapitel hingewiesen. Alle anderen Beschreibungen und Informationen gelten für das KSC-Softphone ebenso wie für das Softphone. Wird in der Dokumentation vom 'Softphone' gesprochen, ist also auch das KSC-Softphone gemeint. Wichtiger Hinweis: Die KSC-Mitarbeiter müssen zu Beginn der Arbeit zuerst das KSC-Softphone starten und warten, bis es Betriebsbereit ist. Erst dann können die Mitarbeiter im BAP die Funktion 2087 KundenServiceCenter öffnen aufrufen und sich am KSC anmelden. Über Einstellungen > Erweiterte Client-Einstellungen > Allgemein > Programmstart können Sie einstellen, dass das KSC-Softphone automatisch bei der Windows-Anmeldung gestartet und die Fusi- on-Leiste automatisch bei Programmstart eingeblendet wird.",
+    "softphone_chunk004": "anmelden. Über Einstellungen > Erweiterte Client-Einstellungen > Allgemein > Programmstart können Sie einstellen, dass das KSC-Softphone automatisch bei der Windows-Anmeldung gestartet und die Fusi- on-Leiste automatisch bei Programmstart eingeblendet wird. agree21Voice (Softphone) Version 1.6 Atruvia AG 5 Mischbetrieb von KSC-Softphones und Hardware-Telefonen möglich Sie haben die Möglichkeit, nur einen Teil Ihrer KSC-Mitarbeiter auf die Nutzung von KSC-Softphones umzustellen (diese benötigen dann eine eigene KSC-Rufnummer und somit eine eigene KSC-Lizenz). Andere Mitarbeiter (z. B. wechselnde Azubis) können sich weiterhin KSC-Rufnummern (und somit eine KSC-Lizenz) teilen, wenn diese mit einem Hardware-Telefon verknüpft sind. agree21Voice (Softphone) Version 1.6 Atruvia AG 6 1 Softphone Aufrufen und Anmelden 1.1 Unterscheidung agree21Voice Softphone und agree21Voice KSC-Softphone 1.2 Erstmaliges Anmelden Nach Installation des Softphones (OpenScape Fusion for",
+    "softphone_chunk005": "sind. agree21Voice (Softphone) Version 1.6 Atruvia AG 6 1 Softphone Aufrufen und Anmelden 1.1 Unterscheidung agree21Voice Softphone und agree21Voice KSC-Softphone 1.2 Erstmaliges Anmelden Nach Installation des Softphones (OpenScape Fusion for Office Software) ist auf dem Desktop das unten dargestellte Icon sichtbar. Durch Doppelklick auf dieses Icon wird die OpenScape Fusion Software zum ersten Mal gestartet. Es erscheint folgender Dialog: 1.2.1 Erstmaliges Anmelden am Softphone mit Initial-PIN Bei erstmaliger Anmeldung werden Sie dazu aufgefordert, eine achtstellige DLS-PIN einzugeben. Die DLS-PIN haben Sie nach der Bestellung per E-Mail erhalten. Hinweis: Beachten Sie, dass Sie nach Aufruf des Fensters zur DLS-PIN-Authentifizierung die PIN nach spätestens 5 Minuten eingeben müssen. Stellen Sie unbedingt sicher, dass die DLS-PIN bei erstmaligem Aufruf des Softphones vorliegt. Öffnen",
+    "softphone_chunk006": "dass Sie nach Aufruf des Fensters zur DLS-PIN-Authentifizierung die PIN nach spätestens 5 Minuten eingeben müssen. Stellen Sie unbedingt sicher, dass die DLS-PIN bei erstmaligem Aufruf des Softphones vorliegt. Öffnen Sie das Softphone nicht, bevor Sie die DLS-PIN erhalten haben. 1.2.2 Anmeldung mit UC-Informationen Nach erfolgreicher Eingabe des DLS-PIN erscheint der unten dargestellte Dialog. agree21Voice (Softphone) Version 1.6 Atruvia AG 7 1 Softphone Aufrufen und Anmelden 1.2 Erstmaliges Anmelden Hinweis: Für eine korrekte Darstellung des Dialogfensters muss die Anzeigeeinstellung (Skalie- rung) Ihrer PC-Hardware 100% betragen. Wichtig: Setzen Sie unbedingt bei 'Anmeldedaten speichern' den Haken, bevor Sie das Kennt- wort bestätigen. Wenn der Haken nicht gesetzt wird, taucht das Anmeldefenster immer wieder auf. Eine Anmeldung am Softphone ist somit nicht ohne",
+    "softphone_chunk007": "'Anmeldedaten speichern' den Haken, bevor Sie das Kennt- wort bestätigen. Wenn der Haken nicht gesetzt wird, taucht das Anmeldefenster immer wieder auf. Eine Anmeldung am Softphone ist somit nicht ohne Setzen des Hakens möglich. Als Kennwort geben Sie bei der Erstanmeldung das Initial-Kennwort an. Anschließend werden Sie aufgefordert, ein neues Kennwort zu hinterlegen. Wenn Sie zuvor den WebClient unter agree21Voice genutzt haben, geben Sie dieses Kennwort ein. Wenn Sie dieses Kennwort vergessen haben, kann Ihr Administrator das Kennwort in SAGA über den Self-Service zurücksetzen. agree21Voice (Softphone) Version 1.6 Atruvia AG 8 1 Softphone Aufrufen und Anmelden 1.2.2 Anmeldung mit UC-Informationen 1.3 Ändern des Kennworts Das Kennwort läuft nach 90 Tagen ab. Nach Ablauf des Kennworts erscheint die Aufforderung zur Kennwortänderung.",
+    "softphone_chunk008": "8 1 Softphone Aufrufen und Anmelden 1.2.2 Anmeldung mit UC-Informationen 1.3 Ändern des Kennworts Das Kennwort läuft nach 90 Tagen ab. Nach Ablauf des Kennworts erscheint die Aufforderung zur Kennwortänderung. Sollte der Anwender das Kennwort vergessen haben, kann im SAGA Self-Service das UC-Kennwort zurückgesetzt werden. Weitere Informationen finden Sie in der Anwenderdokumenta- tion agree21Voice (Self-Service). Sie können das Kennwort unter Erweiterte Client Einstellungen (siehe Anwenderdokumentation ag- ree21Voice (Softphone für Administratoren), Kapitel 'Erweiterte Client Einstellungen') ändern. Gehen Sie zu Erweiterte Client Einstellungen > OpenScape UC Provider > Verbindung > Kennwort ändern. Anschließend öffnet sich ein Dialogfeld zur Kennwortänderung. Das Kennwort muss dabei folgenden Anforderungen entsprechen: agree21Voice (Softphone) Version 1.6 Atruvia AG 9 1 Softphone Aufrufen und Anmelden 1.3 Ändern des Kennworts",
+    "softphone_chunk009": "Anschließend öffnet sich ein Dialogfeld zur Kennwortänderung. Das Kennwort muss dabei folgenden Anforderungen entsprechen: agree21Voice (Softphone) Version 1.6 Atruvia AG 9 1 Softphone Aufrufen und Anmelden 1.3 Ändern des Kennworts n minimale Länge von 8 Zeichen n mindestens 1 Ziffer n mindestens 1 Großbuchstaben n mindestens 1 Sonderzeichen n Keine Umlaute (ä,ö,ü ) Hinweis: Für eine korrekte Darstellung des Dialogfensters muss die Anzeigeeinstellung (Skalierung) Ihrer PC-Hardware 125% oder 150% betragen. 1.4 Öffnen des Softphones Bei der weiteren Nutzung wird das Softphone (OpenScape Fusion) über die Verknüpfung oder Pro- grammsuche gestartet. Nach dem Öffnen ist das Icon in der Taskleiste sichtbar: Beim Öffnen erscheint temporär zuerst ein Fenster mit einer oder mehreren Fehlermeldungen. Diese verschwinden, wenn das Softphone vollständig gestartet ist.",
+    "softphone_chunk010": "Nach dem Öffnen ist das Icon in der Taskleiste sichtbar: Beim Öffnen erscheint temporär zuerst ein Fenster mit einer oder mehreren Fehlermeldungen. Diese verschwinden, wenn das Softphone vollständig gestartet ist. Wenn folgender Hinweis erscheint, bestätigen Sie in diesen mit OK und starten Sie das Softphone neu: agree21Voice (Softphone) Version 1.6 Atruvia AG 10 1 Softphone Aufrufen und Anmelden 1.4 Öffnen des Softphones 1.5 Beenden des Softphones Durch Schließen in der Fusion-Leiste wird das Softphone noch nicht vollständig geschlossen: Ob das Softphone noch geöffnet ist, sehen Sie ü ber dieses Symbol in der Task-Leiste . Wenn es angezeigt wird, ist das Softphone noch geöffnet. Um das Softphone vollständig zu beenden klicken Sie auf 'Beenden' im Menü über die Task -Leiste: agree21Voice",
+    "softphone_chunk011": "in der Task-Leiste . Wenn es angezeigt wird, ist das Softphone noch geöffnet. Um das Softphone vollständig zu beenden klicken Sie auf 'Beenden' im Menü über die Task -Leiste: agree21Voice (Softphone) Version 1.6 Atruvia AG 11 1 Softphone Aufrufen und Anmelden 1.5 Beenden des Softphones 2 Funktionsübersicht Das Softphone ist über die Fusion-Leiste oder über das Bedienfenster zu bedienen. agree21Voice (Softphone) Version 1.6 Atruvia AG 12 oder Fusion-Leiste Optionen: hier können Sie einstellen, an welchem Bildschirm- rand die Fusion-Leiste anzeigt wird und ob sie dauerhaft eingeblendet ist oder sich ausblendet (Option: Auto Hide). Favoriten: hier werden Ihre Favoriten angezeigt. Unter Favoriten werden die Kontakte dargestellt, die in der persönlichen Kontaktliste hinzugefügt wurden: n Anlage eines Kontakts wie unter Kapitel Kontakte",
+    "softphone_chunk012": "(Option: Auto Hide). Favoriten: hier werden Ihre Favoriten angezeigt. Unter Favoriten werden die Kontakte dargestellt, die in der persönlichen Kontaktliste hinzugefügt wurden: n Anlage eines Kontakts wie unter Kapitel Kontakte und Gruppen anlegen (S. 38) beschrieben. Kontakte, die über die Suche eines bestehenden Kontakts in der Ver- zeichnissuche und über Zu meinen Kontakten hinzufügen in die per- sönliche Kontaktliste aufgenommen wurden. Konferenzen: hier öffnet sich das Bedienfeld der Konferenzen. Anrufliste: hier öffnet sich das Bedienfeld der Anrufliste. Kontakte: hier öffnet sich das Bedienfeld der Kontakte. Sammelanschluss Optionen: wenn Sie in einem Sammelanschluss konfigu- riert sind können Sie sich über 'bei mir anhalten' in den Sammelanschluss einwählen. Anrufumleitung Regeln und Optionen: hier gelangen Sie zu den Einstellungen für Anrufumleitungen und Optionen.",
+    "softphone_chunk013": "einem Sammelanschluss konfigu- riert sind können Sie sich über 'bei mir anhalten' in den Sammelanschluss einwählen. Anrufumleitung Regeln und Optionen: hier gelangen Sie zu den Einstellungen für Anrufumleitungen und Optionen. Weitere Informationen finden Sie in Anru- fumleitung und Regeln (S. 23)ff. Suchen oder wählen: um einen Anruf zu tätigen können Sie hier eine Ruf- nummer wählen oder einen Kontakt suchen. Endgerät: Hier können Sie einstellen, mit welchem Endgerät Sie eingehende und ausgehende Gespräche tätigen möchten. Im Kapitel Präferierte Endgerä- te nutzen (S. 16) ist beschrieben, wie Sie verschiedene Endgeräte anlegen, zwischen denen Sie hier wählen können. Hier können Sie Ihren Präsenzstatus setzen. Menü: unter diesem Symbol oder Ihrem Profilbild verbirgt sich ein Menü. Hier können Sie folgende Anpassungen vornehmen: agree21Voice",
+    "softphone_chunk014": "zwischen denen Sie hier wählen können. Hier können Sie Ihren Präsenzstatus setzen. Menü: unter diesem Symbol oder Ihrem Profilbild verbirgt sich ein Menü. Hier können Sie folgende Anpassungen vornehmen: agree21Voice (Softphone) Version 1.6 Atruvia AG 13 2 Funktionsübersicht n Einstellungen: Einstellungen zu Kontakten, Geräten, Präsenz und Be- nachrichtigungen. Weitere Informationen siehe Anwenderdokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Einstellungen zu Benachrichtigungen'. n Profil: hier können Sie Informationen zu Ihrem Profil einsehen und ein Profilbild hinzufügen. Weitere Informationen siehe Kapitel Profilbild hinzu- fügen (S. 22). n Anklopfen: hier können Sie einstellen, ob bei laufendem Gespräch ein- gehende Anrufe signalisiert werden sollen. Weitere Informationen siehe Anwenderdokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Anklopfen'. n Audio-Schemen: hier können Sie ein Audiogerät auswählen. Weitere In- formationen",
+    "softphone_chunk015": "bei laufendem Gespräch ein- gehende Anrufe signalisiert werden sollen. Weitere Informationen siehe Anwenderdokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Anklopfen'. n Audio-Schemen: hier können Sie ein Audiogerät auswählen. Weitere In- formationen siehe Anwenderdokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Audio-Schemen und Headset-Nutzung'. n Audio-Schemen-Einstellungen: hier können sie weitere Audio-Einstellun- gen vornehmen. Weitere Informationen siehe Anwenderdokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Audio-Schemen und Headset-Nutzung'. n Lautstärke-Einstellungen: hier können Sie Einstellungen für Ihr Mikrofon, Rufton und Lautsprecher vornehmen., siehe Anwenderdokumentation 'a- gree21Voice (Softphone für Administratoren)', Kapitel 'Lautstärke-Einstel- lungen' Erweiterte Client-Einstellungen: hier können Sie erweiterte Einstellungen, z. B. zum Programmstart vornehmen. Weitere Informationen siehe Anwender- dokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Er- weiterte Client Einstellungen' Die gleichen Funktionen können Sie über das Softphone-Icon in der",
+    "softphone_chunk016": "Einstellungen, z. B. zum Programmstart vornehmen. Weitere Informationen siehe Anwender- dokumentation 'agree21Voice (Softphone für Administratoren)', Kapitel 'Er- weiterte Client Einstellungen' Die gleichen Funktionen können Sie über das Softphone-Icon in der Taskleiste öffnen. Gesamtansicht des Bedienfensters: agree21Voice (Softphone) Version 1.6 Atruvia AG 14 2 Funktionsübersicht agree21Voice (Softphone) Version 1.6 Atruvia AG 15 2 Funktionsübersicht",
+    "greenshot_chunk000": "Mit der ersten Option Bereich abfotografieren kann den Bereich auswählen, von dem man einen Screenshot machen möchte. Hier drückt man die linke Maustaste, hält diese fest und zieht diese dann über den Bereich, den man abfotografieren möchte. Anschließend lässt man los. - Sofort speichern: Bildschirmaufnahmen werden standardmäßig direkt auf dem Desktop gespeichert - Speichern unter: Ermöglicht den Speicherort des Bildes frei zu wählen - Im Greenshot -Editor öffnen: Bil dschirmaufnahme wird, wie bei Hardcopy, in einem Editor geöffnet, wo es bearbeitet werden kann - An Drucker senden: Möglichkeit einen Drucker auszuwählen und anschließend das Bild zu drucken. - In Zwischenablage kopieren: Möglichkeit das Bild mit Strg + V in a nderen Programmen einzufügen - MS Paint: Öffnet das Bild in",
+    "greenshot_chunk001": "auszuwählen und anschließend das Bild zu drucken. - In Zwischenablage kopieren: Möglichkeit das Bild mit Strg + V in a nderen Programmen einzufügen - MS Paint: Öffnet das Bild in MS Paint Die Funktion Fenster abfotografieren ermöglicht es einen gesamten Bereich auszuwählen und diesen komplett abzufotografieren. Bei der Option Kompletten Bildschirm abfotografieren kann man den gesamten Bildschirm mit einem Klick abfotografieren. Fenster aus Liste abfotografieren ermöglicht es eine offene Anwendung auszuwählen und direkt einen Screenshot aus der Anwendung zu generieren, ohne diese öffnen zu müssen.",
+    "stellvertreter_chunk000": "Anleitung Outlook Ordner für Stellvertreter freigeben Im Outlook wird im Standard nur der Posteingang freigegeben. Um für neue Ordner, die in Outlook erstellt werden die Vertreter freizugeben muss man: 1. Rechtsklick auf die Mailadresse im Outlook -> Ordnerberechtigungen 2. Auf den Reiter Berechtigungen wechseln 3. Alle Vertreter mit den gewünschten Rechten hinzufügen Damit werden für alle neu erstellten Ordner die Vertreter direkt Berechtigt. Alle Ordner, die schon im Notes angelegt waren, müssen einmalig freigegeben werden. Um Ordner freizugeben, müssen folgende Einstellungen gesetzt werden: 1. Allen Vertretern die Ordner freischalten: a. Wähle den Ordner aus, der freigeschalten werden soll b. Mache einen Rechtsklick auf den Ordner -> Eigenschaften c. Wechsel in den Reiter Berechtigungen d. Stelle für jeden Vertreter die Berechtigung",
+    "stellvertreter_chunk001": "Wähle den Ordner aus, der freigeschalten werden soll b. Mache einen Rechtsklick auf den Ordner -> Eigenschaften c. Wechsel in den Reiter Berechtigungen d. Stelle für jeden Vertreter die Berechtigung „Standard“ auf Bearbeiter um e. Oder füge den Vertreter direkt ein, wenn sich die Rechte unterscheiden Somit sind alle Vertreter für diesen Ordner berechtigt Diese Einstellung muss für jeden Ordner umgestellt werden, den ich freigeben möchte.",
+    "abwesenheit_chunk000": "Abwesenheitsagent anlegen Der Abwesenheitsagent muss von jedem Mitarbeiter selbst und bei jeder Abwesenheit (Urlaub, Gleitzeit, ganztägiges Seminar, Abwesenheit Teilzeitkraft,…) angelegt werden. Dadurch wird eine automatische E-Mailbenachrichtigung bei Abwesenheit verschickt. Bei Krankheit von einem Kollegen, legt die Person, die die Abwesenheit in genoHR erfasst, auch den Abwesenheitsagenten in Clerk an. Vorgehensweise: 1. Anwendungsstarter – Anwendung „iQ.Suite WebClient Cloud“ suchen und starten 2. In der Anmeldemaske mit deiner YC-Nummer@ihre-vb.de anmelden 3. Clerk auswählen 4. Im Reiter „Alle“ werden alle Abwesenheiten angezeigt, für die du den Abwesenheitsagenten bereits angelegt hast. Du kannst die angelegten Abwesenheiten über die Reiter „Einmalig“ und „Periodisch“ sortieren. 5. Über das + kannst du eine neue Abwesenheit hinterlegen 6. Je nach Art der Abwesenheit ist hier „Einmalige Abwesenheit“ oder",
+    "abwesenheit_chunk001": "angelegten Abwesenheiten über die Reiter „Einmalig“ und „Periodisch“ sortieren. 5. Über das + kannst du eine neue Abwesenheit hinterlegen 6. Je nach Art der Abwesenheit ist hier „Einmalige Abwesenheit“ oder „Periodische Abwesenheit“ zu wählen und mit Button Weiter zu bestätigen. Periodische Abwesenheit kann z.B. bei Abwesenheit Teilzeitkräfte (ich bin jeden Freitag nicht da) genutzt werden. Einmalige Abwesenheit: • Name der Abwesenheit → deine individuelle Beschreibung (dient nur der Übersichtlichkeit in deinem Clerk und ist nicht für Dritte ersichtlich) • Abwesender → Standardmäßig ist der eigene Name hinterlegt. Bei Krankheit von Kollegen ist über den Button Auswahl der Name des Kollegen zu hinterlegen. • Ganztägige Abwesenheit → je nachdem den Regler aktivieren/deaktivieren • Von → erster Tag Abwesenheit • Bis →",
+    "abwesenheit_chunk002": "Kollegen ist über den Button Auswahl der Name des Kollegen zu hinterlegen. • Ganztägige Abwesenheit → je nachdem den Regler aktivieren/deaktivieren • Von → erster Tag Abwesenheit • Bis → letzter Tag Abwesenheit (Wochenende berücksichtigen) Bei halbtägiger Abwesenheit ist der Regler „Gänztägige Abwesenheit“ zu deaktiveren und die Uhrzeit einzutragen. 7. Button Beenden Periodische Abwesenheit: • Name der Abwesenheit → deine individuelle Beschreibung (dient nur der Übersichtlichkeit in deinem Clerk und ist nicht für Dritte ersichtlich) • Zeitraum begrenzen → je nachdem den Regler aktivieren/deaktivieren Zeitraum begrenzen aktivieren, wenn die periodische Abwesenheit z.B. für immer Freitags nur für ein halbes Jahr aktiviert sein soll. • Ganztägige Abwesenheit + Wochentag → entsprechend aktivieren Bei halbtägiger Abwesenheit ist der Regler „Gänztägige Abwesenheit“ zu",
+    "abwesenheit_chunk003": "Abwesenheit z.B. für immer Freitags nur für ein halbes Jahr aktiviert sein soll. • Ganztägige Abwesenheit + Wochentag → entsprechend aktivieren Bei halbtägiger Abwesenheit ist der Regler „Gänztägige Abwesenheit“ zu deaktiveren und die Uhrzeit einzutragen. 8. Button Beenden",
+    "pdfcrypt_chunk000": "Externe Mailverschlüsselung (PDF-Crypt) Kundenpasswörter E-Mail Passwörter für externe Mail Verschlüsselung anzeigen lassen 1. Öffne die Anwendung „IQ.Suite WebClient Cloud“ über den Atruvia Hub 2. Gehe in der Anwendung auf den Reiter Passwortmanager 3. Klicke auf den Reiter PDFCrypt Passwortmanager, dann auf Externe Adressen-spezifisch 4. Die Mailadresse des Kunden, an den man die verschlüsselte PDF geschickt hat, in der Ansicht heraussuchen und auf das Stift Symbol klicken 5. Passwort anzeigen lassen und dann auf „Abbrechen“ E-Mail Passwort eines Kunden abändern 1. Schritte 1 bis 4 aus der Anleitung „E-Mail Passwörter für externe Mail Verschlüsselung anzeigen lassen “ wiederholen 2. Neues Passwort eingeben und auf OK klicken",
+    "pdfcrypt_chunk001": "externe Mail Verschlüsselung anzeigen lassen “ wiederholen 2. Neues Passwort eingeben und auf OK klicken",
+    "ldap_chunk000": "Anleitung LDAP https://www.genodata.de Seite 1 von 7 Anleitung LDAP (Stand 07.10.2021) Anleitung LDAP https://www.genodata.de Seite 2 von 7 Inhaltsverzeichnis Inhaltsverzeichnis................................ ................................ ................................ ................................ ............... 2 1 LDAP Serverseitig aktivieren ................................ ................................ ................................ .................. 3 2 Prüfung und Installation des Root-Zertifikat ................................ ................................ .......................... 4 3 Testen der Verbindung zum LDAP-Server ................................ ................................ .............................. 6 4 LDAP für die Benutzer aktivieren ................................ ................................ ................................ ........... 7 Anleitung LDAP https://www.genodata.de Seite 3 von 7 1 LDAP Serverseitig aktivieren Die Vertrauensstellung des LDAP-Servers kann nun wahlweise über ein in GDix gespeicherten Fingerabdruck oder den Zertifikatsspeicher von Windows (certmgr.msc) erfolgen. Um sich in GDix über LDAP anmelden zu können, müssen in eBase unter dem Reiter „Benutzerverwaltung / Einstellungen“ einige Ein- stellungen vorgenommen werden. Hier",
+    "ldap_chunk001": "den Zertifikatsspeicher von Windows (certmgr.msc) erfolgen. Um sich in GDix über LDAP anmelden zu können, müssen in eBase unter dem Reiter „Benutzerverwaltung / Einstellungen“ einige Ein- stellungen vorgenommen werden. Hier sollte zunächst die „LDAP Auth-Method“ auf „Negotiate“ gestellt werden. Im Anschluss tragen Sie bitte den „LDAP Host“ ein. Dies ist entweder nur der der DNS-Suffix oder der Fully Qualified Domain Name (FQDN) des LDAP-Servers. Sie können den FQDN erfahren, indem Sie auf dem Server in einer Kommandozeile „ipconfig /all“ eingeben und hier den Hostnamen sowie den DNS- Suffix aus- lesen. Hier ein Beispiel für eine „ipconfig“ Ausgabe: Hostname .......................... : FWXXXXXXX Primäres DNS-Suffix ............... : pb.rz.in.gad.de Knotentyp ......................... : Hybrid IP-Routing aktiviert .............. : Nein WINS-Proxy aktiviert .............. : Nein",
+    "ldap_chunk002": "Hier ein Beispiel für eine „ipconfig“ Ausgabe: Hostname .......................... : FWXXXXXXX Primäres DNS-Suffix ............... : pb.rz.in.gad.de Knotentyp ......................... : Hybrid IP-Routing aktiviert .............. : Nein WINS-Proxy aktiviert .............. : Nein DNS-Suffixsuchliste ............... : sd4817.gad.de Hinter dem angegebenen LDAP Host geben Sie den Port mit an. Der Standard-Port für LDAP lautet „:389“. Wenn Sie die Daten verschlüsselt versenden möchten, benötigen Sie zudem die Checkbox „StartTLS“. Wenn Sie LDAPS verwenden, benötigen Sie den Port „:636“ und die Checkbox „LDAPS (LDAP over SSL)“. Wenn Sie „LDAPS (LDAP over SSL)“ verwenden, gibt es zwei Arten der Zertifikatsprüfung; die Prüfung auf den Fingerabdruck und Prüfung über das Root-Zertifikat. In beiden Fällen müssen Sie nach der Aktivierung von LDAPS einmal auf den Button „Zertifikat abru- fen“",
+    "ldap_chunk003": "Arten der Zertifikatsprüfung; die Prüfung auf den Fingerabdruck und Prüfung über das Root-Zertifikat. In beiden Fällen müssen Sie nach der Aktivierung von LDAPS einmal auf den Button „Zertifikat abru- fen“ klicken. Es öffnet sich ein Fenster in dem Sie aufgefordert werden, das aktuelle Zertifikat Ihres LDAP zu speichern. Das gespeicherte Zertifikat kann dazu verwendet werden, das Root-Zertifikat herauszufinden und ggf. auf dem Server zu hinterlegten (siehe Punkt 2). Die Option „Zertifikatsprüfung auf Fingerabdruck reduzieren“ dient der Auswahl zwi- schen den zwei Arten der Zertifikatsprüfung. Wird der Haken nicht gesetzt (Standard), wird das auf dem Ser- ver im Zertifikatsspeicher hinterlegte Root-Zertifikat geprüft. Bei gesetztem Haken wird der Fingerabdruck des Zertifikats abgeglichen. Anleitung LDAP https://www.genodata.de Seite 4 von 7 2 Prüfung und",
+    "ldap_chunk004": "wird das auf dem Ser- ver im Zertifikatsspeicher hinterlegte Root-Zertifikat geprüft. Bei gesetztem Haken wird der Fingerabdruck des Zertifikats abgeglichen. Anleitung LDAP https://www.genodata.de Seite 4 von 7 2 Prüfung und Installation des Root-Zertifikat Das Root-Zertifikat muss nur auf dem Server instal- liert werden. Durch Klick auf den Button „Zertifikat abru- fen“ kann das aktuelle Zertifikat Ihres LDAP unter ei- nem beliebigen Ordner gespeichert werden. Sobald das Zertifikat gespeichert wurde, wird durch Doppel- klick auf dieses die Zertifikatinformationen geöffnet. (s. rechts) In diesen kann unter dem Reiter „Zertifizierungspfad“ durch Markierung des ersten Eintrages und klick des Buttons „Zertifikat anzeigen“ (s. links unten) das aktuelle Root-Zertifikat eingesehen wer- den. (s. rechts unten) Anleitung LDAP https://www.genodata.de Seite 5 von 7 Durch den Button",
+    "ldap_chunk005": "ersten Eintrages und klick des Buttons „Zertifikat anzeigen“ (s. links unten) das aktuelle Root-Zertifikat eingesehen wer- den. (s. rechts unten) Anleitung LDAP https://www.genodata.de Seite 5 von 7 Durch den Button „Zertifikat installieren“ wird der Zertifikatimport-Assistent geöffnet. In die- sem wird der Punkt „Lokaler Computer“ gewählt und der Vorgang fortgesetzt. Im folgenden Fenster muss die Checkbox „Alle Zertifikate in folgendem Speicher spei- chern“ ausgewählt sein und als Speicher „Vertrauenswürdige Stammzertifizierungsstel- len“ gewählt werden. Über „Weiter“ kommt man zum letzten Fenster. Anleitung LDAP https://www.genodata.de Seite 6 von 7 Durch den Klick auf den Button „Fertig stellen“ wird das neue Zertifikat erstellt und aktiviert. 3 Testen der Verbindung zum LDAP-Server Im Anschluss können Sie ihre Konfiguration mit dem Button „Test“ einmal durch einen",
+    "ldap_chunk006": "den Button „Fertig stellen“ wird das neue Zertifikat erstellt und aktiviert. 3 Testen der Verbindung zum LDAP-Server Im Anschluss können Sie ihre Konfiguration mit dem Button „Test“ einmal durch einen Anmeldeversuch kontrollieren. Werden hier nun Ihre Anmeldeinformationen angefordert, konnte der Server die Verbindung zum LDAP-Server herstellen. Anleitung LDAP https://www.genodata.de Seite 7 von 7 4 LDAP für die Benutzer aktivieren Bei jedem Benutzer, der über LDAP angemeldet werden soll, muss zunächst in der Benutzerverwaltung der Haken „Anmeldung über LDAP“ gesetzt werden. Nun gibt es zwei Möglichkeiten, entweder man setzt den zweiten Haken „Benutzer für LDAP ver- wenden“, welcher die GDix-Benutzer-ID als LDAP-Anmeldenamen verwendet, oder man füllt das Feld „LDAP-User“ aus. Beim zweiten Fall wird der eingetragene Wert als Benutzername für die",
+    "ldap_chunk007": "Haken „Benutzer für LDAP ver- wenden“, welcher die GDix-Benutzer-ID als LDAP-Anmeldenamen verwendet, oder man füllt das Feld „LDAP-User“ aus. Beim zweiten Fall wird der eingetragene Wert als Benutzername für die LDAP-Authentifizierung verwendet."
+  },
+  "samples": [
+    {
+      "query": "Wie finde ich das Kapitel zur Kennwortänderung im agree21Voice Handbuch?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "kennwort",
+        "ändern",
+        "handbuch"
+      ],
+      "expected_answer": "Kapitel 1.3 Ändern des Kennworts in der Softphone-Doku."
+    },
+    {
+      "query": "Wo steht etwas über die Initial-PIN beim Softphone Start?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "initial",
+        "pin",
+        "softphone"
+      ],
+      "expected_answer": "Abschnitt 1.2.1 Erstmalige Anmeldung mit Initial-PIN."
+    },
+    {
+      "query": "In welchem Kapitel wird der One Number Service erläutert?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "one",
+        "number",
+        "service"
+      ],
+      "expected_answer": "Kapitel 3.3 beschreibt den One Number Service."
+    },
+    {
+      "query": "Wo finde ich Informationen zur Anrufumleitung in der Softphone Dokumentation?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "anrufumleitung",
+        "regeln"
+      ],
+      "expected_answer": "Kapitel 4 behandelt Anrufumleitung."
+    },
+    {
+      "query": "Wie speichere ich einen Greenshot Bereich als PNG?",
+      "relevant_docs": [
+        "greenshot_chunk000"
+      ],
+      "reference_keywords": [
+        "bereich",
+        "png",
+        "speichern"
+      ],
+      "expected_answer": "Bereich abfotografieren und als PNG speichern."
+    },
+    {
+      "query": "Welche Option kopiert den Greenshot in die Zwischenablage?",
+      "relevant_docs": [
+        "greenshot_chunk000"
+      ],
+      "reference_keywords": [
+        "zwischenablage",
+        "kopieren"
+      ],
+      "expected_answer": "In Zwischenablage kopieren."
+    },
+    {
+      "query": "Wie lege ich Favoriten in der Softphone Fusion-Leiste an?",
+      "relevant_docs": [
+        "softphone_chunk011"
+      ],
+      "reference_keywords": [
+        "fusion",
+        "favoriten"
+      ],
+      "expected_answer": "Fusion-Leiste öffnet Favoritenverwaltung."
+    },
+    {
+      "query": "Wie erreiche ich, dass neue Outlook-Ordner automatisch für Vertreter freigegeben werden?",
+      "relevant_docs": [
+        "stellvertreter_chunk000"
+      ],
+      "reference_keywords": [
+        "ordner",
+        "berechtigungen",
+        "vertreter"
+      ],
+      "expected_answer": "Mailadresse > Ordnerberechtigungen anpassen."
+    },
+    {
+      "query": "Welche Berechtigung sollte als Standard gesetzt werden damit Vertreter bearbeiten können?",
+      "relevant_docs": [
+        "stellvertreter_chunk001"
+      ],
+      "reference_keywords": [
+        "standard",
+        "bearbeiter"
+      ],
+      "expected_answer": "Standard auf Bearbeiter setzen."
+    },
+    {
+      "query": "Wer legt den Abwesenheitsagenten bei Krankheit an?",
+      "relevant_docs": [
+        "abwesenheit_chunk000"
+      ],
+      "reference_keywords": [
+        "abwesenheitsagent",
+        "krankheit"
+      ],
+      "expected_answer": "Die Person, die in genoHR erfasst, legt ihn in Clerk an."
+    },
+    {
+      "query": "Welche Angaben gehören zu einer einmaligen Abwesenheit im Clerk?",
+      "relevant_docs": [
+        "abwesenheit_chunk001"
+      ],
+      "reference_keywords": [
+        "einmalige",
+        "abwesenheit",
+        "von",
+        "bis"
+      ],
+      "expected_answer": "Name, Abwesender, Ganztägig, Von/Bis."
+    },
+    {
+      "query": "Wo finde ich im IQ Suite WebClient die PDF-Crypt Kennwörter?",
+      "relevant_docs": [
+        "pdfcrypt_chunk000"
+      ],
+      "reference_keywords": [
+        "pdfcrypt",
+        "passwortmanager"
+      ],
+      "expected_answer": "Im Passwortmanager unter PDFCrypt."
+    },
+    {
+      "query": "Wie ändere ich das Passwort für eine verschlüsselte PDF Mail?",
+      "relevant_docs": [
+        "pdfcrypt_chunk000"
+      ],
+      "reference_keywords": [
+        "passwort",
+        "ändern",
+        "pdf"
+      ],
+      "expected_answer": "Adresse wählen, neues Passwort eingeben."
+    },
+    {
+      "query": "Wie starte ich den Softphone Client?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "softphone",
+        "öffnen"
+      ],
+      "expected_answer": "Softphone öffnen laut Kapitel 1.4."
+    },
+    {
+      "query": "Wie beende ich das Softphone?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "beenden",
+        "softphone"
+      ],
+      "expected_answer": "Kapitel 1.5 beschreibt das Beenden."
+    },
+    {
+      "query": "Welche Schritte brauche ich für die Softphone Erstanmeldung?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "erstmaliges",
+        "anmelden"
+      ],
+      "expected_answer": "Abschnitt 1.2 führt durch die Erstanmeldung."
+    },
+    {
+      "query": "Welche Funktion beschreibt die Softphone Funktionsübersicht?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "funktionsübersicht"
+      ],
+      "expected_answer": "Kapitel 2 listet die Funktionen."
+    },
+    {
+      "query": "Wie aktualisiere ich mein Profilbild im Softphone?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "profilbild",
+        "hinzufügen"
+      ],
+      "expected_answer": "Kapitel 3.4 erklärt das Hinzufügen des Profilbilds."
+    },
+    {
+      "query": "Wie finde ich Informationen zur Anrufsteuerung bei Bildschirmsperre?",
+      "relevant_docs": [
+        "softphone_chunk000"
+      ],
+      "reference_keywords": [
+        "bildschirmsperre",
+        "anrufsteuerung"
+      ],
+      "expected_answer": "Kapitel 3.3.2 behandelt die Anrufsteuerung bei Bildschirmsperre."
+    },
+    {
+      "query": "Wie kann ich die Rufnummern in der Softphone Fusion-Leiste anzeigen lassen?",
+      "relevant_docs": [
+        "softphone_chunk004"
+      ],
+      "reference_keywords": [
+        "rufnummern",
+        "anzeigen"
+      ],
+      "expected_answer": "Fusion-Leiste Option Rufnummern anzeigen."
+    }
+  ]
+}

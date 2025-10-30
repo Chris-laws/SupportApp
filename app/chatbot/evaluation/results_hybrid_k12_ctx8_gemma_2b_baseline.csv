@@ -1,0 +1,42 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct,top_k,bm25_in_topk,dense_in_topk,overlap_in_topk,rerank_delta_top1,avg_score_delta_topk,kendall_tau_topk,format_bullet_keyword,format_citation_per_bullet,contains_nicht_im_kontext,bullet_count,error_bucket
+G001,Softphone Kennwort aendern,gemma:2b,hybrid,0.5,0.6367,1.0,1,0.5714,,4.6795,1086,29,1,12,11,1,0,0.204047,0.053568,-0.060606,0,0,0,3,C
+G002,Softphone Anmeldedaten speichern aktivieren,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.8571,,2.6643,948,13,1,12,10,2,0,0.211407,0.109692,0.090909,0,0,0,5,C
+G003,Softphone Erstanmeldung mit DLS PIN,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.8571,,3.0441,847,18,1,12,11,1,0,0.15605,0.022966,0.333333,0,0,0,2,C
+G004,Softphone vollstaendig beenden,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.8571,,2.6956,254,13,1,12,9,3,0,0.162494,0.050258,0.242424,0,0,0,3,C
+G005,Softphone Fusion Leiste Funktionen,gemma:2b,hybrid,0.0,0.0,0.0,,0.6667,,3.3336,326,57,1,12,12,0,0,0.178088,-0.018963,0.666667,0,0,0,6,B
+G006,Softphone praefiertes Endgeraet wechseln,gemma:2b,hybrid,0.0,0.0,0.0,,0.8571,,2.5408,299,4,0,12,9,3,0,0.241788,0.155776,0.0,0,0,0,4,B
+G007,Softphone One Number Service konfigurieren,gemma:2b,hybrid,0.0,0.0,0.0,,1.0,,2.7005,1091,4,1,12,10,2,0,0.696978,0.093652,0.090909,1,0,0,4,B
+G008,Softphone Rufnummernanzeige steuern (CLIR),gemma:2b,hybrid,0.0,0.0,0.0,61,0.6667,,2.8181,411,21,1,12,9,3,0,0.746762,0.09886,-0.181818,0,0,0,2,C
+G009,Softphone Rufnummer fuer CLIR deaktivieren,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,2.7862,645,18,1,12,9,3,0,0.201145,0.142376,0.060606,0,0,1,4,B
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,gemma:2b,hybrid,0.25,0.1952,0.3333,3,0.8571,,2.9877,401,29,0,12,9,3,0,0.756198,0.124336,0.181818,0,0,1,7,A
+G011,Softphone Konferenz planen,gemma:2b,hybrid,0.0,0.0,0.0,,0.6667,,3.3089,412,56,1,12,12,0,0,0.245906,0.028324,0.515152,0,0,0,5,B
+G012,HP Drucker Papierstau beheben,gemma:2b,hybrid,0.25,0.3904,1.0,1,0.0,,2.625,494,11,1,12,9,3,0,0.217439,0.129929,-0.121212,0,0,1,4,C
+G013,HP Drucker Duplexmodul verwenden,gemma:2b,hybrid,0.25,0.1681,0.25,4,0.0,,2.9978,1167,16,1,12,9,3,0,0.75397,0.165005,0.0,0,0,0,6,C
+G014,HP Drucker Patronen reinigen,gemma:2b,hybrid,0.25,0.2463,0.5,2,0.0,,2.9556,1008,21,1,12,9,3,0,0.754488,0.109008,0.121212,0,0,0,1,C
+G015,Abwesenheitsagent in Clerk anlegen,gemma:2b,hybrid,1.0,0.8772,1.0,1,0.0,,2.8928,1145,9,1,12,1,11,0,0.148442,0.05015,-0.212121,0,0,0,2,C
+G016,Outlook Ordner fuer Stellvertreter freigeben,gemma:2b,hybrid,0.5,0.6367,1.0,1,1.0,,2.958,368,27,1,12,12,0,0,0.136095,-0.047506,0.333333,0,0,0,4,C
+G017,Raeume oder Ressourcen buchen,gemma:2b,hybrid,0.5,0.6367,1.0,1,0.0,,2.8152,429,24,1,12,10,2,0,0.72959,0.109703,0.121212,0,0,0,2,C
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,gemma:2b,hybrid,0.5,0.6131,1.0,1,1.0,,3.0857,561,27,1,12,9,3,0,0.745494,0.130819,-0.090909,0,0,1,3,C
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,gemma:2b,hybrid,0.5,0.2641,0.25,4,0.0,,3.1182,521,46,1,12,9,3,0,0.148192,0.160188,0.030303,0,0,0,3,C
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,gemma:2b,hybrid,0.5,0.3869,0.5,2,0.6667,,2.6771,1049,2,1,12,11,1,0,0.738997,0.053185,0.424242,1,0,0,2,C
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,gemma:2b,hybrid,0.0,0.0,0.0,,0.4,,3.4,1040,49,1,12,12,0,0,3.276534,3.120136,-0.272727,0,0,0,3,B
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,gemma:2b,hybrid,0.5,0.3066,0.3333,3,0.0,,3.0263,866,31,1,12,10,2,0,0.724566,0.099194,0.121212,0,0,0,3,C
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,2.7896,765,10,1,12,11,1,0,0.167629,0.056501,0.060606,0,0,0,4,C
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,2.9314,529,18,1,12,12,0,0,0.202974,0.016915,0.606061,0,0,0,6,B
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,3.0897,661,42,1,12,12,0,0,0.21827,0.018189,0.242424,0,0,0,4,C
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,gemma:2b,hybrid,1.0,0.6934,0.5,2,0.0,,2.9039,590,27,1,12,9,3,0,0.765742,0.158254,-0.030303,0,0,0,5,C
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,gemma:2b,hybrid,0.5,0.3869,0.5,2,0.0,,2.8237,618,11,1,12,9,3,0,0.750556,0.109517,-0.212121,0,0,0,8,C
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",gemma:2b,hybrid,0.2,0.3392,1.0,1,0.6667,,2.6281,553,5,1,12,9,3,0,0.154118,0.117832,-0.242424,0,0,0,3,C
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",gemma:2b,hybrid,0.5,0.6367,1.0,1,0.8571,,2.6239,740,4,1,12,11,1,0,0.199841,0.045313,0.363636,1,0,0,3,C
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",gemma:2b,hybrid,0.0,0.0,0.0,16,0.0,,3.7634,728,71,1,12,10,2,0,0.748118,0.124686,-0.060606,0,0,0,6,C
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,gemma:2b,hybrid,0.0,0.0,0.0,18,0.0,,2.8182,629,17,1,12,10,2,0,0.76159,0.114867,0.0,0,0,0,3,C
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,gemma:2b,hybrid,0.1667,0.1909,0.5,2,0.0,,2.6059,455,11,1,12,9,3,0,0.764746,0.142849,0.0,0,0,1,2,C
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,gemma:2b,hybrid,0.25,0.3904,1.0,1,0.0,,2.609,594,6,1,12,10,2,0,0.724493,0.14826,0.090909,0,0,0,3,C
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",gemma:2b,hybrid,0.1667,0.1909,0.5,2,0.0,,2.8788,627,13,1,12,11,1,0,0.726959,0.049963,0.272727,0,0,0,10,C
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,3.705,891,70,1,12,12,0,0,0.220929,0.018411,0.69697,0,0,0,3,C
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,gemma:2b,hybrid,0.1667,0.1513,0.3333,3,1.0,,2.933,603,17,1,12,10,2,0,0.737111,0.154891,0.181818,0,0,0,7,C
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",gemma:2b,hybrid,0.0,0.0,0.0,,0.4,,2.9779,695,21,1,12,7,5,0,0.737572,0.212352,-0.30303,0,0,0,2,B
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,gemma:2b,hybrid,0.25,0.3794,1.0,1,0.6667,,2.9864,641,26,0,12,9,3,0,0.181101,0.142275,0.060606,0,0,0,2,A
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,2.9298,701,22,1,12,12,0,0,0.232891,0.019408,0.515152,0,0,0,2,C
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,2.6651,649,15,1,12,10,2,0,0.17841,0.094849,0.181818,0,0,0,2,C
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",gemma:2b,hybrid,0.25,0.1952,0.3333,3,0.0,,2.6462,467,7,1,12,10,2,0,0.748991,0.148314,0.151515,0,0,0,3,C

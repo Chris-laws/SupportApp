@@ -1,0 +1,42 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct,top_k,bm25_in_topk,dense_in_topk,overlap_in_topk,rerank_delta_top1,avg_score_delta_topk,kendall_tau_topk,format_bullet_keyword,format_citation_per_bullet,contains_nicht_im_kontext,bullet_count,error_bucket
+G001,Softphone Kennwort aendern,llama3:8b,hybrid,0.5,0.6367,1.0,1,0.8889,,6.402,954,71,1,20,20,2,2,0.274181,0.013086,-0.042105,1,0,0,4,C
+G002,Softphone Anmeldedaten speichern aktivieren,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.4585,1118,69,0,20,20,3,3,0.288813,0.022892,0.357895,1,0,1,4,A
+G003,Softphone Erstanmeldung mit DLS PIN,llama3:8b,hybrid,0.5,0.6131,1.0,1,0.8571,,6.7219,982,85,1,20,20,2,2,0.166132,0.004305,0.221053,1,0,0,3,C
+G004,Softphone vollstaendig beenden,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.2271,512,75,1,20,20,2,2,0.164932,-0.000865,0.252632,1,0,0,4,C
+G005,Softphone Fusion Leiste Funktionen,llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,5.877,387,73,1,20,20,3,3,0.129783,0.00108,0.242105,1,1,0,4,B
+G006,Softphone praefiertes Endgeraet wechseln,llama3:8b,hybrid,0.0,0.0,0.0,,0.8571,,6.0016,439,72,1,20,20,4,4,0.241724,0.024613,0.473684,0,0,1,4,B
+G007,Softphone One Number Service konfigurieren,llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,6.7503,1136,71,1,20,20,4,4,0.253191,0.016366,0.452632,1,0,0,4,B
+G008,Softphone Rufnummernanzeige steuern (CLIR),llama3:8b,hybrid,0.0,0.0,0.0,,0.0,,6.0081,471,74,1,20,20,2,2,0.26307,0.000341,0.147368,1,0,0,3,B
+G009,Softphone Rufnummer fuer CLIR deaktivieren,llama3:8b,hybrid,0.0,0.0,0.0,,0.0,,6.0245,409,80,1,20,20,4,4,0.224127,0.016898,0.652632,0,0,0,4,B
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,llama3:8b,hybrid,0.3333,0.2346,0.3333,3,0.8571,,6.0444,415,75,1,20,18,4,4,0.275594,0.004336,0.555556,0,0,1,4,C
+G011,Softphone Konferenz planen,llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,5.8824,407,80,0,20,20,4,4,0.197492,0.029025,0.284211,1,0,1,4,B
+G012,HP Drucker Papierstau beheben,llama3:8b,hybrid,0.25,0.3904,1.0,1,1.0,,6.7616,1129,67,1,20,20,4,4,0.284051,0.014426,0.284211,1,0,0,4,C
+G013,HP Drucker Duplexmodul verwenden,llama3:8b,hybrid,0.25,0.1681,0.25,4,1.0,,4.8716,940,37,0,20,13,3,3,0.272282,0.058937,0.512821,1,0,1,4,A
+G014,HP Drucker Patronen reinigen,llama3:8b,hybrid,0.25,0.2463,0.5,2,0.0,,6.0947,504,78,1,20,5,17,2,0.329483,0.017399,0.789474,0,0,1,4,C
+G015,Abwesenheitsagent in Clerk anlegen,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,5.3471,1233,42,1,20,20,3,3,0.177306,-0.015322,0.105263,1,0,1,4,C
+G016,Outlook Ordner fuer Stellvertreter freigeben,llama3:8b,hybrid,0.5,0.4993,1.0,1,0.8571,,6.056,477,80,1,20,18,2,2,0.134345,-0.003124,0.176471,1,0,0,3,C
+G017,Raeume oder Ressourcen buchen,llama3:8b,hybrid,0.5,0.6367,1.0,1,1.0,,6.4747,728,79,1,20,20,5,5,0.224331,0.026258,0.547368,1,1,0,4,OK
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.4798,651,70,1,20,15,4,4,0.235199,0.013519,0.352381,1,1,0,3,OK
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,llama3:8b,hybrid,0.5,0.2641,0.25,4,1.0,,5.957,766,59,1,20,14,4,4,0.147149,0.034021,0.318681,1,0,0,4,C
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,llama3:8b,hybrid,0.5,0.3869,0.5,2,1.0,,5.5858,677,57,1,20,14,2,2,0.215078,0.008767,0.582418,1,0,1,4,C
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,6.1498,946,65,0,20,20,1,1,3.19897,3.16815,0.052632,1,0,1,4,B
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,llama3:8b,hybrid,0.5,0.3066,0.3333,3,0.8571,,6.8386,947,89,1,20,19,4,4,0.212936,0.005356,0.391813,1,0,0,3,C
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,llama3:8b,hybrid,0.5,0.6131,1.0,1,0.8571,,6.3707,787,83,1,20,16,2,2,0.186188,0.015281,0.35,1,0,0,3,C
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,llama3:8b,hybrid,0.0,0.0,0.0,,0.8571,,6.8686,1147,71,1,20,20,1,1,0.222646,0.011132,0.136842,1,0,0,3,B
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,7.1263,1145,77,1,20,20,1,1,0.289229,0.014461,0.273684,1,1,0,4,OK
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,llama3:8b,hybrid,0.5,0.3869,0.5,2,1.0,,6.5276,748,66,1,20,17,2,2,0.284056,0.023127,0.544118,1,0,1,4,C
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,llama3:8b,hybrid,0.5,0.3869,0.5,2,1.0,,6.4995,786,57,0,20,20,3,3,0.21187,0.01161,0.357895,1,0,0,4,A
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",llama3:8b,hybrid,0.2,0.3392,1.0,1,1.0,,6.4748,752,73,1,20,20,3,3,0.129897,0.031143,0.473684,1,0,0,3,C
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",llama3:8b,hybrid,0.5,0.6367,1.0,1,1.0,,4.9622,705,41,0,20,14,2,2,0.223616,0.003878,0.516484,1,0,1,4,A
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,6.4774,751,79,1,20,16,2,2,0.22663,0.02834,0.483333,1,0,1,4,B
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,llama3:8b,hybrid,0.0,0.0,0.0,,1.0,,5.8466,735,63,1,20,15,3,3,0.31244,0.0283,-0.009524,1,0,1,4,B
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,llama3:8b,hybrid,0.1667,0.1909,0.5,2,0.6667,,6.3787,761,74,1,20,20,3,3,0.273396,0.016362,0.063158,1,0,0,3,C
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,llama3:8b,hybrid,0.6667,0.7039,1.0,1,0.8571,,6.367,705,80,1,20,13,4,4,0.185492,0.05864,0.666667,1,0,0,3,C
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",llama3:8b,hybrid,0.2,0.214,0.5,2,1.0,,6.1918,816,71,1,20,12,2,2,0.21685,0.008544,0.121212,1,0,0,4,C
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,5.6922,819,59,1,20,17,3,3,0.191296,0.011253,0.294118,1,0,1,3,C
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,llama3:8b,hybrid,0.1667,0.1513,0.3333,3,1.0,,6.3711,704,79,1,20,17,8,8,0.19578,0.045883,0.294118,1,0,1,4,C
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",llama3:8b,hybrid,0.0,0.0,0.0,,0.8571,,6.2832,720,76,1,20,16,6,6,0.266469,0.030364,0.25,1,0,1,3,B
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,llama3:8b,hybrid,0.2857,0.4123,1.0,1,1.0,,6.021,456,80,1,20,14,5,5,0.182249,0.012938,0.406593,1,0,1,4,C
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.0689,501,75,1,20,20,1,1,0.294233,0.014712,0.084211,0,0,0,5,C
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,llama3:8b,hybrid,0.5,0.6131,1.0,1,1.0,,6.197,647,76,1,20,18,3,3,0.180137,0.00566,0.228758,1,0,0,4,C
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",llama3:8b,hybrid,0.25,0.1681,0.25,4,0.8571,,6.5427,884,71,1,20,18,4,4,0.255106,0.044572,0.424837,1,0,0,3,C

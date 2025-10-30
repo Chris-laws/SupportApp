@@ -1,0 +1,26 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1429,"90, self, service, tage",4.3623,507,27,0
+G002,Softphone Anmeldedaten speichern aktivieren,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,softphone,3.0121,345,29,1
+G003,Softphone Erstanmeldung mit DLS PIN,phi3:latest,hybrid,1.0,1.0,1.0,1,0.2069,erstmalig,3.1599,314,26,0
+G004,Softphone vollstaendig beenden,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,taskleiste,3.1297,288,32,1
+G005,Softphone Fusion Leiste Funktionen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,favoriten,3.0988,282,35,0
+G006,Softphone praefiertes Endgeraet wechseln,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"endgeraet, fusion",3.1505,316,30,1
+G007,Softphone One Number Service konfigurieren,phi3:latest,hybrid,0.8,0.8688,1.0,1,0.25,,3.3993,580,33,0
+G008,Softphone Rufnummernanzeige steuern (CLIR),phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,rufnummer,3.1888,327,31,0
+G009,Softphone Rufnummer fuer CLIR deaktivieren,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0606,"auswaehlen, geraet, rufnummer",3.2192,391,29,0
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,phi3:latest,hybrid,1.0,0.9675,1.0,1,0.0,rufnummer,3.2058,321,29,1
+G011,Softphone Konferenz planen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1714,teilnehmer,3.1586,308,33,1
+G012,HP Drucker Papierstau beheben,phi3:latest,hybrid,1.0,1.0,1.0,1,0.2069,modul,3.187,314,28,1
+G013,HP Drucker Duplexmodul verwenden,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,duplex,3.1933,271,30,1
+G014,HP Drucker Patronen reinigen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,patrone,3.1492,316,25,1
+G015,Abwesenheitsagent in Clerk anlegen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,abwesenheitsagent,3.3921,625,29,0
+G016,Outlook Ordner fuer Stellvertreter freigeben,phi3:latest,hybrid,1.0,1.0,1.0,1,0.2222,berechtigung,3.0683,298,29,1
+G017,Raeume oder Ressourcen buchen,phi3:latest,hybrid,1.0,0.6309,0.5,2,0.0,raum,3.1813,280,29,0
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,webgateway,3.4154,454,26,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,phi3:latest,hybrid,1.0,0.5,0.3333,3,0.16,"filtern, malware, proxy",3.2372,372,21,0
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,phi3:latest,hybrid,1.0,0.6309,0.5,2,0.2069,389,3.7321,955,32,1
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0667,"auswertung, betriebsrat, mitarbeiter",3.1995,463,28,0
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,phi3:latest,hybrid,1.0,0.6934,0.5,2,0.1143,"postfach, regeln, weiteres",3.4377,684,32,1
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.1622,"com, office, webclient",3.7501,1003,35,0
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0645,"freigabe, hinzufuegen, zugriff",3.344,697,28,0
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0606,"bereich, screenshot, speichern",3.5244,721,30,0

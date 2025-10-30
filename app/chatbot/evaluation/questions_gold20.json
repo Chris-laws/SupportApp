@@ -1,0 +1,376 @@
+[
+  {
+    "question_id": "G001",
+    "question": "Softphone Kennwort aendern",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        304,
+        305
+      ],
+      "reference_answers": [
+        "Das Softphone fordert nach 90 Tagen zur Kennwortaenderung auf; vergessene Kennwoerter lassen sich ueber den SAGA Self-Service zuruecksetzen.",
+        "Kennwoerter muessen mindestens acht Zeichen, eine Ziffer, einen Grossbuchstaben und ein Sonderzeichen enthalten und duerfen keine Umlaute besitzen."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "kennwort",
+        "90",
+        "tage",
+        "self-service"
+      ]
+    }
+  },
+  {
+    "question_id": "G002",
+    "question": "Softphone Anmeldedaten speichern aktivieren",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        303
+      ],
+      "reference_answers": [
+        "Beim ersten Login muss das Kontrollkaestchen Anmeldedaten speichern gesetzt werden, sonst erscheint der Dialog bei jedem Start erneut und verhindert die Anmeldung."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "anmeldedaten",
+        "speichern",
+        "haken"
+      ]
+    }
+  },
+  {
+    "question_id": "G003",
+    "question": "Softphone Erstanmeldung mit DLS PIN",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        302
+      ],
+      "reference_answers": [
+        "Beim erstmaligen Start der OpenScape Fusion Software wird eine Initial-PIN abgefragt, die innerhalb von fuenf Minuten eingegeben und bestaetigt werden muss."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "dls",
+        "pin",
+        "erstmalig"
+      ]
+    }
+  },
+  {
+    "question_id": "G004",
+    "question": "Softphone vollstaendig beenden",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        306
+      ],
+      "reference_answers": [
+        "Das Schliessen der Fusion-Leiste beendet das Softphone nicht; erst ueber das Taskleistensymbol und den Befehl Beenden wird der Client komplett geschlossen."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "beenden",
+        "taskleiste",
+        "symbol"
+      ]
+    }
+  },
+  {
+    "question_id": "G005",
+    "question": "Softphone Fusion Leiste Funktionen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        308
+      ],
+      "reference_answers": [
+        "Die Fusion-Leiste enthaelt Bereiche fuer Optionen, Favoriten, Kontakte, Konferenzen, Anruflisten sowie Einstellungen fuer Suche und Praesenzstatus."
+      ],
+      "expected_keywords": [
+        "fusion",
+        "favoriten",
+        "optionen",
+        "softphone"
+      ]
+    }
+  },
+  {
+    "question_id": "G006",
+    "question": "Softphone praefiertes Endgeraet wechseln",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        315
+      ],
+      "reference_answers": [
+        "Ueber die Fusion-Leiste laesst sich das praefierte Endgeraet fuer eingehende und ausgehende Anrufe waehlen; ein Haekchen markiert das aktive Geraet."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "praeferiert",
+        "endgeraet",
+        "fusion"
+      ]
+    }
+  },
+  {
+    "question_id": "G007",
+    "question": "Softphone One Number Service konfigurieren",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        316
+      ],
+      "reference_answers": [
+        "Im Abschnitt zum One Number Service wird beschrieben, dass ein anderes Endgeraet als praefiertes Geraet gewaehlt werden kann, damit einheitlich unter der Softphone-Nummer telefoniert wird."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "one",
+        "number",
+        "service"
+      ]
+    }
+  },
+  {
+    "question_id": "G008",
+    "question": "Softphone Rufnummernanzeige steuern (CLIR)",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        317
+      ],
+      "reference_answers": [
+        "Die Dokumentation erlaeutert, dass die agree21Voice-Rufnummer des Softphones angezeigt wird und ueber die Gerateauswahl im One Number Service gesteuert werden kann."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "rufnummer",
+        "anzeige",
+        "geraet"
+      ]
+    }
+  },
+  {
+    "question_id": "G009",
+    "question": "Softphone Rufnummer fuer CLIR deaktivieren",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        317,
+        315
+      ],
+      "reference_answers": [
+        "Um die uebermittelte Rufnummer zu steuern, weist der Leitfaden auf die Auswahl des passenden Endgeraets im One Number Service hin und zeigt, dass das Haekchen das aktive Geraet markiert."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "rufnummer",
+        "geraet",
+        "auswaehlen"
+      ]
+    }
+  },
+  {
+    "question_id": "G010",
+    "question": "Softphone Rufnummernanzeige fuer Kontakte anpassen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        332,
+        330
+      ],
+      "reference_answers": [
+        "Beim eingehenden Anruf bietet das Bedienfenster Optionen zum Uebergeben mit Eingabe einer Rufnummer sowie zum Annehmen oder Abweisen, wobei das Call-Control-Fenster jederzeit eingeblendet werden kann."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "anruf",
+        "rufnummer",
+        "uebergeben"
+      ]
+    }
+  },
+  {
+    "question_id": "G011",
+    "question": "Softphone Konferenz planen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        346
+      ],
+      "reference_answers": [
+        "Die Konferenzverwaltung erlaubt Titel, Moderator, Namensaufzeichnung und Teilnehmerliste festzulegen; ohne Moderator kann ein eingeladener Teilnehmer die Konferenz steuern."
+      ],
+      "expected_keywords": [
+        "softphone",
+        "konferenz",
+        "moderator",
+        "teilnehmer"
+      ]
+    }
+  },
+  {
+    "question_id": "G012",
+    "question": "HP Drucker Papierstau beheben",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        156,
+        157
+      ],
+      "reference_answers": [
+        "Zur Beseitigung eines Papierstaus wird zuerst die Wiederaufnahmetaste gedrueckt und Etikettenboegen kontrolliert; je nach Ausstattung folgen getrennte Anweisungen fuer Drucker mit oder ohne Duplexmodul."
+      ],
+      "expected_keywords": [
+        "papierstau",
+        "drucker",
+        "wiederaufnahmetaste",
+        "modul"
+      ]
+    }
+  },
+  {
+    "question_id": "G013",
+    "question": "HP Drucker Duplexmodul verwenden",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        120,
+        115
+      ],
+      "reference_answers": [
+        "Das Duplexmodul beschreibt automatisches beidseitiges Drucken ohne erneutes Einlegen; alternativ wird der manuelle beidseitige Druck mit Schritt-fuer-Schritt-Anleitung erklaert."
+      ],
+      "expected_keywords": [
+        "drucker",
+        "duplex",
+        "beidseitig",
+        "modul"
+      ]
+    }
+  },
+  {
+    "question_id": "G014",
+    "question": "HP Drucker Patronen reinigen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        166,
+        168
+      ],
+      "reference_answers": [
+        "Fuer das manuelle Reinigen werden destilliertes Wasser und fusselfreie Tucher benoetigt; gereinigt werden nur die Kupferkontakte, bis keine Rueckstaende mehr sichtbar sind."
+      ],
+      "expected_keywords": [
+        "drucker",
+        "patrone",
+        "reinigen",
+        "kontakte"
+      ]
+    }
+  },
+  {
+    "question_id": "G015",
+    "question": "Abwesenheitsagent in Clerk anlegen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        0,
+        2
+      ],
+      "reference_answers": [
+        "Der Abwesenheitsagent wird von jedem Mitarbeiter selbst je Abwesenheit eingerichtet, damit automatische Benachrichtigungen verschickt werden.",
+        "Bei der Anlage wird zwischen einmaliger und periodischer Abwesenheit unterschieden; fuer wiederkehrende Termine wie jeden Freitag dient die periodische Variante."
+      ],
+      "expected_keywords": [
+        "abwesenheitsagent",
+        "clerk",
+        "abwesenheit",
+        "periodisch"
+      ]
+    }
+  },
+  {
+    "question_id": "G016",
+    "question": "Outlook Ordner fuer Stellvertreter freigeben",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        54,
+        55
+      ],
+      "reference_answers": [
+        "Neue Outlook-Ordner werden ueber Ordnerberechtigungen freigegeben: Rechtsklick auf die Mailadresse, Reiter Berechtigungen waehlen und Vertreter hinzufuegen.",
+        "Bestehende Ordner erhalten Freigaben, indem fuer jeden Ordner die Vertreter hinzugefuegt und entsprechende Rechte gesetzt werden."
+      ],
+      "expected_keywords": [
+        "outlook",
+        "stellvertreter",
+        "ordner",
+        "berechtigung"
+      ]
+    }
+  },
+  {
+    "question_id": "G017",
+    "question": "Raeume oder Ressourcen buchen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        276,
+        277
+      ],
+      "reference_answers": [
+        "Raeume lassen sich direkt beim Erstellen einer Besprechung ueber das Feld Ort oder die Suche hinzufuegen; Termine muessen als Besprechung angelegt werden.",
+        "Alternativ werden Raeume ueber den Kalender gebucht; empfohlen ist eine eigene Kalendergruppe fuer benoetigte Raeume und Ressourcen."
+      ],
+      "expected_keywords": [
+        "outlook",
+        "raum",
+        "ressource",
+        "besprechung"
+      ]
+    }
+  },
+  {
+    "question_id": "G018",
+    "question": "Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        12
+      ],
+      "reference_answers": [
+        "Die Anleitung nennt fuer die manuelle Konfiguration die PAC-Datei http://kunden-proxypac.rz.bankenit.de sowie den Proxy kunden-proxy.rz.bankenit.de:8080."
+      ],
+      "expected_keywords": [
+        "proxy",
+        "pac",
+        "kunden-proxy",
+        "8080"
+      ]
+    }
+  },
+  {
+    "question_id": "G019",
+    "question": "Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        15
+      ],
+      "reference_answers": [
+        "Das Kapitel erlaeutert, dass das Secure Webgateway als Proxy fungiert, Inhalte filtert, verschluesselte Verbindungen zur Pruefung aufbricht und Malware-Pruefungen sowie Sperrlisten ermoeglicht."
+      ],
+      "expected_keywords": [
+        "secure webgateway",
+        "filtern",
+        "proxy",
+        "malware"
+      ]
+    }
+  },
+  {
+    "question_id": "G020",
+    "question": "Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        56
+      ],
+      "reference_answers": [
+        "Die Anleitung nennt Port 389 fuer LDAP mit StartTLS und Port 636 fuer LDAPS und beschreibt die zu aktivierenden Optionen StartTLS bzw. LDAPS."
+      ],
+      "expected_keywords": [
+        "ldap",
+        "389",
+        "636",
+        "starttls"
+      ]
+    }
+  }
+]

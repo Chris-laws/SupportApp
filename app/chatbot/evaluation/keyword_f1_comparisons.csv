@@ -1,0 +1,4 @@
+Vergleich,n,Mean Diff,Std Diff,95% CI Diff Low,95% CI Diff High,t,p,Cohen d,95% CI d Low,95% CI d High,Effektstärke,Signifikanz
+k5 vs k10,100,-0.015076,0.101334,-0.035183,0.005031,-1.487754,0.139994,-0.148775,-0.347197,0.049646,small,nicht signifikant
+k10 vs k20,100,-0.010090,0.132937,-0.036468,0.016288,-0.759004,0.449653,-0.075900,-0.274322,0.122521,small,nicht signifikant
+k10 vs k10_reranker,100,-0.001753,0.163256,-0.034147,0.030641,-0.107377,0.914707,-0.010738,-0.209159,0.187684,small,nicht signifikant

@@ -1,0 +1,26 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1579,"self, service, tage",4.4612,507,41,1
+G002,Softphone Anmeldedaten speichern aktivieren,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1667,"haken, speichern",2.6457,346,26,0
+G003,Softphone Erstanmeldung mit DLS PIN,gemma:2b,hybrid,1.0,1.0,1.0,1,0.24,erstmalig,2.7406,317,26,0
+G004,Softphone vollstaendig beenden,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,taskleiste,2.5951,288,15,1
+G005,Softphone Fusion Leiste Funktionen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,favoriten,2.696,282,25,1
+G006,Softphone praefiertes Endgeraet wechseln,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,endgeraet,2.557,290,14,1
+G007,Softphone One Number Service konfigurieren,gemma:2b,hybrid,0.8,0.8688,1.0,1,0.381,,2.8105,580,21,1
+G008,Softphone Rufnummernanzeige steuern (CLIR),gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,clir,2.6325,290,17,1
+G009,Softphone Rufnummer fuer CLIR deaktivieren,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,deaktivieren,2.597,391,16,1
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,gemma:2b,hybrid,1.0,0.9675,1.0,1,0.0,"kontakte, rufnummer",2.5375,312,14,0
+G011,Softphone Konferenz planen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"konferenz, moderator",2.5022,265,14,0
+G012,HP Drucker Papierstau beheben,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,drucker,2.704,314,25,0
+G013,HP Drucker Duplexmodul verwenden,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,duplex,2.5912,271,19,1
+G014,HP Drucker Patronen reinigen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,patrone,2.9933,316,41,1
+G015,Abwesenheitsagent in Clerk anlegen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,clerk,2.9803,625,28,1
+G016,Outlook Ordner fuer Stellvertreter freigeben,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1875,berechtigung,2.9417,298,37,1
+G017,Raeume oder Ressourcen buchen,gemma:2b,hybrid,1.0,0.6309,0.5,2,0.0,buchung,2.9935,280,39,1
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,webgateway,2.6771,454,18,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,gemma:2b,hybrid,1.0,0.5,0.3333,3,0.1111,"filtern, malware, proxy",2.949,372,33,1
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,gemma:2b,hybrid,1.0,0.6309,0.5,2,0.25,"389, 636",2.7319,955,13,0
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,gemma:2b,hybrid,0.0,0.0,0.0,,0.125,"auswertung, betriebsrat, mitarbeiter",2.586,463,13,0
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,gemma:2b,hybrid,1.0,0.6934,0.5,2,0.1818,regeln,3.0225,684,47,1
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.1429,"com, office, senden, webclient",2.8794,1003,23,1
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,gemma:2b,hybrid,0.0,0.0,0.0,,0.129,"freigabe, hinzufuegen",2.8381,697,32,0
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0714,"bereich, screenshot, speichern",2.859,721,28,0

@@ -1,0 +1,42 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,softphone,4.2622,672,18,1
+G002,Softphone Anmeldedaten speichern aktivieren,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"anmeldedaten, softphone",2.8849,617,35,0
+G003,Softphone Erstanmeldung mit DLS PIN,gemma:2b,hybrid,1.0,1.0,1.0,1,0.8571,erstmalig,3.0321,429,38,1
+G004,Softphone vollstaendig beenden,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"beenden, taskleiste",2.5335,329,14,1
+G005,Softphone Fusion Leiste Funktionen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,favoriten,2.8817,367,32,1
+G006,Softphone praefiertes Endgeraet wechseln,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,endgeraet,2.6005,331,17,1
+G007,Softphone One Number Service konfigurieren,gemma:2b,hybrid,0.8,0.8688,1.0,1,1.0,,3.0363,674,33,0
+G008,Softphone Rufnummernanzeige steuern (CLIR),gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,clir,2.5472,331,15,1
+G009,Softphone Rufnummer fuer CLIR deaktivieren,gemma:2b,hybrid,1.0,1.0,1.0,1,0.6667,"auswaehlen, geraet",2.7683,422,22,0
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,gemma:2b,hybrid,1.0,0.9675,1.0,1,0.6667,"anruf, uebergeben",2.7882,353,28,1
+G011,Softphone Konferenz planen,gemma:2b,hybrid,1.0,1.0,1.0,1,1.0,,2.984,349,32,0
+G012,HP Drucker Papierstau beheben,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,drucker,2.8494,355,40,0
+G013,HP Drucker Duplexmodul verwenden,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"drucker, duplex",2.6636,312,22,0
+G014,HP Drucker Patronen reinigen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,patrone,2.9935,357,36,1
+G015,Abwesenheitsagent in Clerk anlegen,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,clerk,2.872,828,21,1
+G016,Outlook Ordner fuer Stellvertreter freigeben,gemma:2b,hybrid,1.0,1.0,1.0,1,1.0,,2.9583,359,36,0
+G017,Raeume oder Ressourcen buchen,gemma:2b,hybrid,1.0,0.6309,0.5,2,0.0,"buchung, raum",2.682,343,20,1
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,webgateway,2.8843,496,24,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,gemma:2b,hybrid,1.0,0.5,0.3333,3,0.4,"filtern, malware, proxy",2.7663,414,17,1
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,gemma:2b,hybrid,1.0,0.6309,0.5,2,1.0,,2.6505,414,13,1
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,betriebsrat,2.6079,504,14,0
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,gemma:2b,hybrid,1.0,0.6934,0.5,2,0.0,regeln,3.1508,746,47,1
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.6667,"office.com, webclient",2.8903,712,29,0
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,gemma:2b,hybrid,0.0,0.0,0.0,,0.6667,"freigabe, hinzufuegen",3.0059,630,43,0
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,gemma:2b,hybrid,0.0,0.0,0.0,,0.8571,bereich,3.0633,511,39,0
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,gemma:2b,hybrid,1.0,0.9197,1.0,1,0.0,"periodisch, zeitraum",2.9139,291,26,0
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,gemma:2b,hybrid,0.5,0.3066,0.3333,3,0.0,"halbtagig, wiederholungsrhythmus",2.9302,315,32,0
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",gemma:2b,hybrid,0.0,0.0,0.0,,0.0,"ordnerberechtigungen, vertreter",2.7389,569,25,0
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"iq suite, passwortmanager",2.68,445,22,0
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",gemma:2b,hybrid,0.3333,0.2961,0.5,2,0.6667,"aktivierung, regeln verwalten",2.9847,467,44,1
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,"adressbuch, kalendergruppe",3.0523,474,35,1
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,gemma:2b,hybrid,0.3333,0.2961,0.5,2,0.8571,druckqualitat,2.9847,356,36,1
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,gemma:2b,hybrid,0.0,0.0,0.0,6,0.0,filter,3.0796,539,44,1
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",gemma:2b,hybrid,0.3333,0.2961,0.5,2,0.6667,"assistent, gdix",2.8808,560,29,1
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,"favoriten importieren, sonderzeichen",3.1156,622,36,0
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,gemma:2b,hybrid,0.6667,0.4982,0.5,2,0.0,benutzerdefiniertes profil,3.0332,391,31,1
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",gemma:2b,hybrid,0.0,0.0,0.0,27,0.0,praferiertes endgerat,2.9984,365,37,0
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,gemma:2b,hybrid,0.3333,0.4693,1.0,1,0.0,internetprofile,2.9694,485,35,1
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,"sofort speichern, zwischenablage",2.8441,390,31,0
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,gemma:2b,hybrid,1.0,1.0,1.0,1,0.0,anmeldedaten,2.899,552,34,1
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",gemma:2b,hybrid,1.0,0.9197,1.0,1,0.6667,"optimal, taste",2.9362,351,34,1

@@ -1,0 +1,111 @@
+@startuml
+!pragma layout smetana
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+title SupportApp – Kernklassen
+
+package "FastAPI Layer" {
+    class FastAPIApp {
+        +process_question(job_id, question)
+        +ask_question(question) : str
+        +ask_question_html(question)
+        +get_result(job_id)
+        --
+        -retriever: HybridRetriever
+        -reranker: CrossEncoderReranker?
+        -embedding_service: EmbeddingService
+        -ollama: OllamaClient
+    }
+}
+
+package "Retrieval Pipeline" {
+    class HybridRetriever {
+        -chunk_records: List[Dict]
+        -bm25_index: BM25FieldIndex
+        -keyword_generator: KeywordGenerator
+        -faiss_index: faiss.Index
+        +retrieve(question, embedding, top_k, reranker=None, reranker_k=30, reranker_weight=0.65)
+    }
+
+    class KeywordGenerator {
+        +extract(question) : KeywordSet
+        -_tokenize(text) : List[str]
+        -_extract_phrases(tokens) : Set[str]
+    }
+
+    class BM25FieldIndex {
+        +score(query_terms, chunk) : float
+        +search(query_terms, top_k) : List[Dict]
+    }
+
+    class QueryRewriter {
+        +rewrite(question) : str
+    }
+
+    class CrossEncoderReranker {
+        -model_name: str
+        -model: CrossEncoder
+        +rerank(question, chunks, top_k) : List[Dict]
+    }
+
+    class ContextSelector {
+        +select(chunks, max_chunks=6, min_chunks=4, max_chars=1800) : List[Dict]
+    }
+}
+
+package "Embedding & Index" {
+    class EmbeddingService {
+        +get_embeddings(texts, normalize=True) : ndarray
+        +save_embeddings_to_faiss(embeddings, chunk_records, path)
+        +load_faiss_index(path) : (faiss.Index?, List[Dict], ndarray?)
+    }
+
+    class PDFChunker {
+        +load_and_chunk_pdf(pdf_path, chunk_size=200, overlap=50) : List[Dict]
+    }
+}
+
+package "LLM Access" {
+    class OllamaClient {
+        +generate(prompt, model, language=\"Deutsch\") : str
+        +stream_generate(prompt, model) : Iterator[str]
+        -_post(endpoint, payload) : Dict
+    }
+}
+
+class FaissIndex <<resource>> {
+    +index_file
+    +vectors.npy
+    +chunks.pkl
+}
+
+class SentenceTransformerModel <<resource>> {
+    +name="all-MiniLM-L6-v2"
+}
+
+class OllamaAPI <<external>> {
+    +POST /api/generate
+}
+
+FastAPIApp --> HybridRetriever : uses
+FastAPIApp --> QueryRewriter : uses
+FastAPIApp --> EmbeddingService : embeds
+FastAPIApp --> ContextSelector : builds prompt
+FastAPIApp --> CrossEncoderReranker : optional
+FastAPIApp --> OllamaClient : answers
+
+QueryRewriter --> OllamaClient : rewrite prompt
+HybridRetriever --> KeywordGenerator : compose query
+HybridRetriever --> BM25FieldIndex : lexical scores
+HybridRetriever --> ContextSelector : select evidence
+HybridRetriever --> EmbeddingService : dense search
+HybridRetriever --> FaissIndex : similarity
+EmbeddingService --> SentenceTransformerModel : encodes
+EmbeddingService --> FaissIndex : persists
+PDFChunker --> EmbeddingService : build index
+EmbeddingService --> PDFChunker : share metadata
+OllamaClient --> OllamaAPI : HTTP
+
+@enduml

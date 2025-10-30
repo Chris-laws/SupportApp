@@ -1,0 +1,48 @@
+{
+  "documents": {
+    "doc_voice_reset": "Um das Softphone Kennwort zu ändern, öffnen Sie die agree21Voice Einstellungen und wählen die Option Kennwort zurücksetzen. Das neue Kennwort muss alle 90 Tage über den Self-Service aktualisiert werden.",
+    "doc_outlook_delegate": "Um Outlook-Zugriff für Stellvertreter zu erlauben, öffnen Sie Datei > Kontoeinstellungen > Stellvertretungszugriff und fügen den gewünschten Benutzer hinzu. Bestätigen Sie die Freigabe mit Vollzugriff sowie Senden-als.",
+    "doc_greenshot": "Mit Greenshot erstellen Sie Screenshots über die Druck-Taste. Wählen Sie Bereich aufnehmen, markieren den gewünschten Ausschnitt und speichern anschließend als PNG oder kopieren es in die Zwischenablage."
+  },
+  "samples": [
+    {
+      "query": "Wie ändere ich das Softphone Kennwort?",
+      "relevant_docs": [
+        "doc_voice_reset"
+      ],
+      "reference_keywords": [
+        "softphone",
+        "kennwort",
+        "90 tage",
+        "self service"
+      ],
+      "expected_answer": "Kennwort über agree21Voice Self-Service alle 90 Tage zurücksetzen."
+    },
+    {
+      "query": "Wie vergebe ich Stellvertreterzugriff in Outlook?",
+      "relevant_docs": [
+        "doc_outlook_delegate"
+      ],
+      "reference_keywords": [
+        "stellvertreter",
+        "outlook",
+        "vollzugriff",
+        "senden als"
+      ],
+      "expected_answer": "Über Stellvertretungszugriff Benutzer hinzufügen und Rechte setzen."
+    },
+    {
+      "query": "Wie speichere ich einen Greenshot Bereich?",
+      "relevant_docs": [
+        "doc_greenshot"
+      ],
+      "reference_keywords": [
+        "greenshot",
+        "bereich",
+        "speichern",
+        "png"
+      ],
+      "expected_answer": "Bereich aufnehmen, auswählen und als PNG speichern."
+    }
+  ]
+}

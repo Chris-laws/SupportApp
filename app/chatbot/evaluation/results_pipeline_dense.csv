@@ -1,0 +1,21 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,mistral:instruct,dense,0.0,0.0,0.0,,0.0,,3.5777,310,41,0
+G002,Softphone Anmeldedaten speichern aktivieren,mistral:instruct,dense,1.0,1.0,1.0,1,0.25,,3.7266,332,30,1
+G003,Softphone Erstanmeldung mit DLS PIN,mistral:instruct,dense,0.0,0.0,0.0,,0.1875,,3.9285,718,30,0
+G004,Softphone vollstaendig beenden,mistral:instruct,dense,0.0,0.0,0.0,,0.0,,3.7823,394,31,0
+G005,Softphone Fusion Leiste Funktionen,mistral:instruct,dense,0.0,0.0,0.0,52,0.0,,3.7282,363,27,1
+G006,Softphone praefiertes Endgeraet wechseln,mistral:instruct,dense,0.0,0.0,0.0,107,0.0,,3.7829,274,27,1
+G007,Softphone One Number Service konfigurieren,mistral:instruct,dense,0.6,0.7227,1.0,1,0.25,,3.7783,419,30,1
+G008,Softphone Rufnummernanzeige steuern (CLIR),mistral:instruct,dense,0.0,0.0,0.0,,0.0,,3.6221,347,26,0
+G009,Softphone Rufnummer fuer CLIR deaktivieren,mistral:instruct,dense,0.0,0.0,0.0,27,0.1379,,3.7218,373,27,0
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,mistral:instruct,dense,0.0,0.0,0.0,122,0.0,,3.7877,310,32,1
+G011,Softphone Konferenz planen,mistral:instruct,dense,1.0,1.0,1.0,1,0.0,,3.7036,320,29,1
+G012,HP Drucker Papierstau beheben,mistral:instruct,dense,1.0,1.0,1.0,1,0.2222,,3.78,311,27,1
+G013,HP Drucker Duplexmodul verwenden,mistral:instruct,dense,0.6667,0.7654,1.0,1,0.0,,3.736,298,27,1
+G014,HP Drucker Patronen reinigen,mistral:instruct,dense,0.6667,0.7654,1.0,1,0.0,,3.871,387,27,1
+G015,Abwesenheitsagent in Clerk anlegen,mistral:instruct,dense,0.0,0.0,0.0,24,0.0,,4.1891,755,27,0
+G016,Outlook Ordner fuer Stellvertreter freigeben,mistral:instruct,dense,0.0,0.0,0.0,,0.25,,3.6509,300,21,0
+G017,Raeume oder Ressourcen buchen,mistral:instruct,dense,0.0,0.0,0.0,,0.0,,4.467,946,29,0
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,mistral:instruct,dense,0.0,0.0,0.0,135,0.0741,,3.8463,426,27,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,mistral:instruct,dense,0.0,0.0,0.0,139,0.129,,3.6453,314,29,0
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,mistral:instruct,dense,0.0,0.0,0.0,,0.25,,3.6794,382,26,0

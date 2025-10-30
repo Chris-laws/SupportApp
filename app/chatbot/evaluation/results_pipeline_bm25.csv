@@ -1,0 +1,21 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,mistral:instruct,bm25,1.0,1.0,1.0,1,0.1429,,3.7931,507,25,1
+G002,Softphone Anmeldedaten speichern aktivieren,mistral:instruct,bm25,1.0,1.0,1.0,1,0.2759,,3.798,346,29,1
+G003,Softphone Erstanmeldung mit DLS PIN,mistral:instruct,bm25,1.0,1.0,1.0,1,0.1875,,3.7196,317,36,1
+G004,Softphone vollstaendig beenden,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,3.6783,288,36,1
+G005,Softphone Fusion Leiste Funktionen,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,3.6684,282,29,1
+G006,Softphone praefiertes Endgeraet wechseln,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,3.7292,290,28,1
+G007,Softphone One Number Service konfigurieren,mistral:instruct,bm25,0.8,0.8688,1.0,1,0.25,,3.9607,580,34,0
+G008,Softphone Rufnummernanzeige steuern (CLIR),mistral:instruct,bm25,1.0,1.0,1.0,1,0.1429,,3.7777,290,26,1
+G009,Softphone Rufnummer fuer CLIR deaktivieren,mistral:instruct,bm25,1.0,1.0,1.0,1,0.129,,3.8384,391,31,1
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,mistral:instruct,bm25,1.0,0.9675,1.0,1,0.0,,3.6806,312,27,1
+G011,Softphone Konferenz planen,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,3.6193,265,29,1
+G012,HP Drucker Papierstau beheben,mistral:instruct,bm25,1.0,1.0,1.0,1,0.2222,,3.7069,314,27,1
+G013,HP Drucker Duplexmodul verwenden,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,3.7523,271,26,1
+G014,HP Drucker Patronen reinigen,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,3.7649,316,23,1
+G015,Abwesenheitsagent in Clerk anlegen,mistral:instruct,bm25,1.0,1.0,1.0,1,0.2308,,4.0714,753,24,1
+G016,Outlook Ordner fuer Stellvertreter freigeben,mistral:instruct,bm25,1.0,1.0,1.0,1,0.2222,,3.6197,298,26,1
+G017,Raeume oder Ressourcen buchen,mistral:instruct,bm25,1.0,0.6309,0.5,2,0.0,,3.7653,385,28,0
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,mistral:instruct,bm25,1.0,1.0,1.0,1,0.0,,4.0397,454,23,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,mistral:instruct,bm25,1.0,0.5,0.3333,3,0.1379,,3.7936,372,24,1
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,mistral:instruct,bm25,1.0,0.6309,0.5,2,0.2069,,4.3133,955,30,1

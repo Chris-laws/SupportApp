@@ -1,0 +1,124 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct,top_k,bm25_in_topk,dense_in_topk,overlap_in_topk,rerank_delta_top1,avg_score_delta_topk,kendall_tau_topk,format_bullet_keyword,format_citation_per_bullet,contains_nicht_im_kontext,bullet_count,error_bucket
+G001,Softphone Kennwort aendern,mistral:instruct,hybrid,0.5,0.6367,1.0,1,1.0,,36.7471,322,65,1,20,2,2,2,0.0,0.0,1.0,0,0,0,6,C
+G001,Softphone Kennwort aendern,gemma:2b,hybrid,0.5,0.6367,1.0,1,0.8889,,2.3966,322,5,1,20,2,2,2,0.0,0.0,1.0,1,0,0,4,C
+G001,Softphone Kennwort aendern,phi3:latest,hybrid,0.5,0.6367,1.0,1,1.0,,5.8933,322,66,1,20,2,2,2,0.0,0.0,1.0,1,0,0,5,C
+G002,Softphone Anmeldedaten speichern aktivieren,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,89.9444,988,43,1,20,20,7,7,0.0,0.0,0.68254,0,0,0,4,C
+G002,Softphone Anmeldedaten speichern aktivieren,gemma:2b,hybrid,0.5,0.6131,1.0,1,1.0,,2.5285,988,4,1,20,20,7,7,0.0,0.0,0.68254,1,0,0,4,C
+G002,Softphone Anmeldedaten speichern aktivieren,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,6.5653,988,54,0,20,20,7,7,0.0,0.0,0.68254,1,0,1,4,A
+G003,Softphone Erstanmeldung mit DLS PIN,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,20.9534,348,64,1,20,2,2,2,0.0,0.0,1.0,0,0,0,5,C
+G003,Softphone Erstanmeldung mit DLS PIN,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.8571,,2.6911,348,22,1,20,2,2,2,0.0,0.0,1.0,0,0,0,3,C
+G003,Softphone Erstanmeldung mit DLS PIN,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,5.9177,348,65,1,20,2,2,2,0.0,0.0,1.0,0,1,0,6,C
+G004,Softphone vollstaendig beenden,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,7.017,1179,53,1,20,20,12,12,0.0,0.0,0.819149,1,0,1,2,C
+G004,Softphone vollstaendig beenden,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.8571,,4.3275,1179,22,1,20,20,12,12,0.0,0.0,0.819149,0,0,0,3,C
+G004,Softphone vollstaendig beenden,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,5.4565,1179,23,0,20,20,12,12,0.0,0.0,0.819149,1,0,1,4,A
+G005,Softphone Fusion Leiste Funktionen,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,27.977,212,54,1,20,2,2,2,0.0,0.0,1.0,0,0,1,6,B
+G005,Softphone Fusion Leiste Funktionen,gemma:2b,hybrid,0.0,0.0,0.0,,0.8571,,2.4095,212,7,1,20,2,2,2,0.0,0.0,1.0,0,0,0,4,B
+G005,Softphone Fusion Leiste Funktionen,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.418,212,48,0,20,2,2,2,0.0,0.0,1.0,1,0,1,4,B
+G006,Softphone praefiertes Endgeraet wechseln,mistral:instruct,hybrid,0.0,0.0,0.0,,0.8571,,27.1782,240,59,1,20,2,2,2,0.0,0.0,-1.0,0,0,1,4,B
+G006,Softphone praefiertes Endgeraet wechseln,gemma:2b,hybrid,0.0,0.0,0.0,,0.6667,,2.681,240,13,1,20,2,2,2,0.0,0.0,-1.0,0,0,0,3,B
+G006,Softphone praefiertes Endgeraet wechseln,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.7074,240,46,0,20,2,2,2,0.0,0.0,-1.0,1,0,1,4,B
+G007,Softphone One Number Service konfigurieren,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,26.1944,374,48,1,20,2,2,2,0.0,0.0,1.0,1,0,0,4,B
+G007,Softphone One Number Service konfigurieren,gemma:2b,hybrid,0.0,0.0,0.0,,1.0,,2.5438,374,18,1,20,2,2,2,0.0,0.0,1.0,1,0,0,4,B
+G007,Softphone One Number Service konfigurieren,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.9872,374,59,1,20,2,2,2,0.0,0.0,1.0,1,1,1,4,B
+G008,Softphone Rufnummernanzeige steuern (CLIR),mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,540.9241,1315,30,0,20,20,2,2,0.0,0.0,0.904255,0,0,1,5,B
+G008,Softphone Rufnummernanzeige steuern (CLIR),gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,3.5101,1315,62,1,20,20,2,2,0.0,0.0,0.904255,0,0,0,3,B
+G008,Softphone Rufnummernanzeige steuern (CLIR),phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,3.9859,1315,18,0,20,20,2,2,0.0,0.0,0.904255,1,0,1,4,B
+G009,Softphone Rufnummer fuer CLIR deaktivieren,mistral:instruct,hybrid,0.0,0.0,0.0,,0.6667,,25.8086,308,18,0,20,2,2,2,0.0,0.0,0.0,0,0,1,4,B
+G009,Softphone Rufnummer fuer CLIR deaktivieren,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,2.5161,308,17,1,20,2,2,2,0.0,0.0,0.0,0,0,1,3,B
+G009,Softphone Rufnummer fuer CLIR deaktivieren,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,,5.9757,308,54,1,20,2,2,2,0.0,0.0,0.0,0,0,1,5,B
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,mistral:instruct,hybrid,0.25,0.3904,1.0,1,1.0,,25.7854,313,47,0,20,2,2,2,0.0,0.0,1.0,0,0,1,8,A
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,gemma:2b,hybrid,0.25,0.3904,1.0,1,0.4,,2.8623,313,40,1,20,2,2,2,0.0,0.0,1.0,0,0,0,3,C
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,phi3:latest,hybrid,0.25,0.3904,1.0,1,0.0,,5.708,313,55,0,20,2,2,2,0.0,0.0,1.0,0,0,0,6,A
+G011,Softphone Konferenz planen,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,26.0017,239,69,1,20,2,2,2,0.0,0.0,1.0,1,0,1,4,B
+G011,Softphone Konferenz planen,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,2.6112,239,24,1,20,2,2,2,0.0,0.0,1.0,0,0,0,4,B
+G011,Softphone Konferenz planen,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.7984,239,64,0,20,2,2,2,0.0,0.0,1.0,0,0,0,6,B
+G012,HP Drucker Papierstau beheben,mistral:instruct,hybrid,0.25,0.3904,1.0,1,1.0,,28.155,1217,46,1,20,20,2,2,0.0,0.0,0.893617,0,0,0,6,C
+G012,HP Drucker Papierstau beheben,gemma:2b,hybrid,0.25,0.3904,1.0,1,0.0,,3.6157,1217,82,1,20,20,2,2,0.0,0.0,0.893617,0,0,0,9,C
+G012,HP Drucker Papierstau beheben,phi3:latest,hybrid,0.25,0.3904,1.0,1,1.0,,5.8917,1217,38,0,20,20,2,2,0.0,0.0,0.893617,1,0,1,4,A
+G013,HP Drucker Duplexmodul verwenden,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,27.9102,1324,17,0,20,20,4,4,0.0,0.0,0.62766,0,0,1,5,B
+G013,HP Drucker Duplexmodul verwenden,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,3.9023,1324,101,1,20,20,4,4,0.0,0.0,0.62766,0,0,0,11,B
+G013,HP Drucker Duplexmodul verwenden,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,,6.01,1324,35,0,20,20,4,4,0.0,0.0,0.62766,0,0,1,7,B
+G014,HP Drucker Patronen reinigen,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,27.8942,1169,28,0,20,20,3,3,0.0,0.0,0.776596,0,0,1,6,B
+G014,HP Drucker Patronen reinigen,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,2.7163,1169,18,1,20,20,3,3,0.0,0.0,0.776596,0,0,0,2,B
+G014,HP Drucker Patronen reinigen,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,,5.1462,1169,11,0,20,20,3,3,0.0,0.0,0.776596,0,0,1,1,B
+G015,Abwesenheitsagent in Clerk anlegen,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,25.7456,1043,41,1,20,20,2,2,0.0,0.0,0.830688,0,0,1,3,C
+G015,Abwesenheitsagent in Clerk anlegen,gemma:2b,hybrid,0.5,0.6131,1.0,1,1.0,,2.5895,1043,4,1,20,20,2,2,0.0,0.0,0.830688,1,0,0,4,C
+G015,Abwesenheitsagent in Clerk anlegen,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,5.2473,1043,18,0,20,20,2,2,0.0,0.0,0.830688,1,0,1,4,A
+G016,Outlook Ordner fuer Stellvertreter freigeben,mistral:instruct,hybrid,0.25,0.3904,1.0,1,0.0,,27.8511,758,53,1,20,20,9,9,0.0,0.0,0.8,1,0,0,3,C
+G016,Outlook Ordner fuer Stellvertreter freigeben,gemma:2b,hybrid,0.25,0.3904,1.0,1,0.0,,2.6112,758,17,1,20,20,9,9,0.0,0.0,0.8,0,0,0,3,C
+G016,Outlook Ordner fuer Stellvertreter freigeben,phi3:latest,hybrid,0.25,0.3904,1.0,1,0.0,,6.5612,758,61,1,20,20,9,9,0.0,0.0,0.8,0,0,0,4,C
+G017,Raeume oder Ressourcen buchen,mistral:instruct,hybrid,0.5,0.6367,1.0,1,0.8571,,29.3928,995,56,1,20,20,6,6,0.0,0.0,0.741935,0,1,0,5,C
+G017,Raeume oder Ressourcen buchen,gemma:2b,hybrid,0.5,0.6367,1.0,1,0.0,,2.4356,995,3,1,20,20,6,6,0.0,0.0,0.741935,0,0,0,3,C
+G017,Raeume oder Ressourcen buchen,phi3:latest,hybrid,0.5,0.6367,1.0,1,1.0,,6.547,995,69,0,20,20,6,6,0.0,0.0,0.741935,1,0,0,4,A
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,mistral:instruct,hybrid,0.5,0.2641,0.25,4,1.0,,59.2464,1114,50,1,20,20,5,5,0.0,0.0,0.882979,1,0,1,4,C
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,gemma:2b,hybrid,0.5,0.2641,0.25,4,0.6667,,2.6989,1114,10,1,20,20,5,5,0.0,0.0,0.882979,0,0,1,6,C
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,phi3:latest,hybrid,0.5,0.2641,0.25,4,1.0,,5.5344,1114,29,1,20,20,5,5,0.0,0.0,0.882979,1,0,1,4,C
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,15.5928,732,59,1,20,12,7,7,0.0,0.0,0.818182,1,0,0,3,B
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,gemma:2b,hybrid,0.0,0.0,0.0,,0.4,,3.127,732,52,1,20,12,7,7,0.0,0.0,0.818182,0,0,0,3,B
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,6.0397,732,47,1,20,12,7,7,0.0,0.0,0.818182,1,1,0,4,B
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,0.8571,,13.811,1162,18,0,20,13,6,6,0.0,0.0,0.868421,0,0,1,4,A
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,2.5431,1162,2,1,20,13,6,6,0.0,0.0,0.868421,1,0,0,2,C
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,6.4361,1162,46,1,20,13,6,6,0.0,0.0,0.868421,1,0,1,4,C
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,0.4,,26.1653,1047,38,1,20,20,5,5,0.0,0.0,0.668449,1,1,0,2,OK
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,3.2867,1047,54,0,20,20,5,5,0.0,0.0,0.668449,0,0,0,5,A
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,phi3:latest,hybrid,0.5,0.6131,1.0,1,0.8571,,6.571,1047,61,1,20,20,5,5,0.0,0.0,0.668449,1,0,0,3,C
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,mistral:instruct,hybrid,0.5,0.3869,0.5,2,1.0,,30.0256,772,59,1,20,20,10,10,0.0,0.0,0.772973,0,0,1,3,C
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,gemma:2b,hybrid,0.5,0.3869,0.5,2,0.0,,2.9913,772,39,1,20,20,10,10,0.0,0.0,0.772973,0,0,0,3,C
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,phi3:latest,hybrid,0.5,0.3869,0.5,2,1.0,,6.5432,772,51,1,20,20,10,10,0.0,0.0,0.772973,0,0,1,7,C
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,30.0321,839,30,1,20,20,8,8,0.0,0.0,0.827957,0,1,0,2,C
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,3.1144,839,29,1,20,20,8,8,0.0,0.0,0.827957,0,0,0,19,C
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,6.5462,839,72,1,20,20,8,8,0.0,0.0,0.827957,1,0,0,4,C
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,mistral:instruct,hybrid,0.25,0.1232,0.125,8,0.8571,,29.9468,866,52,1,20,19,10,10,0.0,0.0,0.893491,0,0,1,5,C
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,gemma:2b,hybrid,0.25,0.1232,0.125,8,0.4,,3.2964,866,45,1,20,19,10,10,0.0,0.0,0.893491,0,0,0,4,C
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,phi3:latest,hybrid,0.25,0.1232,0.125,8,0.0,,6.6645,866,55,1,20,19,10,10,0.0,0.0,0.893491,0,0,0,5,C
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,0.0,,33.1763,858,62,1,20,20,4,4,0.0,0.0,0.68984,0,0,0,4,C
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,3.6631,858,71,0,20,20,4,4,0.0,0.0,0.68984,0,0,0,16,A
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,phi3:latest,hybrid,0.5,0.6131,1.0,1,0.6667,,6.6169,858,65,1,20,20,4,4,0.0,0.0,0.68984,0,0,0,4,C
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,mistral:instruct,hybrid,0.5,0.2044,0.1429,7,0.4,,51.8351,1081,51,1,20,20,5,5,0.0,0.0,0.681319,0,0,0,6,C
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,gemma:2b,hybrid,0.5,0.2044,0.1429,7,0.6667,,3.4811,1081,54,1,20,20,5,5,0.0,0.0,0.681319,0,0,0,4,C
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,phi3:latest,hybrid,0.5,0.2044,0.1429,7,0.0,,6.6405,1081,64,0,20,20,5,5,0.0,0.0,0.681319,1,0,0,4,A
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,mistral:instruct,hybrid,0.0,0.0,0.0,,0.8571,,18.4431,999,51,0,20,20,8,8,0.0,0.0,0.709677,1,0,0,3,B
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,3.2132,999,43,1,20,20,8,8,0.0,0.0,0.709677,0,0,0,7,B
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,6.8424,999,55,0,20,20,8,8,0.0,0.0,0.709677,0,0,1,6,B
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",mistral:instruct,hybrid,0.2,0.3392,1.0,1,1.0,,32.3769,788,44,1,20,20,10,10,0.0,0.0,0.746032,1,0,1,4,C
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",gemma:2b,hybrid,0.2,0.3392,1.0,1,0.6667,,2.4865,788,8,1,20,20,10,10,0.0,0.0,0.746032,0,0,0,2,C
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",phi3:latest,hybrid,0.2,0.3392,1.0,1,1.0,,6.5107,788,56,1,20,20,10,10,0.0,0.0,0.746032,0,0,0,6,C
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",mistral:instruct,hybrid,0.5,0.6367,1.0,1,0.0,,31.2144,1010,52,1,20,20,7,7,0.0,0.0,0.816216,0,0,0,4,C
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",gemma:2b,hybrid,0.5,0.6367,1.0,1,0.0,,3.9226,1010,101,1,20,20,7,7,0.0,0.0,0.816216,0,0,0,0,C
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",phi3:latest,hybrid,0.5,0.6367,1.0,1,1.0,,5.3234,1010,23,1,20,20,7,7,0.0,0.0,0.816216,1,0,1,4,C
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",mistral:instruct,hybrid,0.1667,0.1171,0.2,5,0.6667,,28.4134,960,35,1,20,20,9,9,0.0,0.0,0.582418,0,0,1,3,C
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",gemma:2b,hybrid,0.1667,0.1171,0.2,5,0.0,,2.8457,960,26,1,20,20,9,9,0.0,0.0,0.582418,0,0,0,0,C
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",phi3:latest,hybrid,0.1667,0.1171,0.2,5,1.0,,6.7984,960,67,1,20,20,9,9,0.0,0.0,0.582418,0,0,1,7,C
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,mistral:instruct,hybrid,0.5,0.5108,1.0,1,0.8571,,30.3174,1049,52,1,20,20,8,8,0.0,0.0,0.815217,0,0,1,4,C
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,gemma:2b,hybrid,0.5,0.5108,1.0,1,0.4,,2.898,1049,29,1,20,20,8,8,0.0,0.0,0.815217,0,0,0,2,C
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,phi3:latest,hybrid,0.5,0.5108,1.0,1,1.0,,5.9273,1049,42,1,20,20,8,8,0.0,0.0,0.815217,0,0,1,7,C
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,mistral:instruct,hybrid,0.0,0.0,0.0,,0.8571,,45.3933,1188,46,1,20,20,5,5,0.0,0.0,0.451613,0,0,1,7,B
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,gemma:2b,hybrid,0.0,0.0,0.0,,0.8571,,2.8105,1188,23,0,20,20,5,5,0.0,0.0,0.451613,0,0,0,2,B
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,,6.924,1188,67,0,20,20,5,5,0.0,0.0,0.451613,0,0,1,5,B
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,mistral:instruct,hybrid,0.25,0.3904,1.0,1,1.0,,13.5704,908,23,1,20,17,10,10,0.0,0.0,0.820896,1,0,1,5,C
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,gemma:2b,hybrid,0.25,0.3904,1.0,1,0.8571,,3.3914,908,67,1,20,17,10,10,0.0,0.0,0.820896,0,0,0,3,C
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,phi3:latest,hybrid,0.25,0.3904,1.0,1,1.0,,6.1762,908,36,1,20,17,10,10,0.0,0.0,0.820896,1,0,1,4,C
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",mistral:instruct,hybrid,0.1667,0.3026,1.0,1,0.6667,,33.352,1033,58,1,20,15,5,5,0.0,0.0,0.762376,0,0,0,7,C
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",gemma:2b,hybrid,0.1667,0.3026,1.0,1,0.0,,3.6952,1033,86,1,20,15,5,5,0.0,0.0,0.762376,0,0,0,0,C
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",phi3:latest,hybrid,0.1667,0.3026,1.0,1,1.0,,5.8175,1033,32,1,20,15,5,5,0.0,0.0,0.762376,0,0,1,6,C
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,32.2437,960,56,1,20,20,7,7,0.0,0.0,0.397849,0,0,1,10,C
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,2.9806,960,36,1,20,20,7,7,0.0,0.0,0.397849,0,0,0,3,C
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,5.4613,960,28,1,20,20,7,7,0.0,0.0,0.397849,1,0,1,3,C
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,mistral:instruct,hybrid,0.0,0.0,0.0,,0.6667,,44.0992,796,37,1,20,8,6,6,0.0,0.0,0.851852,0,0,1,4,B
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,2.6547,796,12,0,20,8,6,6,0.0,0.0,0.851852,0,0,0,3,B
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.2318,796,20,0,20,8,6,6,0.0,0.0,0.851852,1,0,1,4,B
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",mistral:instruct,hybrid,0.0,0.0,0.0,,0.8571,,14.4808,363,54,1,20,5,2,2,0.0,0.0,1.0,0,0,1,5,B
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",gemma:2b,hybrid,0.0,0.0,0.0,,0.4,,2.6347,363,14,1,20,5,2,2,0.0,0.0,1.0,0,1,0,2,B
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.3514,363,33,0,20,5,2,2,0.0,0.0,1.0,1,1,1,2,B
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,mistral:instruct,hybrid,0.0,0.0,0.0,,1.0,,28.7561,1254,60,1,20,15,4,4,0.0,0.0,0.862745,1,0,1,4,B
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,gemma:2b,hybrid,0.0,0.0,0.0,,0.0,,3.0569,1254,26,1,20,15,4,4,0.0,0.0,0.862745,0,0,0,2,B
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,phi3:latest,hybrid,0.0,0.0,0.0,,1.0,,5.5835,1254,26,0,20,15,4,4,0.0,0.0,0.862745,1,0,1,4,B
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,31.36,978,55,1,20,20,8,8,0.0,0.0,0.258065,0,0,1,5,C
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,3.286,978,33,1,20,20,8,8,0.0,0.0,0.258065,0,0,0,6,C
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,6.8145,978,64,1,20,20,8,8,0.0,0.0,0.258065,0,0,0,5,C
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,mistral:instruct,hybrid,0.5,0.6131,1.0,1,1.0,,32.2641,999,66,1,20,20,5,5,0.0,0.0,0.562842,1,0,0,4,C
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,gemma:2b,hybrid,0.5,0.6131,1.0,1,0.0,,2.7225,999,17,1,20,20,5,5,0.0,0.0,0.562842,0,0,0,3,C
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,phi3:latest,hybrid,0.5,0.6131,1.0,1,1.0,,3.8553,999,26,0,20,20,5,5,0.0,0.0,0.562842,1,0,1,4,A
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",mistral:instruct,hybrid,0.25,0.2463,0.5,2,1.0,,28.7465,1289,54,1,20,20,2,2,0.0,0.0,0.87234,1,0,1,4,C
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",gemma:2b,hybrid,0.25,0.2463,0.5,2,0.0,,3.3028,1289,21,1,20,20,2,2,0.0,0.0,0.87234,0,0,0,9,C
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",phi3:latest,hybrid,0.25,0.2463,0.5,2,0.0,,5.2056,1289,70,1,20,20,2,2,0.0,0.0,0.87234,0,0,0,9,C

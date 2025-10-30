@@ -1,0 +1,42 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct
+G001,Softphone Kennwort aendern,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,passwort,4.5485,698,17,0
+G002,Softphone Anmeldedaten speichern aktivieren,phi3:latest,hybrid,1.0,1.0,1.0,1,1.0,,2.7109,617,8,0
+G003,Softphone Erstanmeldung mit DLS PIN,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"dls, pin",2.679,424,5,0
+G004,Softphone vollstaendig beenden,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,taskleiste,3.1954,329,23,1
+G005,Softphone Fusion Leiste Funktionen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"favoriten, fusion",3.1678,367,25,0
+G006,Softphone praefiertes Endgeraet wechseln,phi3:latest,hybrid,1.0,1.0,1.0,1,0.8571,praeferiert,2.8462,357,9,0
+G007,Softphone One Number Service konfigurieren,phi3:latest,hybrid,0.8,0.8688,1.0,1,1.0,,3.4297,674,30,0
+G008,Softphone Rufnummernanzeige steuern (CLIR),phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,rufnummer,2.8633,368,8,0
+G009,Softphone Rufnummer fuer CLIR deaktivieren,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"clir, deaktivieren",3.1086,418,14,0
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,phi3:latest,hybrid,1.0,0.9675,1.0,1,0.0,"kontakte, rufnummer",3.0656,362,16,0
+G011,Softphone Konferenz planen,phi3:latest,hybrid,1.0,1.0,1.0,1,1.0,,3.1962,349,34,1
+G012,HP Drucker Papierstau beheben,phi3:latest,hybrid,1.0,1.0,1.0,1,0.8571,modul,3.1918,355,17,0
+G013,HP Drucker Duplexmodul verwenden,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,duplex,3.1614,312,15,0
+G014,HP Drucker Patronen reinigen,phi3:latest,hybrid,1.0,1.0,1.0,1,1.0,,3.0615,357,15,0
+G015,Abwesenheitsagent in Clerk anlegen,phi3:latest,hybrid,1.0,1.0,1.0,1,0.6667,"abwesenheit, periodisch",3.6888,1019,22,0
+G016,Outlook Ordner fuer Stellvertreter freigeben,phi3:latest,hybrid,1.0,1.0,1.0,1,1.0,,3.1854,359,23,1
+G017,Raeume oder Ressourcen buchen,phi3:latest,hybrid,1.0,0.6309,0.5,2,0.0,"buchung, raum",3.019,321,14,1
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"proxy, webgateway",3.4399,496,20,1
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,phi3:latest,hybrid,1.0,0.5,0.3333,3,0.0,"secure, webgateway",3.2886,414,23,1
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,phi3:latest,hybrid,1.0,0.6309,0.5,2,0.6667,"389, 636",3.0694,414,18,1
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,forms,3.1853,504,21,0
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,phi3:latest,hybrid,1.0,0.6934,0.5,2,0.0,"postfach, regeln",3.8406,746,30,0
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"outlook, senden von",3.5711,712,32,0
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,phi3:latest,hybrid,0.0,0.0,0.0,,0.6667,"freigabe, hinzufuegen",3.3392,630,26,0
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,phi3:latest,hybrid,0.0,0.0,0.0,,0.8571,speichern,3.2594,511,30,1
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,phi3:latest,hybrid,1.0,0.9197,1.0,1,0.0,"periodisch, zeitraum",3.1369,291,20,0
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,phi3:latest,hybrid,0.5,0.3066,0.3333,3,0.0,"halbtagig, wiederholungsrhythmus",3.189,315,23,1
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",phi3:latest,hybrid,0.0,0.0,0.0,,0.0,ordnerberechtigungen,3.3211,569,31,0
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"iq suite, passwortmanager",3.2694,445,29,1
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",phi3:latest,hybrid,0.3333,0.2961,0.5,2,0.6667,"aktivierung, regeln verwalten",3.3124,467,29,1
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,adressbuch,3.3266,474,34,0
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,phi3:latest,hybrid,0.3333,0.2961,0.5,2,0.8571,druckqualitat,2.8178,356,7,0
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,phi3:latest,hybrid,0.0,0.0,0.0,6,0.0,ssl-analyse,3.4094,539,28,1
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",phi3:latest,hybrid,0.3333,0.2961,0.5,2,0.6667,"assistent, gdix",3.3375,560,30,1
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.0,"favoriten importieren, sonderzeichen",3.563,622,30,0
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,phi3:latest,hybrid,0.6667,0.4982,0.5,2,0.0,"benutzerdefiniertes profil, prasenzstatus",3.2126,391,26,1
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",phi3:latest,hybrid,0.0,0.0,0.0,27,0.0,praferiertes endgerat,3.2063,365,22,0
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,phi3:latest,hybrid,0.3333,0.4693,1.0,1,0.0,internetprofile,3.3239,485,29,1
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,phi3:latest,hybrid,0.0,0.0,0.0,,0.0,"sofort speichern, zwischenablage",3.3257,390,32,0
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,phi3:latest,hybrid,1.0,1.0,1.0,1,0.6667,"konfiguration, ldap-server",3.3364,552,33,1
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",phi3:latest,hybrid,1.0,0.9197,1.0,1,0.6667,"optimal, taste",3.2299,351,27,1

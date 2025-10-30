@@ -1,0 +1,42 @@
+question_id,query,model,retrieval_mode,recall@k,ndcg@k,mrr,rank_first_rel,keyword_f1,missing_keywords,time_s,tokens_in,tokens_out,factual_correct,top_k,bm25_in_topk,dense_in_topk,overlap_in_topk,rerank_delta_top1,avg_score_delta_topk,kendall_tau_topk,format_bullet_keyword,format_citation_per_bullet,contains_nicht_im_kontext,bullet_count,error_bucket
+G001,Softphone Kennwort aendern,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,108.5574,1554,37,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,5,B
+G002,Softphone Anmeldedaten speichern aktivieren,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,94.0734,1250,32,0,12,12,1,1,6.480399,6.219687,-0.212121,1,0,1,4,B
+G003,Softphone Erstanmeldung mit DLS PIN,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,101.4552,1588,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G004,Softphone vollstaendig beenden,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,109.8736,1784,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G005,Softphone Fusion Leiste Funktionen,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,104.0911,971,38,0,12,12,0,0,8.015945,7.986263,0.636364,1,0,1,4,B
+G006,Softphone praefiertes Endgeraet wechseln,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,124.9963,1528,49,0,12,12,0,0,3.57169,3.616996,0.393939,1,0,1,4,B
+G007,Softphone One Number Service konfigurieren,llama3:70b,hybrid,0.0,0.0,0.0,13,0.0,,139.1231,1748,71,1,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,C
+G008,Softphone Rufnummernanzeige steuern (CLIR),llama3:70b,hybrid,0.0,0.0,0.0,,0.0,,113.6514,1785,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G009,Softphone Rufnummer fuer CLIR deaktivieren,llama3:70b,hybrid,0.0,0.0,0.0,,0.0,,113.8233,1786,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G010,Softphone Rufnummernanzeige fuer Kontakte anpassen,llama3:70b,hybrid,0.0,0.0,0.0,,0.0,,113.6143,1786,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G011,Softphone Konferenz planen,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,108.4382,1784,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G012,HP Drucker Papierstau beheben,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,110.1869,1788,32,0,12,12,0,0,3.57169,3.220306,0.151515,1,0,1,4,B
+G013,HP Drucker Duplexmodul verwenden,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,104.279,1785,23,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G014,HP Drucker Patronen reinigen,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,86.9382,649,30,0,12,4,8,0,16.488097,16.59691,-0.121212,1,0,1,4,B
+G015,Abwesenheitsagent in Clerk anlegen,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,120.615,1785,42,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G016,Outlook Ordner fuer Stellvertreter freigeben,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,111.8637,1786,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G017,Raeume oder Ressourcen buchen,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,107.2566,1630,37,0,12,12,1,1,3.57169,3.243373,0.121212,1,0,1,4,B
+G018,Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,109.6938,1791,33,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G019,Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,110.3932,1791,33,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G020,Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,109.804,1791,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G021,Welche Forms-Regeln gelten laut Spielregeln M365?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,89.8231,1163,25,0,12,12,0,0,3.627947,3.594808,0.363636,1,0,1,4,B
+G022,Wie legt man Postfachregeln laut Anleitung in Outlook Online an?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,93.2503,1800,25,0,12,12,0,0,11.719577,11.647893,0.272727,1,0,1,4,B
+G023,Wie aktiviert man Senden-von in Outlook laut Anleitung?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,106.927,1792,31,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G024,Wie erteilt man Outlook-Zugriff fuer Stellvertreter laut Guidance?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,110.5219,1790,29,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G025,Wie erstellt man Screenshots mit Greenshot laut Anleitung?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,108.1935,1789,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G026,Welche Abwesenheitsarten mussen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind fur die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?,llama3:70b,hybrid,0.0,0.0,0.0,,0.0,,110.9514,1804,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G027,Wie werden im Clerk-Abwesenheitsagenten halbtagige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wochentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,109.4059,1800,31,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G028,"Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch fur Stellvertreter freigegeben sind?",llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,112.2922,1802,34,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G029,"Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpassworter einzusehen und anschliessend ein neues Passwort zu vergeben?",llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,91.59,1369,26,0,12,12,0,0,16.475842,15.696522,-0.030303,1,0,1,4,B
+G030,"Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig uber Outlook Online einzurichten, und wie wird die Regel anschliessend aktiviert?",llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,154.2375,1802,66,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G031,Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind fur die Kalendergruppe notwendig?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,114.186,1787,41,0,12,12,0,0,3.57169,3.428896,-0.030303,1,0,1,4,B
+G032,Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch fur den Umgang mit dem Gerat und welche Leistungsmerkmale werden hervorgehoben?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,108.9056,1707,31,0,12,12,0,0,7.010903,6.422408,-0.030303,1,0,1,4,B
+G033,Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfugung?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,100.913,1765,26,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G034,"Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,107.8724,1800,29,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G035,Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind fur den erneuten Import erforderlich?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,83.0988,1163,25,0,12,12,0,0,26.56067,26.356386,0.181818,1,0,1,3,B
+G036,Wie erstellt man im agree21Voice Softphone ein benutzerdefiniertes Anrufumleitungsprofil und welche Optionen fur Regeln und Prasenzstatus konnen festgelegt werden?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,115.8519,1802,34,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G037,"Welche Voraussetzungen mussen im agree21Voice Softphone erfullt sein, damit eine einfache Anrufumleitung wirksam bleibt, und wie deaktiviert man sie wieder?",llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,111.7606,1803,34,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G038,Wie erfolgt die Administration des Atruvia Secure Webgateway in SAGA und wie konnen Internetprofile kopiert und angepasst werden?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,109.2047,1799,32,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G039,Welche Exportoptionen bietet Greenshot nach einer Bereichsauswahl laut Anleitung?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,104.7963,785,42,0,12,12,0,0,4.467094,4.441033,0.0,1,0,1,4,B
+G040,Wie wird nach der Einrichtung von LDAPS im LDAP-Handbuch die Verbindung getestet und was zeigt einen erfolgreichen Test an?,llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,132.1678,1604,53,0,12,12,0,0,3.57169,3.216399,0.090909,1,0,1,4,B
+G041,"Wie stellt man laut HP-Druckerhandbuch die Druckqualitat uber die Druckersoftware und die Druckqualitatsauswahltaste ein, und welche Qualitatsmodi stehen zur Verfugung?",llama3:70b,hybrid,0.0,0.0,0.0,,1.0,,104.9061,1691,32,0,12,12,0,0,3.57169,3.355605,0.323077,1,0,1,4,B

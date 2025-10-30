@@ -1,0 +1,396 @@
+[
+  {
+    "question_id": "G001",
+    "question": "Softphone Kennwort aendern",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37583
+      ],
+      "expected_keywords": [
+        "softphone",
+        "kennwort",
+        "90",
+        "tage",
+        "self-service"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G002",
+    "question": "Softphone Anmeldedaten speichern aktivieren",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37582
+      ],
+      "expected_keywords": [
+        "softphone",
+        "anmeldedaten",
+        "speichern",
+        "haken"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G003",
+    "question": "Softphone Erstanmeldung mit DLS PIN",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37581
+      ],
+      "expected_keywords": [
+        "softphone",
+        "dls",
+        "pin",
+        "erstmalig"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G004",
+    "question": "Softphone vollstaendig beenden",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37575,
+        37576,
+        37577,
+        37578,
+        37579
+      ],
+      "expected_keywords": [
+        "softphone",
+        "beenden",
+        "taskleiste",
+        "symbol"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G005",
+    "question": "Softphone Fusion Leiste Funktionen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37587
+      ],
+      "expected_keywords": [
+        "fusion",
+        "favoriten",
+        "optionen",
+        "softphone"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G006",
+    "question": "Softphone praefiertes Endgeraet wechseln",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37575,
+        37576,
+        37577,
+        37578,
+        37579
+      ],
+      "expected_keywords": [
+        "softphone",
+        "praeferiert",
+        "endgeraet",
+        "fusion"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G007",
+    "question": "Softphone One Number Service konfigurieren",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37576,
+        37579,
+        37593,
+        37594,
+        37597
+      ],
+      "expected_keywords": [
+        "softphone",
+        "one",
+        "number",
+        "service"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G008",
+    "question": "Softphone Rufnummernanzeige steuern (CLIR)",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37575,
+        37576,
+        37577,
+        37578,
+        37579
+      ],
+      "expected_keywords": [
+        "softphone",
+        "rufnummer",
+        "anzeige",
+        "geraet"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G009",
+    "question": "Softphone Rufnummer fuer CLIR deaktivieren",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37575,
+        37576,
+        37577,
+        37578,
+        37579
+      ],
+      "expected_keywords": [
+        "softphone",
+        "rufnummer",
+        "geraet",
+        "auswaehlen"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G010",
+    "question": "Softphone Rufnummernanzeige fuer Kontakte anpassen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37575,
+        37576,
+        37577,
+        37578,
+        37579
+      ],
+      "expected_keywords": [
+        "softphone",
+        "anruf",
+        "rufnummer",
+        "uebergeben"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G011",
+    "question": "Softphone Konferenz planen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37620
+      ],
+      "expected_keywords": [
+        "softphone",
+        "konferenz",
+        "moderator",
+        "teilnehmer"
+      ],
+      "relevant_sources": [
+        "Voice_Softphone.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G012",
+    "question": "HP Drucker Papierstau beheben",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        31431
+      ],
+      "expected_keywords": [
+        "papierstau",
+        "drucker",
+        "wiederaufnahmetaste",
+        "modul"
+      ],
+      "relevant_sources": [
+        "HpDrucker_Anleitung.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G013",
+    "question": "HP Drucker Duplexmodul verwenden",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        31396,
+        31397,
+        31399,
+        31400,
+        31433
+      ],
+      "expected_keywords": [
+        "drucker",
+        "duplex",
+        "beidseitig",
+        "modul"
+      ],
+      "relevant_sources": [
+        "HpDrucker_Anleitung.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G014",
+    "question": "HP Drucker Patronen reinigen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        31441,
+        31442
+      ],
+      "expected_keywords": [
+        "drucker",
+        "patrone",
+        "reinigen",
+        "kontakte"
+      ],
+      "relevant_sources": [
+        "HpDrucker_Anleitung.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G015",
+    "question": "Abwesenheitsagent in Clerk anlegen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "expected_keywords": [
+        "abwesenheitsagent",
+        "clerk",
+        "abwesenheit",
+        "periodisch"
+      ],
+      "relevant_sources": [
+        "Abwesenheitsagent anlegen.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G016",
+    "question": "Outlook Ordner fuer Stellvertreter freigeben",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37
+      ],
+      "expected_keywords": [
+        "outlook",
+        "stellvertreter",
+        "ordner",
+        "berechtigung"
+      ],
+      "relevant_sources": [
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G017",
+    "question": "Raeume oder Ressourcen buchen",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        37411
+      ],
+      "expected_keywords": [
+        "outlook",
+        "raum",
+        "ressource",
+        "besprechung"
+      ],
+      "relevant_sources": [
+        "Räume und Ressourcen.pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G018",
+    "question": "Wie konfiguriere ich die Proxy-Einstellungen fuer agree21Internet manuell?",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        8
+      ],
+      "expected_keywords": [
+        "proxy",
+        "pac",
+        "kunden-proxy",
+        "8080"
+      ],
+      "relevant_sources": [
+        "agree21Internet (1).pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G019",
+    "question": "Welche Aufgaben uebernimmt das Atruvia Secure Webgateway laut Funktionsbeschreibung?",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        10
+      ],
+      "expected_keywords": [
+        "secure webgateway",
+        "filtern",
+        "proxy",
+        "malware"
+      ],
+      "relevant_sources": [
+        "agree21Internet (1).pdf"
+      ]
+    }
+  },
+  {
+    "question_id": "G020",
+    "question": "Welche Ports empfiehlt die LDAP-Anleitung fuer StartTLS und LDAPS?",
+    "ground_truth": {
+      "relevant_chunk_indices": [
+        32
+      ],
+      "expected_keywords": [
+        "ldap",
+        "389",
+        "636",
+        "starttls"
+      ],
+      "relevant_sources": [
+        "Anleitung LDAP.pdf"
+      ]
+    }
+  }
+]

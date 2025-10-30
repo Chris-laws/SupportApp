@@ -1,0 +1,134 @@
+{
+  "documents": {
+    "doc_softphone_reset": "Das agree21Voice Softphone Kennwort wird im Self-Service Portal alle 90 Tage geändert. Wählen Sie Einstellungen > Kennwort zurücksetzen und vergeben Sie ein neues Kennwort mit mindestens acht Zeichen.",
+    "doc_softphone_login": "Für die Erstanmeldung am Softphone benötigen Sie die DLS PIN und das temporäre Passwort. Öffnen Sie agree21Voice, geben Sie Benutzername, DLS PIN und wechseln anschließend das Kennwort.",
+    "doc_softphone_contacts": "In der Fusion-Leiste des Softphones können Favoriten angelegt, Kontakte gesucht und Rufnummern angezeigt werden. Aktivieren Sie die Option Anrufjournale, um verpasste Anrufe zu sehen.",
+    "doc_outlook_delegate": "Outlook Stellvertreterzugriff wird über Datei > Kontoeinstellungen > Stellvertretungszugriff konfiguriert. Fügen Sie den Stellvertreter hinzu und vergeben Sie Rechte für Kalender, Posteingang sowie Senden-als.",
+    "doc_outlook_sendenvon": "Um Senden-von zu aktivieren, öffnen Sie Outlook Web, klicken Sie auf Postfachberechtigungen, wählen Senden-als und fügen das gewünschte Konto hinzu.",
+    "doc_greenshot": "Greenshot erstellt Screenshots über die Druck-Taste. Verwenden Sie Bereich aufnehmen, markieren Sie den Ausschnitt und speichern Sie als PNG oder kopieren Sie ins Clipboard.",
+    "doc_hp_paperjam": "Bei Papierstau im HP MFP schalten Sie den Drucker aus, öffnen die hintere Klappe und entfernen Papierreste. Nutzen Sie die Wiederaufnahmetaste, um den Druckauftrag fortzusetzen.",
+    "doc_vpn": "Der VPN-Client wird mit Ihrer Windows-Anmeldung gestartet. Wählen Sie Profil Firmenzugang, geben Sie Token ein und bestätigen Sie die Zwei-Faktor-Anmeldung."
+  },
+  "samples": [
+    {
+      "query": "Wie ändere ich das Softphone Kennwort im Self-Service?",
+      "relevant_docs": ["doc_softphone_reset"],
+      "reference_keywords": ["softphone", "kennwort", "self-service", "90 tage"],
+      "expected_answer": "Self-Service öffnen und Kennwort alle 90 Tage zurücksetzen."
+    },
+    {
+      "query": "Welche Schritte brauche ich für die Softphone Erstanmeldung?",
+      "relevant_docs": ["doc_softphone_login"],
+      "reference_keywords": ["erstanmeldung", "dls pin", "softphone", "passwort"],
+      "expected_answer": "DLS PIN nutzen und temporäres Passwort ändern."
+    },
+    {
+      "query": "Wie lege ich Favoriten in der Softphone Fusion-Leiste an?",
+      "relevant_docs": ["doc_softphone_contacts"],
+      "reference_keywords": ["fusion leiste", "favoriten", "kontakte"],
+      "expected_answer": "Fusion-Leiste öffnen und Kontakte zu Favoriten hinzufügen."
+    },
+    {
+      "query": "Wo finde ich verpasste Anrufe im Softphone?",
+      "relevant_docs": ["doc_softphone_contacts"],
+      "reference_keywords": ["softphone", "verpasste anrufe", "journal"],
+      "expected_answer": "Anrufjournale in der Fusion-Leiste aktivieren."
+    },
+    {
+      "query": "Wie vergebe ich Stellvertreterzugriff für meinen Outlook Kalender?",
+      "relevant_docs": ["doc_outlook_delegate"],
+      "reference_keywords": ["stellvertreter", "kalender", "outlook"],
+      "expected_answer": "Datei > Kontoeinstellungen > Stellvertretungszugriff nutzen."
+    },
+    {
+      "query": "Wie erlaube ich Senden als in Outlook?",
+      "relevant_docs": ["doc_outlook_sendenvon"],
+      "reference_keywords": ["senden als", "outlook", "postfachberechtigungen"],
+      "expected_answer": "Outlook Web Postfachberechtigungen öffnen und Senden-als zuweisen."
+    },
+    {
+      "query": "Wie aktiviere ich Senden von in Outlook Web?",
+      "relevant_docs": ["doc_outlook_sendenvon"],
+      "reference_keywords": ["senden von", "outlook web"],
+      "expected_answer": "In Outlook Web Postfachberechtigungen konfigurieren."
+    },
+    {
+      "query": "Wie speichere ich einen Greenshot Bereich als PNG?",
+      "relevant_docs": ["doc_greenshot"],
+      "reference_keywords": ["greenshot", "bereich", "png"],
+      "expected_answer": "Bereich aufnehmen und als PNG speichern."
+    },
+    {
+      "query": "Wie erstelle ich einen Screenshot mit Greenshot?",
+      "relevant_docs": ["doc_greenshot"],
+      "reference_keywords": ["screenshot", "greenshot", "druck taste"],
+      "expected_answer": "Druck-Taste verwenden und Bereich aufnehmen."
+    },
+    {
+      "query": "Was mache ich bei Papierstau am HP MFP?",
+      "relevant_docs": ["doc_hp_paperjam"],
+      "reference_keywords": ["papierstau", "hp", "wiederaufnahmetaste"],
+      "expected_answer": "Drucker ausschalten, Papier entfernen, Wiederaufnahmetaste drücken."
+    },
+    {
+      "query": "Wie starte ich den VPN-Client für den Firmenzugang?",
+      "relevant_docs": ["doc_vpn"],
+      "reference_keywords": ["vpn", "token", "zwei faktor"],
+      "expected_answer": "Profil Firmenzugang, Token eingeben, Zwei-Faktor bestätigen."
+    },
+    {
+      "query": "Wie oft muss ich das Softphone Kennwort wechseln?",
+      "relevant_docs": ["doc_softphone_reset"],
+      "reference_keywords": ["softphone", "kennwort", "90 tage"],
+      "expected_answer": "Alle 90 Tage im Self-Service aktualisieren."
+    },
+    {
+      "query": "Welche Daten brauche ich für die Softphone Anmeldung?",
+      "relevant_docs": ["doc_softphone_login"],
+      "reference_keywords": ["softphone", "dls pin", "password"],
+      "expected_answer": "Benutzername, DLS PIN und temporäres Passwort."
+    },
+    {
+      "query": "Wie suche ich Kontakte in der Softphone Fusion-Leiste?",
+      "relevant_docs": ["doc_softphone_contacts"],
+      "reference_keywords": ["fusion leiste", "kontakte suchen"],
+      "expected_answer": "Kontaktsuche über Fusion-Leiste nutzen."
+    },
+    {
+      "query": "Wie kann ich Rufnummern im Softphone anzeigen lassen?",
+      "relevant_docs": ["doc_softphone_contacts"],
+      "reference_keywords": ["rufnummer", "anzeige", "softphone"],
+      "expected_answer": "Option Rufnummern anzeigen in Fusion-Leiste aktivieren."
+    },
+    {
+      "query": "Wie gebe ich Outlook Posteingang an Stellvertreter frei?",
+      "relevant_docs": ["doc_outlook_delegate"],
+      "reference_keywords": ["stellvertreter", "posteingang", "vollzugriff"],
+      "expected_answer": "Stellvertreter hinzufügen und Vollzugriff vergeben."
+    },
+    {
+      "query": "Wie verarbeite ich verpasste Softphone Anrufe?",
+      "relevant_docs": ["doc_softphone_contacts"],
+      "reference_keywords": ["verpasste", "softphone", "anrufjournal"],
+      "expected_answer": "Anrufjournal in Fusion-Leiste prüfen."
+    },
+    {
+      "query": "Wie kopiere ich den Greenshot Ausschnitt in die Zwischenablage?",
+      "relevant_docs": ["doc_greenshot"],
+      "reference_keywords": ["greenshot", "clipboard", "bereich"],
+      "expected_answer": "Bereich aufnehmen und in die Zwischenablage kopieren."
+    },
+    {
+      "query": "Wie entferne ich Papierreste beim HP Drucker?",
+      "relevant_docs": ["doc_hp_paperjam"],
+      "reference_keywords": ["papierreste", "hp drucker"],
+      "expected_answer": "Hintere Klappe öffnen und Papierreste entfernen."
+    },
+    {
+      "query": "Wie melde ich mich mit dem VPN Token an?",
+      "relevant_docs": ["doc_vpn"],
+      "reference_keywords": ["vpn", "token", "anmeldung"],
+      "expected_answer": "Profil Firmenzugang wählen, Token eingeben, 2FA bestätigen."
+    }
+  ]
+}

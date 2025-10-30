@@ -1,0 +1,290 @@
+[
+  {
+    "question_id": "Q701",
+    "question": "Welche Abwesenheitsarten müssen Mitarbeitende im Clerk-Abwesenheitsagenten eintragen und welche Schritte sind für die Anlage einer periodischen Serie inklusive Namen und Zeitraum notwendig?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Abwesenheitsagent anlegen.pdf#page=1",
+        "Abwesenheitsagent anlegen.pdf#page=3"
+      ],
+      "relevant_chunk_indices": [
+        0,
+        2,
+        4
+      ],
+      "relevance_scores": {
+        "0": 3,
+        "2": 2,
+        "4": 1
+      },
+      "reference_answers": [
+        "Der Leitfaden verlangt, dass Mitarbeitende Urlaub, Gleitzeit, ganztägige Seminare sowie wiederkehrende Teilzeitabwesenheiten eigenständig im Clerk erfassen. Für eine periodische Serie wird die Option „Periodische Abwesenheit“ gewählt, eine sprechende Bezeichnung vergeben, Zeitraumbegrenzung und Wiederholungsrhythmus gesetzt und der Vorgang mit „Weiter“ bzw. „Beenden“ abgeschlossen."
+      ],
+      "expected_keywords": [
+        "Urlaub",
+        "periodisch",
+        "Beschreibung",
+        "Zeitraum"
+      ]
+    }
+  },
+  {
+    "question_id": "Q702",
+    "question": "Wie werden im Clerk-Abwesenheitsagenten halbtägige Abwesenheiten konfiguriert und welche Optionen sollten bei einer wöchentlich wiederkehrenden Teilzeitabwesenheit gesetzt werden?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Abwesenheitsagent anlegen.pdf#page=2",
+        "Abwesenheitsagent anlegen.pdf#page=4"
+      ],
+      "relevant_chunk_indices": [
+        2,
+        3,
+        4
+      ],
+      "relevance_scores": {
+        "2": 2,
+        "3": 3,
+        "4": 1
+      },
+      "reference_answers": [
+        "Bei periodischen Abwesenheiten werden Zeitraumbegrenzung und Wiederholungsrhythmus konfiguriert. Für halbtägige Einträge ist der Regler „Ganztägige Abwesenheit“ zu deaktivieren und es sind Start- und Endzeiten einzutragen; der Abschnitt zu periodischen Serien empfiehlt zudem eine eindeutige Bezeichnung."
+      ],
+      "expected_keywords": [
+        "halbtägig",
+        "Regler",
+        "Wiederholungsrhythmus",
+        "Zeiten"
+      ]
+    }
+  },
+  {
+    "question_id": "Q703",
+    "question": "Welche Einstellungen sind in Outlook erforderlich, damit sowohl neue als auch bereits bestehende Ordner automatisch für Stellvertreter freigegeben sind?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf#page=1",
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf#page=2",
+        "Anleitung Outlook Ordner für Stellvertreter freigeben.pdf#page=3"
+      ],
+      "relevant_chunk_indices": [
+        37,
+        38,
+        39
+      ],
+      "relevance_scores": {
+        "37": 3,
+        "38": 2,
+        "39": 1
+      },
+      "reference_answers": [
+        "Die Anleitung sieht vor, über „Ordnerberechtigungen“ Stellvertreter mit passenden Rechten einzutragen, damit neue Ordner automatisch freigegeben sind. Bereits vorhandene Ordner müssen einmalig manuell berechtigt werden; jeder relevante Ordner erfordert eine entsprechende Berechtigungsstufe."
+      ],
+      "expected_keywords": [
+        "Ordnerberechtigungen",
+        "Vertreter",
+        "neue Ordner",
+        "bestehende Ordner"
+      ]
+    }
+  },
+  {
+    "question_id": "Q704",
+    "question": "Welche Schritte sind laut PDF-Crypt-Anleitung erforderlich, um Kundenpasswörter einzusehen und anschließend ein neues Passwort zu vergeben?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung_PDF_Crypt_PW.pdf#page=1",
+        "Anleitung_PDF_Crypt_PW.pdf#page=2"
+      ],
+      "relevant_chunk_indices": [
+        40,
+        41
+      ],
+      "relevance_scores": {
+        "40": 2,
+        "41": 3
+      },
+      "reference_answers": [
+        "Zuerst wird über den Atruvia Hub der IQ.Suite WebClient Cloud geöffnet, um im PDF-Crypt-Passwortmanager bestehende Passwörter einzusehen. Anschließend werden die Schritte 1 bis 4 wiederholt, ein neues Passwort vergeben, bestätigt und im Kundendatensatz dokumentiert."
+      ],
+      "expected_keywords": [
+        "IQ.Suite",
+        "Passwortmanager",
+        "anzeigen",
+        "neues Passwort"
+      ]
+    }
+  },
+  {
+    "question_id": "Q705",
+    "question": "Welche Schritte verlangt die Anleitung, um Postfachregeln serverseitig über Outlook Online einzurichten, und wie wird die Regel anschließend aktiviert?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Postfach Regeln Einstellen.pdf#page=1",
+        "Postfach Regeln Einstellen.pdf#page=2",
+        "Postfach Regeln Einstellen.pdf#page=3"
+      ],
+      "relevant_chunk_indices": [
+        37400,
+        37401,
+        37402
+      ],
+      "relevance_scores": {
+        "37400": 3,
+        "37401": 2,
+        "37402": 1
+      },
+      "reference_answers": [
+        "Die Anleitung fordert den Login auf office.com und den Start von Outlook Online, damit Regeln serverseitig gelten. Anschließend wird „Regeln verwalten“ geöffnet, die Regel konfiguriert und gespeichert; laut Beschreibung ist sie nach ca. 10–20 Minuten aktiv."
+      ],
+      "expected_keywords": [
+        "office.com",
+        "Regeln verwalten",
+        "serverseitig",
+        "Aktivierung"
+      ]
+    }
+  },
+  {
+    "question_id": "Q706",
+    "question": "Welche Varianten zum Buchen eines Besprechungsraums beschreibt die Ressourcendokumentation und welche Schritte sind für die Kalendergruppe notwendig?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Räume und Ressourcen-FW0C6WGP.pdf#page=1",
+        "Räume und Ressourcen-FW0C6WGP.pdf#page=3",
+        "Räume und Ressourcen-FW0C6WGP.pdf#page=5"
+      ],
+      "relevant_chunk_indices": [
+        37406,
+        37407,
+        37408
+      ],
+      "relevance_scores": {
+        "37406": 3,
+        "37407": 2,
+        "37408": 1
+      },
+      "reference_answers": [
+        "Es gibt Möglichkeit A (Reservierung direkt aus dem Termin) und Möglichkeit B über den Ressourcenkalender. Für die Kalendervariante wird eine neue Kalendergruppe erstellt, aus dem Adressbuch werden die benötigten Räume hinzugefügt und anschließend sichtbar gemacht."
+      ],
+      "expected_keywords": [
+        "Möglichkeit A",
+        "Möglichkeit B",
+        "Kalendergruppe",
+        "Adressbuch"
+      ]
+    }
+  },
+  {
+    "question_id": "Q707",
+    "question": "Welche Hinweise und Warnungen nennt das HP-Druckerhandbuch für den Umgang mit dem Gerät und welche Leistungsmerkmale werden hervorgehoben?",
+    "ground_truth": {
+      "relevant_sources": [
+        "HpDrucker_Anleitung.pdf#page=2",
+        "HpDrucker_Anleitung.pdf#page=3",
+        "HpDrucker_Anleitung.pdf#page=6"
+      ],
+      "relevant_chunk_indices": [
+        31346,
+        31348,
+        31349
+      ],
+      "relevance_scores": {
+        "31346": 3,
+        "31348": 2,
+        "31349": 2
+      },
+      "reference_answers": [
+        "Das Handbuch hebt Begriffe und Symbole hervor, warnt beispielsweise vor dem Reinigen des Druckerinneren und listet Leistungsmerkmale wie Druckqualitäten und Zusatzfunktionen des HP DeskJet auf."
+      ],
+      "expected_keywords": [
+        "Hinweise",
+        "Warnungen",
+        "Leistungsmerkmale",
+        "Druckqualität"
+      ]
+    }
+  },
+  {
+    "question_id": "Q708",
+    "question": "Welche technischen Komponenten des Atruvia Secure Webgateway werden genannt und welche Filter- sowie SSL-Analysefunktionen stehen laut Dokumentation zur Verfügung?",
+    "ground_truth": {
+      "relevant_sources": [
+        "agree21Internet (1).pdf#page=3",
+        "agree21Internet (1).pdf#page=4",
+        "agree21Internet (1).pdf#page=7"
+      ],
+      "relevant_chunk_indices": [
+        8,
+        9,
+        12
+      ],
+      "relevance_scores": {
+        "8": 2,
+        "9": 3,
+        "12": 2
+      },
+      "reference_answers": [
+        "Das Dokument beschreibt Proxy-, Filter- und Virenprüfmodule, erläutert URL-, Kategorie- und Webinhalte-Filter sowie die SSL-Analyse, die verschlüsselte Verbindungen aufbricht und deren Aktivierung empfohlen wird."
+      ],
+      "expected_keywords": [
+        "Proxy",
+        "Filter",
+        "SSL-Analyse",
+        "Empfehlung"
+      ]
+    }
+  },
+  {
+    "question_id": "Q709",
+    "question": "Welche Schritte sind laut LDAP-Anleitung notwendig, um die Vertrauensstellung zu aktivieren und das Root-Zertifikat zu installieren?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Anleitung LDAP.pdf#page=3",
+        "Anleitung LDAP.pdf#page=4",
+        "Anleitung LDAP.pdf#page=5"
+      ],
+      "relevant_chunk_indices": [
+        32,
+        33,
+        34
+      ],
+      "relevance_scores": {
+        "32": 3,
+        "33": 2,
+        "34": 1
+      },
+      "reference_answers": [
+        "Die Anleitung sieht vor, die Vertrauensstellung über ein in GDix gespeichertes Zertifikat oder den Windows-Zertifikatsspeicher zu aktivieren. Anschließend wird das Root-Zertifikat über den Installationsassistenten importiert und bestätigt."
+      ],
+      "expected_keywords": [
+        "Vertrauensstellung",
+        "GDix",
+        "Root-Zertifikat",
+        "Assistent"
+      ]
+    }
+  },
+  {
+    "question_id": "Q710",
+    "question": "Wie lassen sich laut Anleitung die Firefox-Lesezeichen vor dem Import nach Edge bereinigen und welche Schritte sind für den erneuten Import erforderlich?",
+    "ground_truth": {
+      "relevant_sources": [
+        "Firefox zu Edge importieren.pdf#page=1"
+      ],
+      "relevant_chunk_indices": [
+        15842
+      ],
+      "relevance_scores": {
+        "15842": 2
+      },
+      "reference_answers": [
+        "Empfohlen wird, problematische Sonderzeichen in den Firefox-Lesezeichen zu bereinigen und danach über „Favoriten – Weitere Optionen – Favoriten importieren“ den Import nach Edge erneut anzustoßen."
+      ],
+      "expected_keywords": [
+        "Sonderzeichen",
+        "bereinigen",
+        "Favoriten importieren"
+      ]
+    }
+  }
+]
