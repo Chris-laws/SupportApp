@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parents[3]
 EVAL_DIR = BASE_DIR / "app" / "chatbot" / "evaluation"
 DATA_DIR = BASE_DIR / "app" / "chatbot" / "data" / "faiss_index"
 RESULTS_DIR = EVAL_DIR / "retriever_k10"
-DATASET_PATH = EVAL_DIR / "questions_curated20.jsonl"
+DEFAULT_DATASET = EVAL_DIR / "questions_curated20.jsonl"
 
 EMBEDDING_MODELS = [
     "sentence-transformers/all-MiniLM-L6-v2",
@@ -84,7 +84,7 @@ def build_index(config: RunConfig, force: bool = False) -> None:
     subprocess.run(cmd, env=env, check=True)
 
 
-def run_pipeline(config: RunConfig, force: bool = False) -> None:
+def run_pipeline(config: RunConfig, dataset_path: Path, force: bool = False) -> None:
     output_path = config.output_path()
     if output_path.exists() and not force:
         return
@@ -99,7 +99,7 @@ def run_pipeline(config: RunConfig, force: bool = False) -> None:
         "-m",
         "app.chatbot.evaluation.pipeline_eval",
         "--ground-truth",
-        str(DATASET_PATH),
+        str(dataset_path),
         "--output",
         str(output_path),
         "--models",
@@ -264,9 +264,19 @@ def main() -> None:
         action="store_true",
         help="Bewertungen ueberspringen und nur bereits erzeugte CSVs aggregieren",
     )
+    parser.add_argument(
+        "--dataset",
+        type=Path,
+        default=DEFAULT_DATASET,
+        help="Pfad zu den Fragen (jsonl).",
+    )
     args = parser.parse_args()
 
     ensure_directory(RESULTS_DIR)
+
+    dataset_path = args.dataset
+    if not dataset_path.exists():
+        raise SystemExit(f"Dataset {dataset_path} nicht gefunden.")
 
     configs = [
         RunConfig(embedding=embedding, chunk=chunk, retriever_mode=retriever, enable_reranker=rerank)
@@ -278,7 +288,7 @@ def main() -> None:
     if not args.skip_evals:
         for config in configs:
             build_index(config, force=args.force)
-            run_pipeline(config, force=args.force)
+            run_pipeline(config, dataset_path=dataset_path, force=args.force)
 
     result_paths = sorted(RESULTS_DIR.glob("results_k*.csv"))
     if not result_paths:

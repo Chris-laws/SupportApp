@@ -6,8 +6,8 @@ import json
 import logging
 import math
 import os
-import re
 import random
+import re
 import sys
 import time
 import unicodedata
@@ -155,7 +155,7 @@ def rank_first_rel(gt_pairs: Sequence[Pair], ranked_pairs: Sequence[Pair]) -> in
     return None
 
 
-def factual_check(answer: str, contexts: Iterable[str], threshold: float = 0.7) -> bool:
+def factual_check(answer: str, contexts: Iterable[str], threshold: float = 0.86) -> bool:
     context_tokens = set()
     for ctx in contexts:
         context_tokens.update(normalize_text(ctx).split())
@@ -231,6 +231,49 @@ def canonical_keyword_set(normalizer: KeywordNormalizer, keywords: Sequence[str]
 
 
 _CITATION_RE = re.compile(r"\([^)]*?\bS\.\s*\d+\)", re.IGNORECASE)
+_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+|\n+")
+_EMBED_CACHE: dict[str, np.ndarray] = {}
+
+
+def _split_sentences(text: str) -> List[str]:
+    return [segment.strip() for segment in _SENTENCE_SPLIT_RE.split(text) if segment and segment.strip()]
+
+
+def _get_cached_embedding(text: str) -> np.ndarray:
+    cached = _EMBED_CACHE.get(text)
+    if cached is not None:
+        return cached
+    embedding = get_embeddings([text])[0]
+    _EMBED_CACHE[text] = embedding
+    return embedding
+
+
+def _semantic_keyword_present(
+    sentence_embeddings: np.ndarray,
+    canonical: str,
+    normalizer: KeywordNormalizer,
+    *,
+    threshold: float = 0.85,
+) -> bool:
+    if sentence_embeddings.size == 0:
+        return False
+    keyword_text = normalizer.display(canonical)
+    if not keyword_text.strip():
+        return False
+    keyword_embedding = _get_cached_embedding(keyword_text)
+    similarities = sentence_embeddings @ keyword_embedding
+    if similarities.size == 0:
+        return False
+    return float(np.max(similarities)) >= threshold
+
+
+def _answer_sentence_embeddings(answer: str) -> np.ndarray:
+    sentences = _split_sentences(answer)
+    if not sentences:
+        return np.empty((0, 0), dtype=np.float32)
+    return get_embeddings(sentences)
+_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+|\n+")
+_EMBED_CACHE: dict[str, np.ndarray] = {}
 
 
 def analyze_answer_format(
@@ -300,6 +343,16 @@ def evaluate_keywords(
     if not expected_set:
         return 0.0, []
     present_expected = answer_tokens & expected_set
+    missing_canonical = expected_set - present_expected
+    if missing_canonical:
+        sentence_embeddings = _answer_sentence_embeddings(answer)
+        if sentence_embeddings.size:
+            semantic_hits: set[str] = set()
+            for canonical in list(missing_canonical):
+                if _semantic_keyword_present(sentence_embeddings, canonical, normalizer, threshold=0.85):
+                    semantic_hits.add(canonical)
+            if semantic_hits:
+                present_expected |= semantic_hits
     true_pos = len(present_expected)
     total_expected = len(expected_set)
     recall = true_pos / total_expected if total_expected else 0.0
