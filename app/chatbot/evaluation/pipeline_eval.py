@@ -7,6 +7,7 @@ import logging
 import math
 import os
 import re
+import random
 import sys
 import time
 import unicodedata
@@ -18,7 +19,8 @@ from typing import Iterable, Iterator, List, Sequence, Tuple
 import numpy as np
 import yaml
 
-from app.chatbot.modules.embeddings import get_embeddings, load_faiss_index
+from app.chatbot.modules.chunker import get_active_chunk_config
+from app.chatbot.modules.embeddings import get_current_embedding_model, get_embeddings, load_faiss_index
 from app.chatbot.modules.llm import query_ollama
 from app.chatbot.modules.retriever import HybridRetriever, select_context_window
 
@@ -350,6 +352,10 @@ def main() -> None:
     parser.add_argument("--mandatory-keywords", type=Path, default=Path("app/chatbot/Config/mandatory_keywords.yml"))
     parser.add_argument("--log-missing-keywords", action="store_true")
     parser.add_argument("--log-retrieval-details", action="store_true", help="Log Anteil BM25/Dense je Anfrage")
+    parser.add_argument("--index-base", type=Path, default=Path("app/chatbot/data/faiss_index/index"))
+    parser.add_argument("--sample-size", type=int, default=None, help="Anzahl Fragen fuer diesen Lauf (mit Wiederholung)")
+    parser.add_argument("--run-label", type=str, default=None, help="Freitext-Label fuer diesen Lauf")
+    parser.add_argument("--random-seed", type=int, default=13)
     args = parser.parse_args()
 
     if args.disable_query_rewrite:
@@ -363,12 +369,32 @@ def main() -> None:
         print(f"Keine Ground-Truth-Daten in {args.ground_truth}", file=sys.stderr)
         sys.exit(1)
 
+    base_entries = list(ground_truth_entries)
+    target_sample_size = args.sample_size or len(base_entries)
+    args.sample_size = target_sample_size
+    rng = random.Random(args.random_seed)
+    if target_sample_size <= len(base_entries):
+        selected_entries = base_entries[:target_sample_size]
+    else:
+        repeats = math.ceil(target_sample_size / len(base_entries))
+        pool = (base_entries * repeats)[:target_sample_size]
+        rng.shuffle(pool)
+        selected_entries = pool[:target_sample_size]
+    prepared_entries: list[dict] = []
+    for idx, entry in enumerate(selected_entries):
+        clone = dict(entry)
+        clone["_sample_index"] = idx
+        clone["_source_question_id"] = entry.get("id") or entry.get("question_id")
+        prepared_entries.append(clone)
+    ground_truth_entries = prepared_entries
+
     synonyms_data, mandatory_map = load_synonyms_and_mandatory(args.synonyms, args.mandatory_keywords)
     keyword_normalizer = KeywordNormalizer(synonyms_data)
 
     models = load_models(args.models)
 
-    index, records, embeddings = load_faiss_index("app/chatbot/data/faiss_index/index")
+    index_base = str(args.index_base)
+    index, records, embeddings = load_faiss_index(index_base)
     retriever = HybridRetriever(records, embeddings=embeddings, faiss_index=index)
     reranker = None
     if args.enable_reranker and CrossEncoderReranker is not None:
@@ -380,10 +406,17 @@ def main() -> None:
 
     use_reranker = reranker is not None and args.enable_reranker
     reranker_in_use = reranker if use_reranker else None
+    embedding_model_name = get_current_embedding_model()
+    chunk_strategy = os.getenv("SUPPORTAPP_CHUNK_STRATEGY", "") or "default"
+    chunk_size_tokens, chunk_overlap_tokens = get_active_chunk_config()
+    run_label = args.run_label or os.getenv("SUPPORTAPP_RUN_LABEL") or ""
+    reranker_enabled_flag = int(use_reranker)
 
     ensure_output(args.output)
     fieldnames = [
         "question_id",
+        "sample_index",
+        "run_label",
         "query",
         "model",
         "retrieval_mode",
@@ -408,6 +441,12 @@ def main() -> None:
         "format_citation_per_bullet",
         "contains_nicht_im_kontext",
         "bullet_count",
+        "embedding_model",
+        "chunk_strategy",
+        "chunk_size_tokens",
+        "chunk_overlap_tokens",
+        "reranker_enabled",
+        "index_base",
         "error_bucket",
     ]
 
@@ -544,6 +583,8 @@ def main() -> None:
                     error_bucket = "OK"
 
                 row = {
+                    "sample_index": entry.get("_sample_index", ""),
+                    "run_label": run_label,
                     "question_id": qid,
                     "query": query,
                     "model": model_id,
@@ -569,6 +610,12 @@ def main() -> None:
                     "format_citation_per_bullet": int(format_citation_ok),
                     "contains_nicht_im_kontext": int(contains_nic),
                     "bullet_count": bullet_count,
+                    "embedding_model": embedding_model_name,
+                    "chunk_strategy": chunk_strategy,
+                    "chunk_size_tokens": chunk_size_tokens,
+                    "chunk_overlap_tokens": chunk_overlap_tokens,
+                    "reranker_enabled": reranker_enabled_flag,
+                    "index_base": index_base,
                     "error_bucket": error_bucket,
                 }
                 writer.writerow(row)

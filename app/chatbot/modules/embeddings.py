@@ -8,11 +8,25 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+_MODEL_CACHE: dict[str, SentenceTransformer] = {}
+
+
+def _get_model(name: str) -> SentenceTransformer:
+    model = _MODEL_CACHE.get(name)
+    if model is None:
+        model = SentenceTransformer(name)
+        _MODEL_CACHE[name] = model
+    return model
+
+
+def get_current_embedding_model() -> str:
+    return os.getenv("SUPPORTAPP_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 
 
 
 def get_embeddings(texts: Sequence[str], normalize: bool = True) -> np.ndarray:
+    model_name = get_current_embedding_model()
+    model = _get_model(model_name)
     embeddings = model.encode(list(texts), show_progress_bar=False)
     if normalize:
         embeddings = embeddings / np.linalg.norm(embeddings, axis=1, keepdims=True)

@@ -157,7 +157,26 @@ def _load_pdf_documents(pdf_path: str) -> List[Any]:
             tmp_path.unlink(missing_ok=True)
 
 
-def load_and_chunk_pdf(pdf_path: str, chunk_size_tokens: int = TOKEN_CHUNK_SIZE, overlap_tokens: int = TOKEN_CHUNK_OVERLAP) -> List[Dict[str, Any]]:
+def _resolve_chunking() -> Tuple[int, int]:
+    strategy = os.getenv("SUPPORTAPP_CHUNK_STRATEGY", "").strip().lower()
+    if strategy == "fixed_500":
+        return 500, 0
+    if strategy == "semantic_overlap20":
+        base = int(os.getenv("SUPPORTAPP_SEMANTIC_CHUNK_SIZE", "420"))
+        overlap = int(max(1, round(base * 0.2)))
+        return base, overlap
+    size = int(os.getenv("SUPPORTAPP_CHUNK_SIZE", str(TOKEN_CHUNK_SIZE)))
+    overlap = int(os.getenv("SUPPORTAPP_CHUNK_OVERLAP", str(TOKEN_CHUNK_OVERLAP)))
+    return size, overlap
+
+
+def get_active_chunk_config() -> Tuple[int, int]:
+    return _resolve_chunking()
+
+
+def load_and_chunk_pdf(pdf_path: str, chunk_size_tokens: int | None = None, overlap_tokens: int | None = None) -> List[Dict[str, Any]]:
+    if chunk_size_tokens is None or overlap_tokens is None:
+        chunk_size_tokens, overlap_tokens = _resolve_chunking()
     documents = _load_pdf_documents(pdf_path)
 
     document_title = os.path.splitext(os.path.basename(pdf_path))[0]

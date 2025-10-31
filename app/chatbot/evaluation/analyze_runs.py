@@ -31,6 +31,9 @@ def load_csv(path: Path) -> pd.DataFrame:
         "format_citation_per_bullet",
         "contains_nicht_im_kontext",
         "bullet_count",
+        "chunk_size_tokens",
+        "chunk_overlap_tokens",
+        "reranker_enabled",
     ]
     for col in numeric_cols:
         if col in df.columns:

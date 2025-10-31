@@ -11,7 +11,10 @@ from modules.reranker import CrossEncoderReranker
 from modules.retriever import HybridRetriever, rewrite_query_with_llama3, select_context_window
 
 BASE_DIR = os.path.dirname(__file__)
-INDEX_BASE_PATH = os.path.join(BASE_DIR, "data", "faiss_index", "index")
+INDEX_BASE_PATH = os.environ.get(
+    "SUPPORTAPP_INDEX_BASE",
+    os.path.join(BASE_DIR, "data", "faiss_index", "index"),
+)
 PROMPT_PATH = os.path.join(BASE_DIR, "prompts", "system_prompts.txt")
 
 RERANKER_WEIGHT = 0.6
