@@ -21,6 +21,14 @@ import yaml
 
 from app.chatbot.modules.chunker import get_active_chunk_config
 from app.chatbot.modules.embeddings import get_current_embedding_model, get_embeddings, load_faiss_index
+
+try:
+    import pynvml
+
+    _PYNVML_AVAILABLE = True
+except Exception:  # noqa: BLE001
+    pynvml = None  # type: ignore[assignment]
+    _PYNVML_AVAILABLE = False
 from app.chatbot.modules.llm import query_ollama
 from app.chatbot.modules.retriever import HybridRetriever, select_context_window
 
@@ -155,7 +163,40 @@ def rank_first_rel(gt_pairs: Sequence[Pair], ranked_pairs: Sequence[Pair]) -> in
     return None
 
 
-def factual_check(answer: str, contexts: Iterable[str], threshold: float = 0.86) -> bool:
+def factual_check(
+    answer: str,
+    contexts: Iterable[str],
+    *,
+    cosine_threshold: float = 0.80,
+    coverage_ratio: float = 0.55,
+    mean_threshold: float = 0.78,
+    lexical_fallback: float = 0.70,
+) -> bool:
+    answer_sentences = [sent for sent in _split_sentences(answer) if len(sent.split()) >= 3]
+    if not answer_sentences:
+        return False
+    context_sentences: List[str] = []
+    for ctx in contexts:
+        context_sentences.extend(sent for sent in _split_sentences(ctx) if len(sent.split()) >= 3)
+    if not context_sentences:
+        return False
+    if len(context_sentences) > 80:
+        context_sentences = context_sentences[:80]
+
+    answer_embeddings = get_embeddings(answer_sentences)
+    context_embeddings = get_embeddings(context_sentences)
+    if answer_embeddings.size == 0 or context_embeddings.size == 0:
+        return False
+    similarities = answer_embeddings @ context_embeddings.T
+    if similarities.size == 0:
+        return False
+
+    max_scores = np.max(similarities, axis=1)
+    ratio = float(np.mean(max_scores >= cosine_threshold))
+    mean_score = float(np.mean(max_scores))
+    if ratio >= coverage_ratio or mean_score >= mean_threshold:
+        return True
+
     context_tokens = set()
     for ctx in contexts:
         context_tokens.update(normalize_text(ctx).split())
@@ -163,7 +204,21 @@ def factual_check(answer: str, contexts: Iterable[str], threshold: float = 0.86)
     if not answer_tokens:
         return False
     covered = sum(1 for tok in answer_tokens if tok in context_tokens)
-    return covered / len(answer_tokens) >= threshold
+    lexical_ratio = covered / len(answer_tokens)
+    return lexical_ratio >= lexical_fallback
+
+
+def _gpu_metrics() -> tuple[float | None, float | None]:
+    if not _PYNVML_AVAILABLE:
+        return None, None
+    try:
+        pynvml.nvmlInit()
+        handle = pynvml.nvmlDeviceGetHandleByIndex(0)
+        util = pynvml.nvmlDeviceGetUtilizationRates(handle)
+        mem = pynvml.nvmlDeviceGetMemoryInfo(handle)
+        return float(util.gpu), float(mem.used / (1024**2))
+    except Exception:  # noqa: BLE001
+        return None, None
 
 
 def tokens_from_text(text: str) -> int:
@@ -494,6 +549,8 @@ def main() -> None:
         "format_citation_per_bullet",
         "contains_nicht_im_kontext",
         "bullet_count",
+        "gpu_util_pct",
+        "gpu_mem_used_mb",
         "embedding_model",
         "chunk_strategy",
         "chunk_size_tokens",
@@ -609,6 +666,7 @@ def main() -> None:
                 except Exception as exc:  # noqa: BLE001
                     answer = f"Antwort fehlgeschlagen: {exc}"
                 duration = time.time() - start
+                gpu_util_pct, gpu_mem_used_mb = _gpu_metrics()
 
                 f1_score, missing_keywords = evaluate_keywords(
                     qid,
@@ -663,6 +721,8 @@ def main() -> None:
                     "format_citation_per_bullet": int(format_citation_ok),
                     "contains_nicht_im_kontext": int(contains_nic),
                     "bullet_count": bullet_count,
+                    "gpu_util_pct": round(gpu_util_pct, 2) if gpu_util_pct is not None else "",
+                    "gpu_mem_used_mb": round(gpu_mem_used_mb, 2) if gpu_mem_used_mb is not None else "",
                     "embedding_model": embedding_model_name,
                     "chunk_strategy": chunk_strategy,
                     "chunk_size_tokens": chunk_size_tokens,
